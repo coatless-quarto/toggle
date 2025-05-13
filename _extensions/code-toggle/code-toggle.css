@@ -22,15 +22,15 @@
   opacity: 1 !important;
 }
 
-/* Style for the output section */
-.cell-output {
+/* Style for all types of output sections */
+[class^="cell-output"] {
   border-top: 1px dashed #ccc;
   padding-top: 0.5rem;
   margin-top: 0.5rem;
 }
 
-.cell-output.hidden {
-  display: none;
+[class^="cell-output"].hidden {
+  display: none !important;
 }
 
 /* Make sure the cell has a relative positioning for the button */
