@@ -1,0 +1,48 @@
+---
+title: "Example Toggle"
+format: html
+engine: knitr
+filters:
+- code-toggle
+---
+
+# Overview
+
+This document demonstrates how to use the `code-toggle` filter in Quarto. The filter allows you to control the visibility of code chunks based on a custom attribute.
+
+## Usage
+
+To use the `code-toggle` filter, you need to specify a custom attribute in your code chunk options. The attribute can be set to `true` or `false`, which will determine whether the code chunk is displayed or hidden in the output.
+
+Let's look at an example of it in action:
+
+```{r}
+#| toggle: true
+print("Hello, world!")
+```
+
+If the `toggle` attribute is set to `false` or is missing, the toggle option will not be available in the rendered document.
+
+```{r}
+#| toggle: false
+print("Goodbye, world!")
+```
+
+```{r}
+print("Missing, world!")
+```
+
+## Other special cases 
+
+STDError Testing:
+
+```{r}
+#| toggle: true
+warning("This is a warning message.")
+```
+
+Graph testing: 
+```{r}
+#| toggle: true
+plot(1:10, 10:1)
+```

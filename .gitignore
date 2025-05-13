@@ -1,0 +1,4 @@
+/.luarc.json
+*.html
+*_files
+*.native
