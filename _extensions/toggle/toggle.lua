@@ -28,9 +28,9 @@ return {
       if needsToggle then
         quarto.log.output("=== Added Toggle Dependency ===")
         quarto.doc.add_html_dependency({
-          name = "code-toggle",
-          scripts = {"code-toggle.js"},
-          stylesheets = {"code-toggle.css"}
+          name = "toggle",
+          scripts = {"toggle.js"},
+          stylesheets = {"toggle.css"}
         })
       end
       return meta

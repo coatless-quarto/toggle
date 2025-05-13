@@ -3,16 +3,16 @@ title: "Example Toggle"
 format: html
 engine: knitr
 filters:
-- code-toggle
+- toggle
 ---
 
 # Overview
 
-This document demonstrates how to use the `code-toggle` filter in Quarto. The filter allows you to control the visibility of code chunks based on a custom attribute.
+This document demonstrates how to use the `toggle` filter in Quarto. The filter allows you to control the visibility of code chunks based on a custom attribute.
 
 ## Usage
 
-To use the `code-toggle` filter, you need to specify a custom attribute in your code chunk options. The attribute can be set to `true` or `false`, which will determine whether the code chunk is displayed or hidden in the output.
+To use the `toggle` filter, you need to specify a custom attribute in your code chunk options. The attribute can be set to `true` or `false`, which will determine whether the code chunk is displayed or hidden in the output.
 
 Let's look at an example of it in action:
 
@@ -45,4 +45,15 @@ Graph testing:
 ```{r}
 #| toggle: true
 plot(1:10, 10:1)
+```
+
+Multi-line testing:
+
+```{r}
+#| toggle: true
+print("This is a multi-line code chunk.")
+print("It should be displayed when the toggle is set to true.")
+
+plot(1:10, 10:1)
+print("This is the final line.")
 ```
