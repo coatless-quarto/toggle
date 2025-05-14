@@ -14,7 +14,7 @@ The `toggle` extension allows you to toggle between showing code with output or 
 
 ## Installation
 
-To install the `toggle` shortcode extension, follow these steps:
+To install the `toggle` extension, follow these steps:
 
 1. Open your terminal.
 
@@ -24,7 +24,7 @@ To install the `toggle` shortcode extension, follow these steps:
 quarto add coatless-quarto/toggle
 ```
 
-This command will download and install the shortcode extension under the `_extensions` subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.
+This command will download and install the extension under the `_extensions` subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.
 
 ## Usage
 
