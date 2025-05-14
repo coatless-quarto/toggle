@@ -20,6 +20,18 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add the toggle button to the code section
       codeSection.appendChild(toggleBtn);
       
+      // Check if outputs should be initially hidden
+      const shouldHide = cell.classList.contains('initially-hidden');
+      
+      // If cell should be initially hidden, hide all outputs and update button state
+      if (shouldHide) {
+        outputSections.forEach(function(section) {
+          section.classList.add('hidden');
+        });
+        toggleBtn.classList.add('output-hidden');
+        toggleBtn.setAttribute('aria-label', 'Show Output');
+      }
+      
       // Add toggle functionality
       toggleBtn.addEventListener('click', function(e) {
         e.stopPropagation(); // Prevent triggering other click events
