@@ -1,0 +1,130 @@
+---
+title: "Frequently Asked Questions"
+date: "05-13-2025"
+date-modified: last-modified
+engine: markdown
+format: 
+  html:
+    toc: true
+---
+
+# General Information
+
+## What is the toggle extension for Quarto?
+
+The `toggle` Extension is a Quarto extension that allows you to add toggle buttons to your code cells. These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.
+
+## Does toggle work with all Quarto formats?
+
+This extension works with HTML-based output formats like:
+
+- HTML documents
+- Websites
+- Books (HTML format)
+- Revealjs presentations
+
+It does not affect PDF, Word, or other non-HTML output formats as these formats don't support the JavaScript functionality needed for toggling.
+
+## How is this different from Quarto's built-in code folding?
+
+Quarto's built-in `code-fold` option toggles visibility of the **code** while always showing the **output**. This extension does the opposite - it toggles visibility of the **output** while always showing the **code**.
+
+You can use both features together:
+
+```yaml
+---
+title: "My Document"
+format:
+  html:
+    code-fold: true
+toggle:
+  output-toggle: true
+filters:
+  - toggle
+---
+```
+
+This gives readers maximum control over what they see.
+
+# Installation
+
+## How do I install the toggle Extension?
+
+See the [home page](index.qmd) for details. 
+
+## Is the toggle extension compatible with all Quarto versions?
+
+The `toggle` extension requires Quarto v1.7.0 or later.
+
+# Usage
+
+## How do I enable toggle buttons for all code cells?
+
+Add the following to your document's YAML header:
+
+```yaml
+---
+title: "My Document"
+format: html
+toggle:
+  output-toggle: true
+filters:
+  - toggle
+---
+```
+
+## Do I need to modify my existing code cells?
+
+If you've enabled toggle at the document level, no changes are needed to your existing code cells. If you want to control toggle behavior for specific cells, you'll need to add cell-level attributes.
+
+## How do I toggle output visibility for a specific cell?
+
+Add the `toggle: true` attribute to the cell:
+
+````markdown
+```{{python}}
+#| toggle: true
+print("Hello, world!")
+```
+````
+
+#### Can I make outputs hidden by default?
+
+Yes, at the document level:
+
+```yaml
+toggle:
+  output-toggle: true
+  output-hidden: true
+```
+
+Or at the cell level:
+
+````md
+```{{python}}
+#| toggle: true
+#| output-hidden: true
+print("Hello, world!")
+```
+````
+
+## How do I disable toggle for a specific cell when it's enabled at the document level?
+
+Use the `toggle: false` attribute:
+
+````md
+```{{python}}
+#| toggle: false
+print("This output always shows")
+```
+````
+
+## What happens if a code cell doesn't produce any output?
+
+If a code cell doesn't produce any output, the toggle button won't appear even if `toggle: true` is set for that cell.
+
+# Support
+
+## How can I get help? 
+
+For additional support, bug reports, or feature requests, please visit the extension's [GitHub repository](https://github.com/coatless-quarto/toggle). For general Quarto help, please visit the [Quarto community forum](https://github.com/quarto-dev/quarto-cli/discussions) or the [Quarto documentation](https://quarto.org).

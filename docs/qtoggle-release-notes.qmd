@@ -1,0 +1,20 @@
+---
+title: "Release Notes"
+date: "05-13-2025"
+date-modified: last-modified
+engine: markdown
+format: 
+  html:
+    toc: true
+---
+
+# 0.0.0-dev.1: ????? (??-??-????)
+
+## Features
+
+- `toggle` extension adds toggle buttons to code cells.
+  - Toggles allow readers to show or hide the output of code blocks 
+    without affecting the visibility of the code itself.
+  - Toggles are added to code cells by setting the `toggle` attribute in the code chunk options or by specifying `output-toggle: true` in the `toggle` key in the YAML header.
+  - The output of the code cell is shown by default, but can be hidden by specifying `output-hidden: true` in the code chunk options or under the `toggle` key in the YAML header.
+  - Toggles are compatible with HTML-based output formats, including HTML documents, websites, books (HTML format), and Revealjs presentations.
