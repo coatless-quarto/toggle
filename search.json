@@ -1,0 +1,196 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Home",
+    "section": "",
+    "text": "The toggle extension allows you to toggle between showing code with output or just code by itself in Quarto HTML documents by adding a convenient toggle button that appears when hovering over code blocks, similar to the copy button.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "Home",
+    "section": "Installation",
+    "text": "Installation\nTo install the toggle shortcode extension, follow these steps:\n\nOpen your terminal.\nExecute the following command:\n\nquarto add coatless-quarto/toggle\nThis command will download and install the shortcode extension under the _extensions subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "Home",
+    "section": "Usage",
+    "text": "Usage\nAt the top of your Quarto document, include the filters key with toggle specified in the YAML header:\n---\ntitle: \"My Document\"\nformat: html\nfilters:\n  - toggle\n---\nThis will allow the toggle extension to be applied to your document.\n\nCell-Level Configuration\nTo enable toggle functionality for a specific code cell, add the toggle: true attribute:\n```{python}\n#| toggle: true\nprint(\"Hello, Python world!\")\n```\nYou can also set whether the output is shown or hidden by default using the output-hidden attribute:\n```{r}\n#| toggle: true\n#| output-hidden: true\nprint(\"Hello, R world!\")\n```\nThis will hide the output by default, and the user can click the toggle button to show it.\n\n\nDocument-Level Configuration\nYou can enable toggle functionality for all code cells in your document by adding the following to your YAML header:\n---\ntitle: \"My Document\"\nformat: html\ntoggle:\n  output-toggle: true    # Enable toggle buttons for all cells\n  output-hidden: false   # Show outputs initially (default)\nfilters:\n  - toggle\n---\n\nPriority of Settings\n\nCell-level settings override document-level settings\nIf no cell-level setting is provided, document-level settings apply\nIf neither is provided, toggle is not enabled for that cell",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#help",
+    "href": "index.html#help",
+    "title": "Home",
+    "section": "Help",
+    "text": "Help\nTo report a bug, please add an issue to the repository’s bug tracker.\nWant to contribute a feature? Please open an issue ticket to discuss the feature before sending a pull request.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html",
+    "href": "qtoggle-faq.html",
+    "title": "Frequently Asked Questions",
+    "section": "",
+    "text": "The toggle Extension is a Quarto extension that allows you to add toggle buttons to your code cells. These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.\n\n\n\nThis extension works with HTML-based output formats like:\n\nHTML documents\nWebsites\nBooks (HTML format)\nRevealjs presentations\n\nIt does not affect PDF, Word, or other non-HTML output formats as these formats don’t support the JavaScript functionality needed for toggling.\n\n\n\nQuarto’s built-in code-fold option toggles visibility of the code while always showing the output. This extension does the opposite - it toggles visibility of the output while always showing the code.\nYou can use both features together:\n---\ntitle: \"My Document\"\nformat:\n  html:\n    code-fold: true\ntoggle:\n  output-toggle: true\nfilters:\n  - toggle\n---\nThis gives readers maximum control over what they see.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#what-is-the-toggle-extension-for-quarto",
+    "href": "qtoggle-faq.html#what-is-the-toggle-extension-for-quarto",
+    "title": "Frequently Asked Questions",
+    "section": "",
+    "text": "The toggle Extension is a Quarto extension that allows you to add toggle buttons to your code cells. These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#does-toggle-work-with-all-quarto-formats",
+    "href": "qtoggle-faq.html#does-toggle-work-with-all-quarto-formats",
+    "title": "Frequently Asked Questions",
+    "section": "",
+    "text": "This extension works with HTML-based output formats like:\n\nHTML documents\nWebsites\nBooks (HTML format)\nRevealjs presentations\n\nIt does not affect PDF, Word, or other non-HTML output formats as these formats don’t support the JavaScript functionality needed for toggling.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#how-is-this-different-from-quartos-built-in-code-folding",
+    "href": "qtoggle-faq.html#how-is-this-different-from-quartos-built-in-code-folding",
+    "title": "Frequently Asked Questions",
+    "section": "",
+    "text": "Quarto’s built-in code-fold option toggles visibility of the code while always showing the output. This extension does the opposite - it toggles visibility of the output while always showing the code.\nYou can use both features together:\n---\ntitle: \"My Document\"\nformat:\n  html:\n    code-fold: true\ntoggle:\n  output-toggle: true\nfilters:\n  - toggle\n---\nThis gives readers maximum control over what they see.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#how-do-i-install-the-toggle-extension",
+    "href": "qtoggle-faq.html#how-do-i-install-the-toggle-extension",
+    "title": "Frequently Asked Questions",
+    "section": "How do I install the toggle Extension?",
+    "text": "How do I install the toggle Extension?\nSee the home page for details.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#is-the-toggle-extension-compatible-with-all-quarto-versions",
+    "href": "qtoggle-faq.html#is-the-toggle-extension-compatible-with-all-quarto-versions",
+    "title": "Frequently Asked Questions",
+    "section": "Is the toggle extension compatible with all Quarto versions?",
+    "text": "Is the toggle extension compatible with all Quarto versions?\nThe toggle extension requires Quarto v1.7.0 or later.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#how-do-i-enable-toggle-buttons-for-all-code-cells",
+    "href": "qtoggle-faq.html#how-do-i-enable-toggle-buttons-for-all-code-cells",
+    "title": "Frequently Asked Questions",
+    "section": "How do I enable toggle buttons for all code cells?",
+    "text": "How do I enable toggle buttons for all code cells?\nAdd the following to your document’s YAML header:\n---\ntitle: \"My Document\"\nformat: html\ntoggle:\n  output-toggle: true\nfilters:\n  - toggle\n---",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#do-i-need-to-modify-my-existing-code-cells",
+    "href": "qtoggle-faq.html#do-i-need-to-modify-my-existing-code-cells",
+    "title": "Frequently Asked Questions",
+    "section": "Do I need to modify my existing code cells?",
+    "text": "Do I need to modify my existing code cells?\nIf you’ve enabled toggle at the document level, no changes are needed to your existing code cells. If you want to control toggle behavior for specific cells, you’ll need to add cell-level attributes.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#how-do-i-toggle-output-visibility-for-a-specific-cell",
+    "href": "qtoggle-faq.html#how-do-i-toggle-output-visibility-for-a-specific-cell",
+    "title": "Frequently Asked Questions",
+    "section": "How do I toggle output visibility for a specific cell?",
+    "text": "How do I toggle output visibility for a specific cell?\nAdd the toggle: true attribute to the cell:\n```{python}\n#| toggle: true\nprint(\"Hello, world!\")\n```\n\nCan I make outputs hidden by default?\nYes, at the document level:\ntoggle:\n  output-toggle: true\n  output-hidden: true\nOr at the cell level:\n```{python}\n#| toggle: true\n#| output-hidden: true\nprint(\"Hello, world!\")\n```",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#how-do-i-disable-toggle-for-a-specific-cell-when-its-enabled-at-the-document-level",
+    "href": "qtoggle-faq.html#how-do-i-disable-toggle-for-a-specific-cell-when-its-enabled-at-the-document-level",
+    "title": "Frequently Asked Questions",
+    "section": "How do I disable toggle for a specific cell when it’s enabled at the document level?",
+    "text": "How do I disable toggle for a specific cell when it’s enabled at the document level?\nUse the toggle: false attribute:\n```{python}\n#| toggle: false\nprint(\"This output always shows\")\n```",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#what-happens-if-a-code-cell-doesnt-produce-any-output",
+    "href": "qtoggle-faq.html#what-happens-if-a-code-cell-doesnt-produce-any-output",
+    "title": "Frequently Asked Questions",
+    "section": "What happens if a code cell doesn’t produce any output?",
+    "text": "What happens if a code cell doesn’t produce any output?\nIf a code cell doesn’t produce any output, the toggle button won’t appear even if toggle: true is set for that cell.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#how-can-i-get-help",
+    "href": "qtoggle-faq.html#how-can-i-get-help",
+    "title": "Frequently Asked Questions",
+    "section": "How can I get help?",
+    "text": "How can I get help?\nFor additional support, bug reports, or feature requests, please visit the extension’s GitHub repository. For general Quarto help, please visit the Quarto community forum or the Quarto documentation.",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-release-notes.html",
+    "href": "qtoggle-release-notes.html",
+    "title": "Release Notes",
+    "section": "",
+    "text": "toggle extension adds toggle buttons to code cells.\n\nToggles allow readers to show or hide the output of code blocks without affecting the visibility of the code itself.\nToggles are added to code cells by setting the toggle attribute in the code chunk options or by specifying output-toggle: true in the toggle key in the YAML header.\nThe output of the code cell is shown by default, but can be hidden by specifying output-hidden: true in the code chunk options or under the toggle key in the YAML header.\nToggles are compatible with HTML-based output formats, including HTML documents, websites, books (HTML format), and Revealjs presentations.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qtoggle-release-notes.html#features",
+    "href": "qtoggle-release-notes.html#features",
+    "title": "Release Notes",
+    "section": "",
+    "text": "toggle extension adds toggle buttons to code cells.\n\nToggles allow readers to show or hide the output of code blocks without affecting the visibility of the code itself.\nToggles are added to code cells by setting the toggle attribute in the code chunk options or by specifying output-toggle: true in the toggle key in the YAML header.\nThe output of the code cell is shown by default, but can be hidden by specifying output-hidden: true in the code chunk options or under the toggle key in the YAML header.\nToggles are compatible with HTML-based output formats, including HTML documents, websites, books (HTML format), and Revealjs presentations.",
+    "crumbs": [
+      "Extra",
+      "Release Notes"
+    ]
+  }
+]
