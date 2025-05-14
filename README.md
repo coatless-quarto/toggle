@@ -23,25 +23,37 @@ This command will download and install the shortcode extension under the `_exten
 
 ## Usage
 
+At the top of your Quarto document, include the `filters` key with `toggle` specified in the YAML header:
+
+```yaml
+---
+title: "My Document"
+format: html
+filters:
+  - toggle
+---
+```
+
+This will allow the toggle extension to be applied to your document.
 
 ### Cell-Level Configuration
 
 To enable toggle functionality for a specific code cell, add the `toggle: true` attribute:
 
 ````md
-```{{python}}
+```{python}
 #| toggle: true
-print("Hello, world!")
+print("Hello, Python world!")
 ```
 ````
 
 You can also set whether the output is shown or hidden by default using the `output-hidden` attribute:
 
 ````md
-```{{python}}
+```{r}
 #| toggle: true
 #| output-hidden: true
-print("Hello, world!")
+print("Hello, R world!")
 ```
 ````
 
@@ -58,6 +70,8 @@ format: html
 toggle:
   output-toggle: true    # Enable toggle buttons for all cells
   output-hidden: false   # Show outputs initially (default)
+filters:
+  - toggle
 ---
 ```
 
