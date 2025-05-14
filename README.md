@@ -1,25 +1,75 @@
-# Quarto Extension Development with Lua in a Devcontainer
+# toggle: Show/Hide Code Output <img src="toggle-logo.svg" align ="right" alt="" width ="150"/>
 
-This repository houses a devcontainer that setups a [Quarto extension development environment](https://quarto.org/docs/extensions/lua.html). The container is setup to work with [GitHub Codespaces](https://github.com/features/codespaces) to instantly have a cloud-based developer workflow.
+The `toggle` extension allows you to toggle between showing code with output or just code by itself in Quarto HTML documents by adding a convenient toggle button that appears when hovering over code blocks, similar to the copy button.
 
-You can try out the Codespace by clicking on the following button:
+> [!IMPORTANT]
+> 
+> GIF HERE
+>
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/coatless-devcontainer/quarto-extension-dev?quickstart=1)
+## Installation
 
-**Note:** Codespaces are available to Students and Teachers for free [up to 180 core hours per month](https://docs.github.com/en/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#about-github-codespaces) through [GitHub Education](https://education.github.com/). Otherwise, you will have [up to 60 core hours and 15 GB free per month](https://github.com/features/codespaces#pricing).
+To install the `toggle` shortcode extension, follow these steps:
 
-The devcontainer contains:
+1. Open your terminal.
 
-- The latest [pre-release](https://quarto.org/docs/download/prerelease) version of Quarto.
-- [Quarto VS Code Extension](https://marketplace.visualstudio.com/items?itemName=quarto.quarto).
-- [Lua LSP VS Code Extension](https://marketplace.visualstudio.com/items?itemName=sumneko.lua) for Lua code intelligence.
-- [GitHub copilot VS Code Extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot).
-- `R` and `Python`
-- `knitr` and `jupyter`
+2. Execute the following command:
 
-## References
+```bash
+quarto add coatless-quarto/toggle
+```
 
-- [Quarto: Lua API Reference](https://quarto.org/docs/extensions/lua-api.html)
-- [Quarto: Lua Development](https://quarto.org/docs/extensions/lua.html)
-- [Pandoc: Lua Filters](https://pandoc.org/lua-filters.html)
-- [Lua: Manual](https://www.lua.org/manual/5.4/)
+This command will download and install the shortcode extension under the `_extensions` subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.
+
+## Usage
+
+
+### Cell-Level Configuration
+
+To enable toggle functionality for a specific code cell, add the `toggle: true` attribute:
+
+````md
+```{{python}}
+#| toggle: true
+print("Hello, world!")
+```
+````
+
+You can also set whether the output is shown or hidden by default using the `output-hidden` attribute:
+
+````md
+```{{python}}
+#| toggle: true
+#| output-hidden: true
+print("Hello, world!")
+```
+````
+
+This will hide the output by default, and the user can click the toggle button to show it.
+
+### Document-Level Configuration
+
+You can enable toggle functionality for all code cells in your document by adding the following to your YAML header:
+
+```yaml
+---
+title: "My Document"
+format: html
+toggle:
+  output-toggle: true    # Enable toggle buttons for all cells
+  output-hidden: false   # Show outputs initially (default)
+---
+```
+
+#### Priority of Settings
+
+- Cell-level settings override document-level settings
+- If no cell-level setting is provided, document-level settings apply
+- If neither is provided, toggle is not enabled for that cell
+
+## Help
+
+To report a bug, please [add an issue](https://github.com/coatless-quarto/toggle/issues/new) to the repository's [bug tracker](https://github.com/coatless-quarto/toggle/issues).
+
+Want to contribute a feature? Please open an issue ticket to discuss the feature before sending a pull request. 
+
