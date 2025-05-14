@@ -1,0 +1,30 @@
+project:
+  type: website
+
+website:
+  title: "toggle"
+  reader-mode: true
+  repo-url: https://github.com/coatless-quarto/toggle/
+  repo-actions: [edit, issue]
+  sidebar:
+    style: "floating"
+    search: true
+    tools:
+      - icon: github
+        href: https://github.com/coatless-quarto/toggle/
+    contents: 
+      - text: "Home"
+        file: index.qmd
+      - section: "Support"
+        contents:
+        - text: "FAQ"
+          href: qtoggle-faq.qmd
+        - text: "Submit an issue"
+          href: https://github.com/coatless-quarto/toggle/issues/new/choose
+      - section: "Extra"
+        contents:
+        - qtoggle-release-notes.qmd
+
+format: 
+  html:
+    toc: true
