@@ -15,6 +15,12 @@ website:
     contents: 
       - text: "Home"
         file: index.qmd
+      - section: "Examples"
+        contents:
+        - text: "Toggle for All Cells"
+          href: qtoggle-all-cells.qmd
+        - text: "Toggle Specific Cells"
+          href: qtoggle-specific-cells.qmd
       - section: "Support"
         contents:
         - text: "FAQ"
