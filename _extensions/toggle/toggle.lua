@@ -35,16 +35,14 @@ function Div(el)
   -- Only process in HTML format
   if quarto.doc.is_format("html") and el.classes:includes("cell") then
     -- Determine if toggle should be enabled for this cell
-    local cell_toggle_enabled = false
+    local cell_toggle_enabled = doc_toggle_enabled
     local output_hidden = doc_output_hidden
     
+
     -- Check for cell-level toggle attribute
-    if el.attributes.toggle and el.attributes.toggle == "true" then
-      cell_toggle_enabled = true
+    if el.attributes["toggle"] then
+      cell_toggle_enabled = el.attributes.toggle == "true"
       needs_toggle = true
-    -- Apply document-level toggle if no cell-level setting
-    elseif doc_toggle_enabled then
-      cell_toggle_enabled = true
     end
     
     -- Check for cell-level output-hidden attribute, which overrides document setting
