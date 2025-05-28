@@ -14,13 +14,13 @@ function Meta(meta)
   -- Check if toggle is defined in metadata
   if meta.toggle then
     -- Check if output-toggle is enabled
-    if meta.toggle["output-toggle"] and meta.toggle["output-toggle"] == "true" then
+    if meta.toggle["output-toggle"] and meta.toggle["output-toggle"] == true then
       doc_toggle_enabled = true
       needs_toggle = true
     end
     
     -- Check if output-hidden is defined
-    if meta.toggle["output-hidden"] and meta.toggle["output-hidden"] == "true" then
+    if meta.toggle["output-hidden"] and meta.toggle["output-hidden"] == true then
       doc_output_hidden = true
     end
   end
@@ -31,7 +31,6 @@ end
 
 -- Process Div elements with "cell" class
 function Div(el)
-  quarto.log.output("=== Handling Div with CodeBlock ===")
 
   -- Only process in HTML format
   if quarto.doc.is_format("html") and el.classes:includes("cell") then
