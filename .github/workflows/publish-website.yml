@@ -41,12 +41,16 @@ jobs:
             python-version: "3.x"
     
         # Install python dependencies for reticulate
-        - name: Create Python venv
+        - name: Setup r-reticulate venv
+          shell: Rscript {0}
           run: |
-            python -m venv r-reticulate
-            source r-reticulate/bin/activate
-            pip install -r docs/requirements.txt
-            echo "RETICULATE_PYTHON=$(pwd)/r-reticulate/bin/python" >> $GITHUB_ENV
+            path_to_python <- reticulate::virtualenv_create(
+              envname = "r-reticulate",
+              python = Sys.which("python"),
+              requirements = "docs/requirements.txt"
+            )
+            writeLines(sprintf("RETICULATE_PYTHON=%s", path_to_python),
+                      Sys.getenv("GITHUB_ENV"))
         
         - name: "Set up Quarto"
           uses: quarto-dev/quarto-actions/setup@v2
