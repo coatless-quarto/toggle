@@ -132,9 +132,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">toggle</a> 
-        <div class="sidebar-tools-main">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./toggle-logo.svg" alt="A hexagon logo for the toggle Quarto extension." class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
     <a href="https://github.com/coatless-quarto/toggle/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -142,7 +143,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </a>
 </div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -307,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="details-with-toggle" class="level3">
 <h3 class="anchored" data-anchor-id="details-with-toggle">Details (With Toggle)</h3>
-<div class="cell toggleable-cell" data-toggle="true">
+<div class="cell toggleable-cell output-sync-off" data-toggle="true">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>breakdown <span class="op">=</span> [<span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">600</span>]</span>
@@ -323,7 +323,7 @@ Q3: $600</code></pre>
 </section>
 <section id="debug-info-hidden-by-default" class="level3">
 <h3 class="anchored" data-anchor-id="debug-info-hidden-by-default">Debug Info (Hidden by Default)</h3>
-<div class="cell toggleable-cell initially-hidden" data-toggle="true" data-output-hidden="true">
+<div class="cell toggleable-cell output-sync-off initially-hidden" data-toggle="true" data-output-hidden="true">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Processing time: 2.3s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -358,7 +358,7 @@ Q3: $600</code></pre>
 </section>
 <section id="analysis-with-toggle" class="level3">
 <h3 class="anchored" data-anchor-id="analysis-with-toggle">Analysis (With Toggle)</h3>
-<div class="cell toggleable-cell" data-toggle="true">
+<div class="cell toggleable-cell output-sync-off" data-toggle="true">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">78</span>, <span class="dv">92</span>)</span>
@@ -371,7 +371,7 @@ Q3: $600</code></pre>
 </section>
 <section id="visualization-with-toggle" class="level3">
 <h3 class="anchored" data-anchor-id="visualization-with-toggle">Visualization (With Toggle)</h3>
-<div class="cell toggleable-cell" data-toggle="true">
+<div class="cell toggleable-cell output-sync-off" data-toggle="true">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">78</span>, <span class="dv">92</span>), <span class="at">main =</span> <span class="st">"Scores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -404,7 +404,7 @@ Q3: $600</code></pre>
 </section>
 <section id="supporting-data-toggle" class="level3">
 <h3 class="anchored" data-anchor-id="supporting-data-toggle">Supporting Data (Toggle)</h3>
-<div class="cell toggleable-cell" data-toggle="true">
+<div class="cell toggleable-cell output-sync-off" data-toggle="true">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>factors <span class="op">=</span> {<span class="st">"Market"</span>: <span class="fl">3.2</span>, <span class="st">"Credit"</span>: <span class="fl">2.8</span>}</span>
@@ -419,7 +419,7 @@ Credit: 2.8</code></pre>
 </section>
 <section id="technical-notes-hidden" class="level3">
 <h3 class="anchored" data-anchor-id="technical-notes-hidden">Technical Notes (Hidden)</h3>
-<div class="cell toggleable-cell initially-hidden" data-toggle="true" data-output-hidden="true">
+<div class="cell toggleable-cell output-sync-off initially-hidden" data-toggle="true" data-output-hidden="true">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Model v2.1.3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -442,7 +442,7 @@ Credit: 2.8</code></pre>
 <p>This page uses <code>code-fold: true</code> so you can control code and output independently.</p>
 <section id="function-example" class="level3">
 <h3 class="anchored" data-anchor-id="function-example">Function Example</h3>
-<div class="cell toggleable-cell" data-toggle="true">
+<div class="cell toggleable-cell output-sync-off" data-toggle="true">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> growth_rate(current, previous):</span>

@@ -131,9 +131,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">toggle</a> 
-        <div class="sidebar-tools-main">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./toggle-logo.svg" alt="A hexagon logo for the toggle Quarto extension." class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
     <a href="https://github.com/coatless-quarto/toggle/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -141,7 +142,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </a>
 </div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -247,6 +247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#how-do-i-toggle-output-visibility-for-a-specific-cell" id="toc-how-do-i-toggle-output-visibility-for-a-specific-cell" class="nav-link" data-scroll-target="#how-do-i-toggle-output-visibility-for-a-specific-cell">How do I toggle output visibility for a specific cell?</a></li>
   <li><a href="#how-do-i-disable-toggle-for-a-specific-cell-when-its-enabled-at-the-document-level" id="toc-how-do-i-disable-toggle-for-a-specific-cell-when-its-enabled-at-the-document-level" class="nav-link" data-scroll-target="#how-do-i-disable-toggle-for-a-specific-cell-when-its-enabled-at-the-document-level">How do I disable toggle for a specific cell when it’s enabled at the document level?</a></li>
   <li><a href="#what-happens-if-a-code-cell-doesnt-produce-any-output" id="toc-what-happens-if-a-code-cell-doesnt-produce-any-output" class="nav-link" data-scroll-target="#what-happens-if-a-code-cell-doesnt-produce-any-output">What happens if a code cell doesn’t produce any output?</a></li>
+  <li><a href="#whats-the-difference-between-individual-and-synchronized-control" id="toc-whats-the-difference-between-individual-and-synchronized-control" class="nav-link" data-scroll-target="#whats-the-difference-between-individual-and-synchronized-control">What’s the difference between individual and synchronized control?</a></li>
   </ul></li>
   <li><a href="#support" id="toc-support" class="nav-link" data-scroll-target="#support">Support</a>
   <ul class="collapse">
@@ -384,6 +385,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="what-happens-if-a-code-cell-doesnt-produce-any-output" class="level2">
 <h2 class="anchored" data-anchor-id="what-happens-if-a-code-cell-doesnt-produce-any-output">What happens if a code cell doesn’t produce any output?</h2>
 <p>If a code cell doesn’t produce any output, the toggle button won’t appear even if <code>toggle: true</code> is set for that cell.</p>
+</section>
+<section id="whats-the-difference-between-individual-and-synchronized-control" class="level2">
+<h2 class="anchored" data-anchor-id="whats-the-difference-between-individual-and-synchronized-control">What’s the difference between individual and synchronized control?</h2>
+<ul>
+<li><strong>Individual</strong> (<code>output-sync: false</code>): Each toggle button controls only its specific output</li>
+<li><strong>Synchronized</strong> (<code>output-sync: true</code>): Any toggle button controls ALL outputs in the cell</li>
+</ul>
+<section id="how-do-i-sync-output-toggles-in-multioutput-scenarios-by-default" class="level4">
+<h4 class="anchored" data-anchor-id="how-do-i-sync-output-toggles-in-multioutput-scenarios-by-default">How do I sync output toggles in multioutput scenarios by default?</h4>
+<p>At the document level, set <code>output-sync: true</code> in the YAML header:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">toggle</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-toggle</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-sync</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or at the cell level:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| toggle: true</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| output-sync: true</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, world!"</span>)   <span class="co"># Same button to toggle both outputs</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Goodbye, world!"</span>) <span class="co"># Same button to toggle both outputs</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 </section>
 <section id="support" class="level1">

@@ -121,6 +121,17 @@
     ]
   },
   {
+    "objectID": "qtoggle-faq.html#whats-the-difference-between-individual-and-synchronized-control",
+    "href": "qtoggle-faq.html#whats-the-difference-between-individual-and-synchronized-control",
+    "title": "Frequently Asked Questions",
+    "section": "What’s the difference between individual and synchronized control?",
+    "text": "What’s the difference between individual and synchronized control?\n\nIndividual (output-sync: false): Each toggle button controls only its specific output\nSynchronized (output-sync: true): Any toggle button controls ALL outputs in the cell\n\n\nHow do I sync output toggles in multioutput scenarios by default?\nAt the document level, set output-sync: true in the YAML header:\ntoggle:\n  output-toggle: true\n  output-sync: true\nOr at the cell level:\n```{python}\n#| toggle: true\n#| output-sync: true\nprint(\"Hello, world!\")   # Same button to toggle both outputs\nprint(\"Goodbye, world!\") # Same button to toggle both outputs\n```",
+    "crumbs": [
+      "Support",
+      "FAQ"
+    ]
+  },
+  {
     "objectID": "qtoggle-faq.html#how-can-i-get-help",
     "href": "qtoggle-faq.html#how-can-i-get-help",
     "title": "Frequently Asked Questions",
@@ -319,7 +330,7 @@
     "href": "qtoggle-all-cells-example.html#other-languages",
     "title": "Toggle for All Cells",
     "section": "Other Languages",
-    "text": "Other Languages\n\nBash\n\necho \"Current date:\"\ndate\n\nCurrent date:\nThu May 29 06:16:45 UTC 2025",
+    "text": "Other Languages\n\nBash\n\necho \"Current date:\"\ndate\n\nCurrent date:\nThu May 29 08:42:08 UTC 2025",
     "crumbs": [
       "Examples",
       "Toggle for All Cells"
