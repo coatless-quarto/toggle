@@ -18,9 +18,9 @@ website:
       - section: "Examples"
         contents:
         - text: "Toggle for All Cells"
-          href: qtoggle-all-cells.qmd
+          href: qtoggle-all-cells-example.qmd
         - text: "Toggle Specific Cells"
-          href: qtoggle-specific-cells.qmd
+          href: qtoggle-specific-cells-example.qmd
       - section: "Support"
         contents:
         - text: "FAQ"
