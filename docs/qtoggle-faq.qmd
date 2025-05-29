@@ -12,7 +12,8 @@ format:
 
 ## What is the toggle extension for Quarto?
 
-The `toggle` Extension is a Quarto extension that allows you to add toggle buttons to your code cells. These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.
+The `toggle` Extension is a Quarto extension that allows you to add toggle buttons to your code cells. 
+These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.
 
 ## Does toggle work with all Quarto formats?
 
@@ -27,7 +28,8 @@ It does not affect PDF, Word, or other non-HTML output formats as these formats 
 
 ## How is this different from Quarto's built-in code folding?
 
-Quarto's built-in `code-fold` option toggles visibility of the **code** while always showing the **output**. This extension does the opposite - it toggles visibility of the **output** while always showing the **code**.
+Quarto's built-in `code-fold` option toggles visibility of the **code** while always showing the **output**. 
+This extension does the opposite - it toggles visibility of the **output** while always showing the **code**.
 
 You can use both features together:
 
@@ -75,7 +77,8 @@ filters:
 
 ## Do I need to modify my existing code cells?
 
-If you've enabled toggle at the document level, no changes are needed to your existing code cells. If you want to control toggle behavior for specific cells, you'll need to add cell-level attributes.
+If you've enabled toggle at the document level, no changes are needed to your existing code cells.
+If you want to control toggle behavior for specific cells, you'll need to add cell-level attributes.
 
 ## How do I toggle output visibility for a specific cell?
 
@@ -123,8 +126,37 @@ print("This output always shows")
 
 If a code cell doesn't produce any output, the toggle button won't appear even if `toggle: true` is set for that cell.
 
+## What's the difference between individual and synchronized control?
+ 
+- **Individual** (`output-sync: false`): Each toggle button controls only its specific output
+- **Synchronized** (`output-sync: true`): Any toggle button controls ALL outputs in the cell
+
+#### How do I sync output toggles in multioutput scenarios by default?
+
+At the document level, set `output-sync: true` in the YAML header:
+
+```yaml
+toggle:
+  output-toggle: true
+  output-sync: true
+```
+
+Or at the cell level:
+
+````md
+```{{python}}
+#| toggle: true
+#| output-sync: true
+print("Hello, world!")   # Same button to toggle both outputs
+print("Goodbye, world!") # Same button to toggle both outputs
+```
+````
+
 # Support
 
 ## How can I get help? 
 
-For additional support, bug reports, or feature requests, please visit the extension's [GitHub repository](https://github.com/coatless-quarto/toggle). For general Quarto help, please visit the [Quarto community forum](https://github.com/quarto-dev/quarto-cli/discussions) or the [Quarto documentation](https://quarto.org).
+For additional support, bug reports, or feature requests, please visit the extension's
+[GitHub repository](https://github.com/coatless-quarto/toggle). For general Quarto help,
+please visit the [Quarto community forum](https://github.com/quarto-dev/quarto-cli/discussions)
+or the [Quarto documentation](https://quarto.org).
