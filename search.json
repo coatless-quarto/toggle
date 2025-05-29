@@ -172,6 +172,72 @@
     ]
   },
   {
+    "objectID": "qtoggle-specific-cells-example.html",
+    "href": "qtoggle-specific-cells-example.html",
+    "title": "Toggle Specific Cells",
+    "section": "",
+    "text": "This page demonstrates how to selectively enable toggle functionality for specific code cells, rather than enabling it document-wide. This approach gives you precise control over which cells have toggle buttons.",
+    "crumbs": [
+      "Examples",
+      "Toggle Specific Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-specific-cells-example.html#setup",
+    "href": "qtoggle-specific-cells-example.html#setup",
+    "title": "Toggle Specific Cells",
+    "section": "Setup",
+    "text": "Setup\nTo enable selective toggle, use this minimal setup:\n---\ntitle: \"Your Document Title\"\nformat: html\nfilters: [toggle]\n---\nThe filters: [toggle] enables the toggle extension for the document so that only cells with toggle: true get toggle buttons.",
+    "crumbs": [
+      "Examples",
+      "Toggle Specific Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-specific-cells-example.html#examples",
+    "href": "qtoggle-specific-cells-example.html#examples",
+    "title": "Toggle Specific Cells",
+    "section": "Examples",
+    "text": "Examples\n\nImportant Results (No Toggle)\n\n\nShow code\ntotal = 1500\ntarget = 1200\nprint(f\"Sales: ${total} (Target: ${target})\")\n\n\nSales: $1500 (Target: $1200)\n\n\n\n\nDetails (With Toggle)\n\n\nShow code\nbreakdown = [400, 500, 600]\nfor i, amount in enumerate(breakdown, 1):\n    print(f\"Q{i}: ${amount}\")\n\n\nQ1: $400\nQ2: $500\nQ3: $600\n\n\n\n\nDebug Info (Hidden by Default)\n\n\nShow code\nprint(\"Processing time: 2.3s\")\n\n\nProcessing time: 2.3s\n\n\nShow code\nprint(\"Memory: 45MB\")\n\n\nMemory: 45MB",
+    "crumbs": [
+      "Examples",
+      "Toggle Specific Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-specific-cells-example.html#r-examples",
+    "href": "qtoggle-specific-cells-example.html#r-examples",
+    "title": "Toggle Specific Cells",
+    "section": "R Examples",
+    "text": "R Examples\n\nKey Results (No Toggle)\n\n\nShow code\nscores &lt;- c(85, 90, 78, 92)\ncat(\"Average:\", mean(scores), \"\\n\")\n\n\nAverage: 86.25 \n\n\n\n\nAnalysis (With Toggle)\n\n\nShow code\nscores &lt;- c(85, 90, 78, 92)\ncat(\"Min:\", min(scores), \"Max:\", max(scores), \"\\n\")\n\n\nMin: 78 Max: 92 \n\n\n\n\nVisualization (With Toggle)\n\n\nShow code\nhist(c(85, 90, 78, 92), main = \"Scores\")",
+    "crumbs": [
+      "Examples",
+      "Toggle Specific Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-specific-cells-example.html#mixed-strategy",
+    "href": "qtoggle-specific-cells-example.html#mixed-strategy",
+    "title": "Toggle Specific Cells",
+    "section": "Mixed Strategy",
+    "text": "Mixed Strategy\n\nSummary (Always Visible)\n\n\nShow code\nrisk = \"Medium\"\nconfidence = 89\nprint(f\"Risk: {risk} ({confidence}% confidence)\")\n\n\nRisk: Medium (89% confidence)\n\n\n\n\nSupporting Data (Toggle)\n\n\nShow code\nfactors = {\"Market\": 3.2, \"Credit\": 2.8}\nfor name, score in factors.items():\n    print(f\"{name}: {score}\")\n\n\nMarket: 3.2\nCredit: 2.8\n\n\n\n\nTechnical Notes (Hidden)\n\n\nShow code\nprint(\"Model v2.1.3\")\n\n\nModel v2.1.3\n\n\nShow code\nprint(\"Updated: 2024-05-28\")\n\n\nUpdated: 2024-05-28",
+    "crumbs": [
+      "Examples",
+      "Toggle Specific Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-specific-cells-example.html#with-code-folding",
+    "href": "qtoggle-specific-cells-example.html#with-code-folding",
+    "title": "Toggle Specific Cells",
+    "section": "With Code Folding",
+    "text": "With Code Folding\nThis page uses code-fold: true so you can control code and output independently.\n\nFunction Example\n\n\nShow code\ndef growth_rate(current, previous):\n    return (current - previous) / previous * 100\n\nresult = growth_rate(1500, 1200)\nprint(f\"Growth: {result:.1f}%\")\n\n\nGrowth: 25.0%\n\n\nUse toggle: true for optional details. Keep key results without toggles.",
+    "crumbs": [
+      "Examples",
+      "Toggle Specific Cells"
+    ]
+  },
+  {
     "objectID": "qtoggle-release-notes.html",
     "href": "qtoggle-release-notes.html",
     "title": "Release Notes",
@@ -191,6 +257,72 @@
     "crumbs": [
       "Extra",
       "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qtoggle-all-cells-example.html",
+    "href": "qtoggle-all-cells-example.html",
+    "title": "Toggle for All Cells",
+    "section": "",
+    "text": "This page demonstrates how to globally enable toggle functionality for all code cells, rather than enabling it on a per cell configuration. This approach allows you to skip individual cell configurations unless you want to override the global behavior.",
+    "crumbs": [
+      "Examples",
+      "Toggle for All Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-all-cells-example.html#setup",
+    "href": "qtoggle-all-cells-example.html#setup",
+    "title": "Toggle for All Cells",
+    "section": "Setup",
+    "text": "Setup\nTo enable toggle for all cells, add this to your document’s YAML header:\n---\ntitle: \"Your Document Title\"\nformat: html\ntoggle:\n  output-toggle: true    # Automatically add toggle to all cells\n  output-hidden: false   # Show outputs by default\nfilters: [toggle]\n---\nWith this set, every code cell that produces an output gets a toggle button automatically and outputs are visible by default. Readers can hide them if they choose.\nThis means:\n\nNo need to add toggle: true to individual cells as it will apply to all.\nOutputs are visible by default (readers can hide them)\nConsistent experience across your entire document\n\nHover over code blocks to see toggle buttons. \"⌄\" = visible, \"›\" = hidden.",
+    "crumbs": [
+      "Examples",
+      "Toggle for All Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-all-cells-example.html#python-examples",
+    "href": "qtoggle-all-cells-example.html#python-examples",
+    "title": "Toggle for All Cells",
+    "section": "Python Examples",
+    "text": "Python Examples\n\nOutput\n\nprint(\"Hello, world!\")\n\nHello, world!\n\nprint(\"This has a toggle button.\")\n\nThis has a toggle button.\n\n\n\n\nMath Operations\n\nnumbers = [1, 2, 3, 4, 5]\nprint(f\"Sum: {sum(numbers)}\")\n\nSum: 15\n\nprint(f\"Average: {sum(numbers)/len(numbers)}\")\n\nAverage: 3.0\n\n\n\n\nPlotting with Matplotlib\n\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3], [1, 4, 9], 'o-')\nplt.title(\"Simple Plot\")\nplt.show()",
+    "crumbs": [
+      "Examples",
+      "Toggle for All Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-all-cells-example.html#r-examples",
+    "href": "qtoggle-all-cells-example.html#r-examples",
+    "title": "Toggle for All Cells",
+    "section": "R Examples",
+    "text": "R Examples\n\nStatistics Calculations\n\ndata &lt;- c(10, 20, 30, 40, 50)   \ncat(\"Mean:\", mean(data), \"\\n\")\n\nMean: 30 \n\ncat(\"Max:\", max(data), \"\\n\")\n\nMax: 50 \n\n\n\n\nGraphing with Base R\n\nbarplot(c(23, 45, 32), names.arg = c(\"A\", \"B\", \"C\"))",
+    "crumbs": [
+      "Examples",
+      "Toggle for All Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-all-cells-example.html#override-options",
+    "href": "qtoggle-all-cells-example.html#override-options",
+    "title": "Toggle for All Cells",
+    "section": "Override Options",
+    "text": "Override Options\n\nAlways Show\nNo toggle button will be added, output is always visible.\n\nprint(\"Always visible - no toggle button\")\n\nAlways visible - no toggle button\n\n\n\n\nHidden by Default\nStarts hidden - click toggle to show\n\nprint(\"You've clicked the toggle button to show me!\")\n\nYou've clicked the toggle button to show me!",
+    "crumbs": [
+      "Examples",
+      "Toggle for All Cells"
+    ]
+  },
+  {
+    "objectID": "qtoggle-all-cells-example.html#other-languages",
+    "href": "qtoggle-all-cells-example.html#other-languages",
+    "title": "Toggle for All Cells",
+    "section": "Other Languages",
+    "text": "Other Languages\n\nBash\n\necho \"Current date:\"\ndate\n\nCurrent date:\nThu May 29 03:30:56 UTC 2025",
+    "crumbs": [
+      "Examples",
+      "Toggle for All Cells"
     ]
   }
 ]

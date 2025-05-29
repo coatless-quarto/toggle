@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Home – toggle</title>
+<title>Toggle for All Cells – toggle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,6 +76,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-8e2940715130efa428800d1d1539a2a3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/toggle/toggle.js"></script>
+<link href="site_libs/quarto-contrib/toggle/toggle.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -107,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -116,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qtoggle-all-cells-example.html">Examples</a></li><li class="breadcrumb-item"><a href="./qtoggle-all-cells-example.html">Toggle for All Cells</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -151,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -166,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qtoggle-all-cells-example.html" class="sidebar-item-text sidebar-link">
+  <a href="./qtoggle-all-cells-example.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Toggle for All Cells</span></a>
   </div>
 </li>
@@ -223,13 +225,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#setup" id="toc-setup" class="nav-link active" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#python-examples" id="toc-python-examples" class="nav-link" data-scroll-target="#python-examples">Python Examples</a>
+  <ul class="collapse">
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
+  <li><a href="#math-operations" id="toc-math-operations" class="nav-link" data-scroll-target="#math-operations">Math Operations</a></li>
+  <li><a href="#plotting-with-matplotlib" id="toc-plotting-with-matplotlib" class="nav-link" data-scroll-target="#plotting-with-matplotlib">Plotting with Matplotlib</a></li>
+  </ul></li>
+  <li><a href="#r-examples" id="toc-r-examples" class="nav-link" data-scroll-target="#r-examples">R Examples</a>
+  <ul class="collapse">
+  <li><a href="#statistics-calculations" id="toc-statistics-calculations" class="nav-link" data-scroll-target="#statistics-calculations">Statistics Calculations</a></li>
+  <li><a href="#graphing-with-base-r" id="toc-graphing-with-base-r" class="nav-link" data-scroll-target="#graphing-with-base-r">Graphing with Base R</a></li>
+  </ul></li>
+  <li><a href="#override-options" id="toc-override-options" class="nav-link" data-scroll-target="#override-options">Override Options</a>
+  <ul class="collapse">
+  <li><a href="#always-show" id="toc-always-show" class="nav-link" data-scroll-target="#always-show">Always Show</a></li>
+  <li><a href="#hidden-by-default" id="toc-hidden-by-default" class="nav-link" data-scroll-target="#hidden-by-default">Hidden by Default</a></li>
+  </ul></li>
+  <li><a href="#other-languages" id="toc-other-languages" class="nav-link" data-scroll-target="#other-languages">Other Languages</a>
+  <ul class="collapse">
+  <li><a href="#bash" id="toc-bash" class="nav-link" data-scroll-target="#bash">Bash</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/toggle/edit/main/qtoggle-all-cells-example.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/toggle/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qtoggle-all-cells-example.html">Examples</a></li><li class="breadcrumb-item"><a href="./qtoggle-all-cells-example.html">Toggle for All Cells</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Home</h1>
+<h1 class="title">Toggle for All Cells</h1>
 </div>
 
 
@@ -246,74 +276,141 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The <code>toggle</code> extension allows you to toggle between showing code with output or just code by itself in Quarto HTML documents by adding a convenient toggle button that appears when hovering over code blocks, similar to the copy button.</p>
-<blockquote class="blockquote">
-<p>[!IMPORTANT]</p>
-<p>GIF HERE</p>
-</blockquote>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p>To install the <code>toggle</code> extension, follow these steps:</p>
-<ol type="1">
-<li><p>Open your terminal.</p></li>
-<li><p>Execute the following command:</p></li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add coatless-quarto/toggle</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This command will download and install the extension under the <code>_extensions</code> subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.</p>
-</section>
-<section id="usage" class="level2">
-<h2 class="anchored" data-anchor-id="usage">Usage</h2>
-<p>At the top of your Quarto document, include the <code>filters</code> key with <code>toggle</code> specified in the YAML header:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> toggle</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will allow the toggle extension to be applied to your document.</p>
-<section id="cell-level-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="cell-level-configuration">Cell-Level Configuration</h3>
-<p>To enable toggle functionality for a specific code cell, add the <code>toggle: true</code> attribute:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| toggle: true</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, Python world!"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can also set whether the output is shown or hidden by default using the <code>output-hidden</code> attribute:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| toggle: true</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| output-hidden: true</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Hello, R world!"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will hide the output by default, and the user can click the toggle button to show it.</p>
-</section>
-<section id="document-level-configuration" class="level3">
-<h3 class="anchored" data-anchor-id="document-level-configuration">Document-Level Configuration</h3>
-<p>You can enable toggle functionality for all code cells in your document by adding the following to your YAML header:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">toggle</span><span class="kw">:</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-toggle</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">    # Enable toggle buttons for all cells</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-hidden</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">   # Show outputs initially (default)</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> toggle</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="priority-of-settings" class="level4">
-<h4 class="anchored" data-anchor-id="priority-of-settings">Priority of Settings</h4>
+<p>This page demonstrates how to globally enable toggle functionality for all code cells, rather than enabling it on a per cell configuration. This approach allows you to skip individual cell configurations unless you want to override the global behavior.</p>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<p>To enable toggle for all cells, add this to your document’s YAML header:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your Document Title"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">toggle</span><span class="kw">:</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-toggle</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">    # Automatically add toggle to all cells</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-hidden</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span><span class="co">   # Show outputs by default</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">toggle</span><span class="kw">]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>With this set, every code cell that produces an output gets a toggle button automatically and outputs are visible by default. Readers can hide them if they choose.</p>
+<p>This means:</p>
 <ul>
-<li>Cell-level settings override document-level settings</li>
-<li>If no cell-level setting is provided, document-level settings apply</li>
-<li>If neither is provided, toggle is not enabled for that cell</li>
+<li>No need to add <code>toggle: true</code> to individual cells as it will apply to all.</li>
+<li>Outputs are visible by default (readers can hide them)</li>
+<li>Consistent experience across your entire document</li>
 </ul>
+<p>Hover over code blocks to see toggle buttons. <code>"⌄"</code> = visible, <code>"›"</code> = hidden.</p>
+</section>
+<section id="python-examples" class="level2">
+<h2 class="anchored" data-anchor-id="python-examples">Python Examples</h2>
+<section id="output" class="level3">
+<h3 class="anchored" data-anchor-id="output">Output</h3>
+<div class="cell toggleable-cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, world!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello, world!</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"This has a toggle button."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>This has a toggle button.</code></pre>
+</div>
+</div>
+</section>
+<section id="math-operations" class="level3">
+<h3 class="anchored" data-anchor-id="math-operations">Math Operations</h3>
+<div class="cell toggleable-cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Sum: </span><span class="sc">{</span><span class="bu">sum</span>(numbers)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sum: 15</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average: </span><span class="sc">{</span><span class="bu">sum</span>(numbers)<span class="op">/</span><span class="bu">len</span>(numbers)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Average: 3.0</code></pre>
+</div>
+</div>
+</section>
+<section id="plotting-with-matplotlib" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-with-matplotlib">Plotting with Matplotlib</h3>
+<div class="cell toggleable-cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">9</span>], <span class="st">'o-'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Simple Plot"</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="qtoggle-all-cells-example_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
+<section id="r-examples" class="level2">
+<h2 class="anchored" data-anchor-id="r-examples">R Examples</h2>
+<section id="statistics-calculations" class="level3">
+<h3 class="anchored" data-anchor-id="statistics-calculations">Statistics Calculations</h3>
+<div class="cell toggleable-cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>, <span class="dv">50</span>)   </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Mean:"</span>, <span class="fu">mean</span>(data), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Mean: 30 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Max:"</span>, <span class="fu">max</span>(data), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Max: 50 </code></pre>
+</div>
+</div>
 </section>
-<section id="help" class="level2">
-<h2 class="anchored" data-anchor-id="help">Help</h2>
-<p>To report a bug, please <a href="https://github.com/coatless-quarto/toggle/issues/new">add an issue</a> to the repository’s <a href="https://github.com/coatless-quarto/toggle/issues">bug tracker</a>.</p>
-<p>Want to contribute a feature? Please open an issue ticket to discuss the feature before sending a pull request.</p>
+<section id="graphing-with-base-r" class="level3">
+<h3 class="anchored" data-anchor-id="graphing-with-base-r">Graphing with Base R</h3>
+<div class="cell toggleable-cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">45</span>, <span class="dv">32</span>), <span class="at">names.arg =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="qtoggle-all-cells-example_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="override-options" class="level2">
+<h2 class="anchored" data-anchor-id="override-options">Override Options</h2>
+<section id="always-show" class="level3">
+<h3 class="anchored" data-anchor-id="always-show">Always Show</h3>
+<p>No toggle button will be added, output is always visible.</p>
+<div class="cell" data-toggle="false">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Always visible - no toggle button"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Always visible - no toggle button</code></pre>
+</div>
+</div>
+</section>
+<section id="hidden-by-default" class="level3">
+<h3 class="anchored" data-anchor-id="hidden-by-default">Hidden by Default</h3>
+<p>Starts hidden - click toggle to show</p>
+<div class="cell toggleable-cell initially-hidden" data-output-hidden="true">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"You've clicked the toggle button to show me!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>You've clicked the toggle button to show me!</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="other-languages" class="level2">
+<h2 class="anchored" data-anchor-id="other-languages">Other Languages</h2>
+<section id="bash" class="level3">
+<h3 class="anchored" data-anchor-id="bash">Bash</h3>
+<div class="cell toggleable-cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Current date:"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Current date:
+Thu May 29 03:30:56 UTC 2025</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -721,4 +818,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/toggle/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/toggle/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/coatless-quarto/toggle/edit/main/qtoggle-all-cells-example.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/toggle/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
