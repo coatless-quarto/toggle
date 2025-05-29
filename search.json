@@ -319,7 +319,7 @@
     "href": "qtoggle-all-cells-example.html#other-languages",
     "title": "Toggle for All Cells",
     "section": "Other Languages",
-    "text": "Other Languages\n\nBash\n\necho \"Current date:\"\ndate\n\nCurrent date:\nThu May 29 03:33:14 UTC 2025",
+    "text": "Other Languages\n\nBash\n\necho \"Current date:\"\ndate\n\nCurrent date:\nThu May 29 05:55:14 UTC 2025",
     "crumbs": [
       "Examples",
       "Toggle for All Cells"
