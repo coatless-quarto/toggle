@@ -1,4 +1,4 @@
-# toggle: Show/Hide Code Output <img src="toggle-logo.svg" align ="right" alt="" width ="150"/>
+# toggle: Show/Hide Code Output <img src="docs/toggle-logo.svg" align ="right" alt="" width ="150"/>
 
 The `toggle` extension allows you to toggle between showing code with output or just code by itself in Quarto HTML documents by adding a convenient toggle button that appears when hovering over code blocks, similar to the copy button.
 
@@ -21,6 +21,31 @@ quarto add coatless-quarto/toggle
 
 This command will download and install the extension under the `_extensions` subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.
 
+## Quick Start
+
+1. **Add the filter** to your document's YAML header:
+
+```yaml
+---
+title: "My Document"
+format: html
+filters:
+  - toggle
+---
+```
+
+2. **Enable toggle for specific code cells** by adding `toggle: true`:
+
+````md
+```{python}
+#| toggle: true
+print("Hello, Python world!")
+```
+````
+
+That's it! A toggle button will now appear when you hover over the code block.
+
+
 ## Usage
 
 At the top of your Quarto document, include the `filters` key with `toggle` specified in the YAML header:
@@ -41,23 +66,58 @@ This will allow the toggle extension to be applied to your document.
 To enable toggle functionality for a specific code cell, add the `toggle: true` attribute:
 
 ````md
-```{python}
-#| toggle: true
-print("Hello, Python world!")
-```
-````
-
-You can also set whether the output is shown or hidden by default using the `output-hidden` attribute:
-
-````md
 ```{r}
 #| toggle: true
-#| output-hidden: true
 print("Hello, R world!")
 ```
 ````
 
-This will hide the output by default, and the user can click the toggle button to show it.
+#### Hide Output by Default
+
+Start with output hidden using the `output-hidden` attribute:
+
+````markdown
+```{python}
+#| toggle: true
+#| output-hidden: true
+import pandas as pd
+print("This output is hidden by default")
+```
+````
+
+#### Multi-Output Control
+
+When code cells produce multiple outputs, you can control how the toggle buttons behave:
+
+##### Individual Control (Default)
+
+When `output-sync: false`, each output in a cell can be toggled independently. This is the default behavior.
+
+````markdown
+```{r}
+#| toggle: true
+#| output-sync: false
+print("Output 1")  # Individual toggle
+print("Output 2")  # Individual toggle
+plot(cars)         # Individual toggle
+```
+````
+
+##### Synchronized Control
+
+When `output-sync: true`, all outputs for a cell are toggled together with a single button:
+
+````markdown
+```{r}
+#| toggle: true
+#| output-sync: true
+print("Output 1")  # Any button controls all
+print("Output 2")  # Any button controls all
+plot(cars)         # Any button controls all
+```
+````
+
+
 
 ### Document-Level Configuration
 
@@ -68,12 +128,27 @@ You can enable toggle functionality for all code cells in your document by addin
 title: "My Document"
 format: html
 toggle:
-  output-toggle: true    # Enable toggle buttons for all cells
+  output-toggle: true    # Enable toggle functionality
   output-hidden: false   # Show outputs initially (default)
+  output-sync: false     # Individual control (default)
 filters:
   - toggle
 ---
 ```
+
+#### Configuration Options
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `output-toggle` | boolean | `false` | Enable toggle functionality |
+| `output-hidden` | boolean | `false` | Hide outputs initially |
+| `output-sync` | boolean | `false` | Synchronize all outputs in cell |
+
+> [!IMPORTANT]
+>
+> To avoid confusion with the `toggle` document-level key, the document-level configuration uses `output-toggle` instead of `toggle` for enabling the toggle functionality globally.
+
+
 
 #### Priority of Settings
 
