@@ -35,7 +35,12 @@ jobs:
                 any::xml2
                 any::reticulate
 
-        # Install python dependencies
+        # Setup Python for reticulate
+        - uses: actions/setup-python@v5
+          with:
+            python-version: "3.x"
+    
+        # Install python dependencies for reticulate
         - name: Setup r-reticulate venv
           shell: Rscript {0}
           run: |
