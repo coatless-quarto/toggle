@@ -1,11 +1,6 @@
-# toggle: Show/Hide Code Output <img src="docs/toggle-logo.svg" align ="right" alt="" width ="150"/>
+# toggle: Show/Hide Code Output <img src="docs/toggle-animated-logo.svg" align ="right" alt="" width ="150"/>
 
 The `toggle` extension allows you to toggle between showing code with output or just code by itself in Quarto HTML documents by adding a convenient toggle button that appears when hovering over code blocks, similar to the copy button.
-
-> [!IMPORTANT]
-> 
-> GIF HERE
->
 
 ## Installation
 

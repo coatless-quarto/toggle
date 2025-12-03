@@ -7,7 +7,7 @@ website:
   repo-url: https://github.com/coatless-quarto/toggle/
   repo-actions: [edit, issue]
   sidebar:
-    logo: "toggle-logo.svg"
+    logo: "toggle-animated-logo.svg"
     logo-alt: "A hexagon logo for the toggle Quarto extension."
     style: "floating"
     search: true

@@ -7,11 +7,6 @@ format:
 
 The `toggle` extension allows you to toggle between showing code with output or just code by itself in Quarto HTML documents by adding a convenient toggle button that appears when hovering over code blocks, similar to the copy button.
 
-> [!IMPORTANT]
-> 
-> GIF HERE
->
-
 ## Installation
 
 To install the `toggle` extension, follow these steps:
