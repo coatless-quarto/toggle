@@ -246,7 +246,7 @@
     "href": "index.html",
     "title": "Toggle",
     "section": "",
-    "text": "Ever wished readers could hide verbose output while keeping the code visible? The toggle extension adds a button to your code blocks that shows or hides the output on demand.\nThink of it as the opposite of Quarto’s code-fold. Instead of hiding code and showing output, toggle hides output and shows code.",
+    "text": "Ever wished readers could hide verbose output while keeping the code visible? The toggle extension adds a button to your code blocks that shows or hides the output on demand.\nThink of it as the opposite of Quarto’s code-fold. Instead of hiding code and showing output, Toggle hides output and shows code.",
     "crumbs": [
       "Get Started",
       "Home"
@@ -257,18 +257,18 @@
     "href": "index.html#installation",
     "title": "Toggle",
     "section": "Installation",
-    "text": "Installation\nquarto add coatless-quarto/toggle",
+    "text": "Installation\nTo install the toggle extension, follow these steps:\n\nOpen your terminal.\nExecute the following command:\n\nquarto add coatless-quarto/toggle\nThis command will download and install the extension under the _extensions subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.\n\nRequirements\n\nQuarto &gt;= 1.7.0",
     "crumbs": [
       "Get Started",
       "Home"
     ]
   },
   {
-    "objectID": "index.html#quick-start",
-    "href": "index.html#quick-start",
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
     "title": "Toggle",
-    "section": "Quick Start",
-    "text": "Quick Start\nAdd the filter and enable toggle for all cells:\nextensions:\n  toggle:\n    output-toggle: true\nfilters:\n  - toggle\nHover over any code block to see the toggle button appear. Click to hide the output; click again to show it.\nTo enable toggle for specific cells only, omit output-toggle and add #| toggle: true to individual cells:\n```{r}\n#| toggle: true\nsummary(mtcars)\n```",
+    "section": "Usage",
+    "text": "Usage\n\nAdd the filter to your document’s YAML header:\n\n---\ntitle: \"My Document\"\nformat: html\nfilters:\n  - toggle\n---\n\nEnable toggle for specific code cells by adding toggle: true:\n\n```{python}\n#| toggle: true\nprint(\"Hello, Python world!\")\n```\nThat’s it! A toggle button will now appear when you hover over the code block.\nWant toggle on every cell? Add output-toggle: true at the document level:\nextensions:\n  toggle:\n    output-toggle: true\nfilters:\n  - toggle",
     "crumbs": [
       "Get Started",
       "Home"
@@ -279,29 +279,18 @@
     "href": "index.html#options",
     "title": "Toggle",
     "section": "Options",
-    "text": "Options\nSet these under extensions.toggle or per-cell with #| comments:\n\n\n\nOption\nDefault\nPurpose\n\n\n\n\noutput-toggle\nfalse\nAdd toggle buttons to all cells\n\n\noutput-hidden\nfalse\nStart with outputs collapsed\n\n\noutput-sync\nfalse\nSync all outputs in a cell together\n\n\nglobal-toggle\nfalse\nFloating button to toggle everything\n\n\npersist\nfalse\nRemember state across page reloads\n\n\nbutton-text\n\"Output\"\nLabel shown on the button",
+    "text": "Options\nSet these under extensions.toggle or per-cell with #| comments:\n\n\n\nOption\nDefault\nPurpose\n\n\n\n\noutput-toggle\nfalse\nAdd toggle buttons to all cells\n\n\noutput-hidden\nfalse\nStart with outputs collapsed\n\n\noutput-sync\nfalse\nSync all outputs in a cell together\n\n\nglobal-toggle\nfalse\nFloating button to toggle everything\n\n\npersist\nfalse\nRemember state across page reloads\n\n\nbutton-text\n\"Output\"\nLabel shown on the button\n\n\n\nCheck out the guides in the sidebar to see each of these in action.",
     "crumbs": [
       "Get Started",
       "Home"
     ]
   },
   {
-    "objectID": "index.html#compatibility",
-    "href": "index.html#compatibility",
+    "objectID": "index.html#questions",
+    "href": "index.html#questions",
     "title": "Toggle",
-    "section": "Compatibility",
-    "text": "Compatibility\nWorks with HTML-based Quarto formats: documents, websites, books, and Revealjs presentations.\nToggle complements Quarto’s code-fold. Use both together:\nformat:\n  html:\n    code-fold: true\nextensions:\n  toggle:\n    output-toggle: true\nPDF, Word, and other non-HTML formats are unaffected.",
-    "crumbs": [
-      "Get Started",
-      "Home"
-    ]
-  },
-  {
-    "objectID": "index.html#getting-help",
-    "href": "index.html#getting-help",
-    "title": "Toggle",
-    "section": "Getting Help",
-    "text": "Getting Help\n\nFAQ — Common questions\nGitHub Issues — Bug reports\nDiscussions — Questions",
+    "section": "Questions?",
+    "text": "Questions?\n\nFAQ — Quick answers to common questions\nGitHub Issues — Found a bug? Let us know",
     "crumbs": [
       "Get Started",
       "Home"
