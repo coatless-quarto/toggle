@@ -3,7 +3,7 @@ title: "Frequently Asked Questions"
 date: "05-13-2025"
 date-modified: last-modified
 engine: markdown
-format: 
+format:
   html:
     toc: true
 ---
@@ -12,8 +12,9 @@ format:
 
 ## What is the toggle extension for Quarto?
 
-The `toggle` Extension is a Quarto extension that allows you to add toggle buttons to your code cells. 
-These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.
+The `toggle` extension is a Quarto extension that allows you to add toggle
+buttons to your code cells. These buttons let readers show or hide the output
+of code blocks, making your documents more interactive and less cluttered.
 
 ## Does toggle work with all Quarto formats?
 
@@ -24,35 +25,43 @@ This extension works with HTML-based output formats like:
 - Books (HTML format)
 - Revealjs presentations
 
-It does not affect PDF, Word, or other non-HTML output formats as these formats don't support the JavaScript functionality needed for toggling.
+It does not affect PDF, Word, or other non-HTML output formats as these
+formats don't support the JavaScript functionality needed for toggling.
 
 ## How is this different from Quarto's built-in code folding?
 
-Quarto's built-in `code-fold` option toggles visibility of the **code** while always showing the **output**. 
-This extension does the opposite - it toggles visibility of the **output** while always showing the **code**.
+Quarto's built-in
+[`code-fold`](https://quarto.org/docs/output-formats/html-code.html#folding-code)
+option toggles visibility of the **code** while always showing the **output**.
+This extension does the opposite: it toggles visibility of the **output**
+while always showing the **code**.
 
 You can use both features together:
 
 ```yaml
----
-title: "My Document"
 format:
   html:
     code-fold: true
-toggle:
-  output-toggle: true
+extensions:
+  toggle:
+    output-toggle: true
 filters:
   - toggle
----
 ```
 
 This gives readers maximum control over what they see.
 
 # Installation
 
-## How do I install the toggle Extension?
+## How do I install the toggle extension?
 
-See the [home page](index.qmd) for details. 
+Run this in your terminal:
+
+```bash
+quarto add coatless-quarto/toggle
+```
+
+See the [home page](index.qmd) for more details.
 
 ## Is the toggle extension compatible with all Quarto versions?
 
@@ -65,20 +74,18 @@ The `toggle` extension requires Quarto v1.7.0 or later.
 Add the following to your document's YAML header:
 
 ```yaml
----
-title: "My Document"
-format: html
-toggle:
-  output-toggle: true
+extensions:
+  toggle:
+    output-toggle: true
 filters:
   - toggle
----
 ```
 
 ## Do I need to modify my existing code cells?
 
-If you've enabled toggle at the document level, no changes are needed to your existing code cells.
-If you want to control toggle behavior for specific cells, you'll need to add cell-level attributes.
+If you've enabled toggle at the document level, no changes are needed to your
+existing code cells. If you want to control toggle behavior for specific
+cells, you'll need to add cell-level attributes.
 
 ## How do I toggle output visibility for a specific cell?
 
@@ -96,9 +103,10 @@ print("Hello, world!")
 Yes, at the document level:
 
 ```yaml
-toggle:
-  output-toggle: true
-  output-hidden: true
+extensions:
+  toggle:
+    output-toggle: true
+    output-hidden: true
 ```
 
 Or at the cell level:
@@ -124,21 +132,28 @@ print("This output always shows")
 
 ## What happens if a code cell doesn't produce any output?
 
-If a code cell doesn't produce any output, the toggle button won't appear even if `toggle: true` is set for that cell.
+If a code cell doesn't produce any output, the toggle button won't appear
+even if `toggle: true` is set for that cell.
 
 ## What's the difference between individual and synchronized control?
- 
-- **Individual** (`output-sync: false`): Each toggle button controls only its specific output
-- **Synchronized** (`output-sync: true`): Any toggle button controls ALL outputs in the cell
 
-#### How do I sync output toggles in multioutput scenarios by default?
+- **Individual** (`output-sync: false`): Each toggle button controls only its
+  specific output
+- **Synchronized** (`output-sync: true`): Any toggle button controls ALL
+  outputs in the cell
 
-At the document level, set `output-sync: true` in the YAML header:
+Synchronized buttons display a blue left border so readers can tell they're
+linked.
+
+#### How do I sync output toggles in multi-output scenarios?
+
+At the document level, set `output-sync: true`:
 
 ```yaml
-toggle:
-  output-toggle: true
-  output-sync: true
+extensions:
+  toggle:
+    output-toggle: true
+    output-sync: true
 ```
 
 Or at the cell level:
@@ -147,16 +162,136 @@ Or at the cell level:
 ```{{python}}
 #| toggle: true
 #| output-sync: true
-print("Hello, world!")   # Same button to toggle both outputs
-print("Goodbye, world!") # Same button to toggle both outputs
+print("Hello, world!")
+print("Goodbye, world!")
 ```
 ````
 
+## Can I add a button that toggles all outputs at once?
+
+Yes. Enable `global-toggle` to add a floating button in the bottom-right
+corner:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    global-toggle: true
+```
+
+This is useful for long documents where clicking each toggle individually
+gets tedious.
+
+## Can toggle remember state across page refreshes?
+
+Yes. Enable `persist` to save toggle state to the browser's localStorage:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    persist: true
+```
+
+Each page maintains its own state. Different URLs have separate states.
+
+#### How do I clear saved toggle states?
+
+Open browser DevTools (F12) → Application → Local Storage → delete keys
+starting with `quarto-toggle-`.
+
+## Can I customize the button label?
+
+Yes. Use `button-text` to change the label from "Output" to something else:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    button-text: "Result"
+```
+
+Or at the cell level:
+
+````md
+```{{python}}
+#| toggle: true
+#| button-text: "Solution"
+print("42")
+```
+````
+
+## Does toggle work inside tabsets, callouts, or other containers?
+
+Yes. Toggle uses ID-based matching between code blocks and outputs, so it
+works regardless of how your cells are nested. You can place code cells inside
+tabsets, callouts, columns, `<details>` elements, or any combination.
+
+See the [Nested Containers](qtoggle-nested-containers.qmd) demo for examples.
+
+# Styling
+
+## Does toggle support dark mode?
+
+Yes. It automatically detects `prefers-color-scheme` and Quarto's
+`.quarto-dark` class. Button colors adapt automatically.
+
+## How do I customize the appearance?
+
+Override CSS custom properties using the `--tg-*` prefix:
+
+```css
+:root {
+  /* Button colors */
+  --tg-btn-bg: #f0f0f0;
+  --tg-btn-bg-hover: #e0e0e0;
+  --tg-btn-border: #ccc;
+  --tg-btn-text: #333;
+
+  /* Button sizing */
+  --tg-btn-radius: 3px;
+  --tg-btn-font-size: 0.8rem;
+  --tg-btn-padding: 0.2rem 0.5rem;
+
+  /* Other options */
+  --tg-sync-indicator: #0066cc;
+  --tg-focus-color: #0066cc;
+  --tg-output-border-color: #ccc;
+  --tg-output-border-style: dashed;
+}
+```
+
+The extension uses Bootstrap variables as fallbacks when available. See the
+[Custom Styling](qtoggle-styling.qmd) guide for full details.
+
+# Troubleshooting
+
+## Why don't I see any toggle buttons?
+
+Check these:
+
+1. `filters: [toggle]` is in your YAML
+2. Toggle is enabled (`output-toggle: true` or `toggle: true` on cells)
+3. Your cells produce output
+4. You're viewing an HTML format
+
+## Why does my button overlap with the copy button?
+
+The extension adjusts automatically. If you still see overlap, add custom CSS:
+
+```css
+.code-toggle-btn {
+  right: 6rem;
+}
+```
+
 # Support
 
-## How can I get help? 
+## How can I get help?
 
-For additional support, bug reports, or feature requests, please visit the extension's
-[GitHub repository](https://github.com/coatless-quarto/toggle). For general Quarto help,
-please visit the [Quarto community forum](https://github.com/quarto-dev/quarto-cli/discussions)
+For additional support, bug reports, or feature requests, please visit the
+extension's [GitHub repository](https://github.com/coatless-quarto/toggle).
+
+For general Quarto help, please visit the
+[Quarto community forum](https://github.com/quarto-dev/quarto-cli/discussions)
 or the [Quarto documentation](https://quarto.org).

@@ -1,0 +1,119 @@
+---
+title: "Data Analysis Demo"
+subtitle: "Document-wide toggle in action"
+format:
+  html:
+    toc: true
+extensions:
+  toggle:
+    output-toggle: true    # Enable toggle buttons for all cells
+    global-toggle: true    # Allow toggling all outputs at once
+filters:
+  - toggle
+---
+
+This demo shows toggle enabled for every cell. Readers can hide outputs as
+they work through the analysis, revealing results only when ready.
+
+The floating button in the corner toggles everything at once.
+
+## Configuration
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    global-toggle: true
+```
+
+## Loading the Data
+
+We'll analyze the `mtcars` dataset: 32 cars from 1974 Motor Trend magazine.
+
+```{r}
+data(mtcars)
+cat("Dataset dimensions:", nrow(mtcars), "rows,", ncol(mtcars), "columns\n")
+```
+
+```{r}
+head(mtcars, 5)
+```
+
+## Exploratory Analysis
+
+### Fuel Efficiency
+
+Miles per gallon ranges from gas-guzzlers to relatively efficient:
+
+```{r}
+summary(mtcars$mpg)
+```
+
+```{r}
+hist(mtcars$mpg,
+     main = "Distribution of MPG",
+     xlab = "Miles per Gallon",
+     col = "steelblue",
+     border = "white")
+```
+
+### Engine Size
+
+Most cars have either 4, 6, or 8 cylinders:
+
+```{r}
+table(mtcars$cyl)
+```
+
+```{r}
+barplot(table(mtcars$cyl),
+        main = "Cars by Cylinder Count",
+        xlab = "Cylinders",
+        ylab = "Count",
+        col = c("#4e79a7", "#f28e2b", "#e15759"))
+```
+
+## Relationships
+
+### MPG vs Weight
+
+Heavier cars use more fuel:
+
+```{r}
+cor(mtcars$mpg, mtcars$wt)
+```
+
+```{r}
+plot(mtcars$wt, mtcars$mpg,
+     main = "Weight vs MPG",
+     xlab = "Weight (1000 lbs)",
+     ylab = "Miles per Gallon",
+     pch = 19,
+     col = "steelblue")
+abline(lm(mpg ~ wt, data = mtcars), col = "red", lwd = 2)
+```
+
+### MPG by Transmission
+
+Manual transmissions tend to be more efficient:
+
+```{r}
+aggregate(mpg ~ am, data = mtcars, FUN = mean)
+```
+
+```{r}
+boxplot(mpg ~ am, data = mtcars,
+        names = c("Automatic", "Manual"),
+        main = "MPG by Transmission Type",
+        ylab = "Miles per Gallon",
+        col = c("#f28e2b", "#4e79a7"))
+```
+
+## Summary
+
+This demo showed toggle enabled document-wide with `output-toggle: true`.
+Every code cell got a toggle button, letting readers hide outputs as they
+work through the analysis.
+
+The floating global button in the bottom-right corner toggles all outputs at
+once—useful for quickly clearing the page or revealing everything.

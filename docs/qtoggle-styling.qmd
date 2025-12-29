@@ -1,0 +1,151 @@
+---
+title: "Custom Styling"
+subtitle: "Customize the appearance of toggle buttons"
+format:
+  html:
+    toc: true
+engine: markdown
+---
+
+The toggle extension uses CSS custom properties (`--tg-*` prefix) for styling.
+Set these variables to customize the appearance. If unset, the extension falls
+back to Bootstrap variables or sensible defaults.
+
+## CSS Variables Reference
+
+### Toggle Button
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `--tg-btn-bg` | Background color | `#f0f0f0` |
+| `--tg-btn-bg-hover` | Background on hover | `#e0e0e0` |
+| `--tg-btn-border` | Border color | `#ccc` |
+| `--tg-btn-text` | Text color | `#333` |
+| `--tg-btn-radius` | Border radius | `3px` |
+| `--tg-btn-font-size` | Font size | `0.8rem` |
+| `--tg-btn-padding` | Padding | `0.2rem 0.5rem` |
+
+### Focus & Indicators
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `--tg-focus-color` | Focus ring color | `#0066cc` |
+| `--tg-focus-offset` | Focus ring offset | `2px` |
+| `--tg-sync-indicator` | Sync mode left border | `#0066cc` |
+
+### Output Section
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `--tg-output-border-color` | Border above output | `#ccc` |
+| `--tg-output-border-style` | Border style | `dashed` |
+
+### Tooltip
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `--tg-tooltip-bg` | Tooltip background | `#333` |
+| `--tg-tooltip-text` | Tooltip text color | `#fff` |
+
+### Transitions
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `--tg-transition-duration` | Animation duration | `0.2s` |
+| `--tg-transition-timing` | Timing function | `ease` |
+
+### Global Button
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `--tg-global-btn-radius` | Border radius | `6px` |
+| `--tg-global-btn-padding` | Padding | `0.5rem 1rem` |
+| `--tg-global-btn-font-size` | Font size | `0.85rem` |
+| `--tg-global-btn-shadow` | Box shadow | `0 2px 8px rgba(0,0,0,0.15)` |
+| `--tg-global-btn-shadow-hover` | Shadow on hover | `0 4px 12px rgba(0,0,0,0.2)` |
+
+## Examples
+
+### Minimal Style
+
+```css
+:root {
+  --tg-btn-bg: transparent;
+  --tg-btn-bg-hover: rgba(0, 0, 0, 0.05);
+  --tg-btn-border: transparent;
+  --tg-output-border-style: solid;
+}
+```
+
+### Larger Buttons
+
+```css
+:root {
+  --tg-btn-font-size: 0.9rem;
+  --tg-btn-padding: 0.4rem 0.8rem;
+  --tg-btn-radius: 6px;
+}
+```
+
+### Remove Output Border
+
+```css
+[data-toggle-output] {
+  border-top: none;
+}
+```
+
+## Dark Mode
+
+The extension adapts automatically via `prefers-color-scheme` and Quarto's
+theme classes. Quarto adds `.quarto-dark` to the body in dark mode and
+`.quarto-light` in light mode.
+
+To customize dark mode colors:
+
+```css
+/* For Quarto's theme switcher (class on body) */
+.quarto-dark {
+  --tg-btn-bg: #2a2a2a;
+  --tg-btn-bg-hover: #3a3a3a;
+  --tg-btn-border: #555;
+  --tg-btn-text: #e0e0e0;
+}
+
+/* For system preference (when not using Quarto themes) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tg-btn-bg: #2a2a2a;
+    --tg-btn-bg-hover: #3a3a3a;
+    --tg-btn-border: #555;
+    --tg-btn-text: #e0e0e0;
+  }
+}
+```
+
+## Adding Custom CSS
+
+Reference a CSS file in your document:
+
+```yaml
+format:
+  html:
+    css: custom.css
+```
+
+Or use inline styles:
+
+```html
+<style>
+:root {
+  --tg-btn-bg: #your-color;
+}
+</style>
+```
+
+## Summary
+
+The toggle extension provides CSS custom properties for complete visual
+customization. Set `--tg-*` variables to override defaults, use `.quarto-dark`
+for theme-aware styling, and ensure sufficient color contrast for
+accessibility. All variables fall back to Bootstrap values when available.

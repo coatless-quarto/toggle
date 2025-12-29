@@ -1,0 +1,63 @@
+---
+title: "Remember State"
+subtitle: "Persist toggle choices across page visits"
+format:
+  html:
+    toc: true
+extensions:
+  toggle:
+    output-toggle: true
+    persist: true
+filters:
+  - toggle
+---
+
+By default, toggle state resets when you refresh the page. With persistence
+enabled, your choices are saved to the browser's localStorage and restored on
+your next visit.
+
+## Configuration
+
+Enable persistence in your settings:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    persist: true
+```
+
+Or per-cell with `#| persist: true`.
+
+```{{r}}
+#| persist: true
+print("This cell's toggle state will be remembered.")
+```
+
+## Try It
+
+1. Toggle the output below to hide it
+2. Refresh the page
+3. Your choice should be preserved
+
+```{r}
+cat("Toggle me, then refresh the page.\n")
+cat("I'll remember whether I was hidden or shown.\n")
+```
+
+## Clearing Saved State
+
+Toggle states are stored in `localStorage` using keys like
+`quarto-toggle-/path-cell-0`. Each page maintains its own state. To reset:
+
+1. Open browser DevTools (F12)
+2. Go to Application → Local Storage
+3. Delete keys starting with `quarto-toggle-`
+
+::: {.callout-tip appearance="simple"}
+All data stays in your browser. Nothing is sent to any server.
+:::
+
+## Summary
+
+Use `persist: true` to save toggle state in the browser. Useful for documents readers visit repeatedly.

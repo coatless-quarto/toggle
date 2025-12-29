@@ -1,20 +1,30 @@
 ---
 title: "Release Notes"
-date: "05-13-2025"
-date-modified: last-modified
-engine: markdown
-format: 
+format:
   html:
     toc: true
 ---
 
-# 0.0.0-dev.1: ????? (??-??-????)
+## 0.2.0 "Is it on or is it off?" (12-28-2025)
 
-## Features
+Initial public release. This version is a complete rewrite of an earlier
+public but unreleased prototype.
 
-- `toggle` extension adds toggle buttons to code cells.
-  - Toggles allow readers to show or hide the output of code blocks 
-    without affecting the visibility of the code itself.
-  - Toggles are added to code cells by setting the `toggle` attribute in the code chunk options or by specifying `output-toggle: true` in the `toggle` key in the YAML header.
-  - The output of the code cell is shown by default, but can be hidden by specifying `output-hidden: true` in the code chunk options or under the `toggle` key in the YAML header.
-  - Toggles are compatible with HTML-based output formats, including HTML documents, websites, books (HTML format), and Revealjs presentations.
+### Features
+
+- Toggle buttons let readers show or hide code cell outputs without
+  affecting the code itself
+- Works with HTML-based formats: documents, websites, books, and Revealjs
+- Document-level settings via `extensions.toggle` namespace
+  - `output-toggle`: Enable toggle buttons for all cells
+  - `output-hidden`: Start outputs collapsed
+  - `output-sync`: Synchronize toggles for multi-output cells
+  - `global-toggle`: Add floating button to control all outputs
+  - `persist`: Save toggle state to localStorage
+  - `button-text`: Custom button label
+- Cell-level overrides with `#|` comments
+  - `toggle`: Enable/disable toggle for a specific cell
+  - `output-hidden`: Override default visibility
+  - `output-sync`: Override sync behavior
+  - `button-text`: Custom label for this cell
+- CSS custom properties (`--tg-*`) with automatic dark mode support

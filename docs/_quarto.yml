@@ -8,31 +8,52 @@ website:
   repo-actions: [edit, issue]
   sidebar:
     logo: "toggle-animated-logo.svg"
-    logo-alt: "A hexagon logo for the toggle Quarto extension."
+    logo-alt: "Toggle extension logo"
     style: "floating"
     search: true
     tools:
       - icon: github
         href: https://github.com/coatless-quarto/toggle/
-    contents: 
-      - text: "Home"
-        file: index.qmd
-      - section: "Examples"
+    contents:
+      - section: "Get Started"
         contents:
-        - text: "Toggle for All Cells"
-          href: qtoggle-all-cells-example.qmd
-        - text: "Toggle Specific Cells"
-          href: qtoggle-specific-cells-example.qmd
-      - section: "Support"
+        - text: "Home"
+          href: index.qmd
+        - text: "Quick Start"
+          href: qtoggle-quick-start.qmd
+      - section: "Features"
         contents:
+        - text: "Hide by Default"
+          href: qtoggle-hidden-default.qmd
+        - text: "Sync Multiple Outputs"
+          href: qtoggle-sync-mode.qmd
+        - text: "Global Control"
+          href: qtoggle-global-toggle.qmd
+        - text: "Remember State"
+          href: qtoggle-persistence.qmd
+        - text: "Custom Labels"
+          href: qtoggle-custom-text.qmd
+      - section: "Demos"
+        contents:
+        - text: "Nested Containers"
+          href: qtoggle-nested-containers.qmd
+        - text: "Data Analysis Demo"
+          href: qtoggle-demo.qmd
+      - section: "Reference"
+        contents:
+        - text: "Custom Styling"
+          href: qtoggle-styling.qmd
         - text: "FAQ"
           href: qtoggle-faq.qmd
-        - text: "Submit an issue"
-          href: https://github.com/coatless-quarto/toggle/issues/new/choose
-      - section: "Extra"
-        contents:
-        - qtoggle-release-notes.qmd
+        - text: "Release Notes"
+          href: qtoggle-release-notes.qmd
+      - text: "---"
+      - text: "Report Issue"
+        href: https://github.com/coatless-quarto/toggle/issues/new/choose
 
-format: 
+format:
   html:
     toc: true
+    theme:
+      light: flatly
+      dark: darkly

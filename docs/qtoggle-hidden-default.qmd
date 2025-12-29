@@ -1,0 +1,99 @@
+---
+title: "Hide by Default"
+subtitle: "Start collapsed, reveal on demand"
+format:
+  html:
+    toc: true
+extensions:
+  toggle:
+    output-toggle: true
+    output-hidden: true
+filters:
+  - toggle
+---
+
+Sometimes you want outputs hidden until readers actively choose to see them.
+This keeps pages clean while making details available on demand.
+
+Every output on this page starts hidden. Click the toggle buttons to reveal
+them.
+
+## Configuration
+
+Add `output-hidden: true` to your settings:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    output-hidden: true
+```
+
+Or set it on individual cells with `#| output-hidden: true`.
+
+## Examples
+
+These outputs are hidden until you click:
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+print("You found me!")
+```
+
+```{r}
+for (i in 1:3) {
+  cat("Line", i, "\n")
+}
+```
+
+### Source
+
+````md
+```{{r}}
+print("You found me!")
+```
+
+```{{r}}
+for (i in 1:3) {
+  cat("Line", i, "\n")
+}
+```
+````
+
+:::
+
+## Showing Specific Cells
+
+Even when the document default is hidden, you can force specific outputs to
+show:
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+#| output-hidden: false
+print("I'm visible by default, despite the document setting.")
+```
+
+### Source
+
+````md
+```{{r}}
+#| output-hidden: false
+print("I'm visible by default, despite the document setting.")
+```
+````
+
+:::
+
+## Summary
+
+Use `output-hidden: true` to start outputs collapsed. Readers click to reveal.
+Override with `output-hidden: false` on cells that should always show.
+
+Works well for problem sets (hide solutions), reports (hide supporting
+details), and tutorials (reveal answers progressively).

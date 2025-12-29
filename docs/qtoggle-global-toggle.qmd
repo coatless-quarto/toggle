@@ -1,0 +1,113 @@
+---
+title: "Global Control"
+subtitle: "One button for the whole page"
+format:
+  html:
+    toc: true
+extensions:
+  toggle:
+    output-toggle: true
+    global-toggle: true
+filters:
+  - toggle
+---
+
+For long documents with many outputs, clicking each toggle individually gets
+tedious. The global toggle button lets you hide or show everything at once.
+
+Look in the bottom-right corner of your screen. You should see a floating
+"Toggle All Outputs" button.
+
+## Configuration
+
+Add `global-toggle: true` to your settings:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    global-toggle: true
+```
+
+::: {.callout-note appearance="simple"}
+Global toggle is a document-level feature. There's no cell-level equivalent
+since it wouldn't make sense for a single cell to control the whole page.
+:::
+
+## Try It
+
+Click the floating button to hide all outputs. Click again to show them.
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+print("Output 1")
+```
+
+```{r}
+print("Output 2")
+```
+
+```{r}
+print("Output 3")
+```
+
+```{r}
+print("Output 4")
+```
+
+### Source
+
+````md
+```{{r}}
+print("Output 1")
+```
+
+```{{r}}
+print("Output 2")
+```
+
+```{{r}}
+print("Output 3")
+```
+
+```{{r}}
+print("Output 4")
+```
+````
+
+:::
+
+## Still Works with Individual Toggles
+
+After using the global button, you can still click individual toggles to show
+or hide specific outputs. The global button sets everything to the same state;
+individual buttons fine-tune from there.
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+#| output-hidden: true
+print("I start hidden, but the global button affects me too.")
+```
+
+### Source
+
+````md
+```{{r}}
+#| output-hidden: true
+print("I start hidden, but the global button affects me too.")
+```
+````
+
+:::
+
+## Summary
+
+Use `global-toggle: true` to add a floating button that hides or shows all
+outputs at once. Individual toggles still work for fine-grained control.
+Useful for presentations, code review, and navigating long documents.

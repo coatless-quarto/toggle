@@ -1,0 +1,130 @@
+---
+title: "Sync Multiple Outputs"
+subtitle: "Toggle related outputs together"
+format:
+  html:
+    toc: true
+extensions:
+  toggle:
+    output-toggle: true
+filters:
+  - toggle
+---
+
+When a single code cell produces multiple outputs (a printed summary, a plot,
+a table), you might want them to toggle together rather than separately. Sync
+mode does exactly that.
+
+Synced toggle buttons have a **blue left border** so you can tell they're
+linked.
+
+## Configuration
+
+Enable sync mode in your settings:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    output-sync: true
+```
+
+Or per-cell with `#| output-sync: true`.
+
+## Individual Mode (Default)
+
+Without sync, each output gets its own independent button. Click one and only
+that output hides.
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+print("First output - has its own toggle")
+```
+
+```{r}
+print("Second output - toggles independently")
+```
+
+### Source
+
+````md
+```{{r}}
+print("First output - has its own toggle")
+```
+
+```{{r}}
+print("Second output - toggles independently")
+```
+````
+
+:::
+
+## Synced Mode
+
+With sync enabled, all outputs from the cell toggle together. Notice the blue
+border on the buttons. Click any of them and all outputs respond.
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+#| output-sync: true
+cat("Part 1: Summary\n")
+cat("Mean:", mean(1:10), "\n")
+cat("SD:", sd(1:10), "\n\n")
+cat("Part 2: Visual\n")
+barplot(1:5, names.arg = LETTERS[1:5], col = "steelblue")
+cat("\nPart 3: Complete\n")
+```
+
+### Source
+
+````md
+```{{r}}
+#| output-sync: true
+cat("Part 1: Summary\n")
+cat("Mean:", mean(1:10), "\n")
+cat("SD:", sd(1:10), "\n\n")
+cat("Part 2: Visual\n")
+barplot(1:5, names.arg = LETTERS[1:5], col = "steelblue")
+cat("\nPart 3: Complete\n")
+```
+````
+
+:::
+
+## Mixing Modes
+
+You can use document-wide sync for most cells and override specific ones:
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+#| output-sync: false
+cat("This cell uses individual mode\n")
+cat("Each line toggles separately\n")
+```
+
+### Source
+
+````md
+```{{r}}
+#| output-sync: false
+cat("This cell uses individual mode\n")
+cat("Each line toggles separately\n")
+```
+````
+
+:::
+
+## Summary
+
+Use `output-sync: true` when multiple outputs from the same cell belong
+together conceptually. Synced buttons show a blue border and toggle as a
+group. Use individual mode when readers should control each output separately.

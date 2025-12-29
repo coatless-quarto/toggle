@@ -1,0 +1,110 @@
+---
+title: "Custom Labels"
+subtitle: "Name your buttons to match the content"
+format:
+  html:
+    toc: true
+extensions:
+  toggle:
+    output-toggle: true
+    button-text: "Result"
+filters:
+  - toggle
+---
+
+"Output" is generic. When every button says the same thing, readers lose
+context. Custom labels tell them what they'll find before they click.
+
+This page uses "Result" as the default, but individual cells override it with
+context-specific labels.
+
+## Configuration
+
+Set a document-wide default:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    button-text: "Result"
+```
+
+Or label specific cells with `#| button-text: "Plot"`.
+
+```{{r}}
+#| button-text: "Plot"
+plot(1:10, main = "Sample Data", pch = 19, col = "steelblue")
+```
+
+## Examples
+
+### Default Label
+
+These cells inherit "Result" from the document settings:
+
+::: {.panel-tabset}
+
+#### Example
+
+```{r}
+2 + 2
+```
+
+```{r}
+print("Standard label from document config")
+```
+
+#### Source
+
+````md
+```{{r}}
+2 + 2
+```
+
+```{{r}}
+print("Standard label from document config")
+```
+````
+
+:::
+
+### Context-Specific Labels
+
+Override per-cell when the content calls for it:
+
+::: {.panel-tabset}
+
+#### Example
+
+```{r}
+#| button-text: "Solution"
+factorial(5)
+```
+
+```{r}
+#| button-text: "Plot"
+plot(1:10, main = "Sample Data", pch = 19, col = "steelblue")
+```
+
+#### Source
+
+````md
+```{{r}}
+#| button-text: "Solution"
+factorial(5)
+```
+
+```{{r}}
+#| button-text: "Plot"
+plot(1:10, main = "Sample Data", pch = 19, col = "steelblue")
+```
+````
+
+:::
+
+## Summary
+
+Use `button-text` to replace the generic "Output" label with something
+meaningful. Set a document default, then override per-cell as needed. Good
+labels ("Solution", "Plot", "Debug") tell readers what to expect before they
+click.

@@ -1,0 +1,310 @@
+---
+title: "Nested Containers"
+subtitle: "Toggle works inside tabsets, callouts, and more"
+format:
+  html:
+    toc: true
+extensions:
+  toggle:
+    output-toggle: true
+filters:
+  - toggle
+---
+
+Toggle buttons work regardless of where your code cells live. Tabsets,
+callouts, columns, `<details>` elements: the extension finds your code and
+attaches buttons correctly.
+
+## Configuration
+
+This page uses document-wide toggle:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+```
+
+## Tabsets
+
+::: {.panel-tabset group="tabset-demo"}
+
+### Example
+
+::: {.panel-tabset}
+
+#### R
+
+```{r}
+cat("R code inside a tabset\n")
+summary(1:10)
+```
+
+#### Python
+
+```{python}
+print("Python code inside a tabset")
+import math
+print(f"Pi = {math.pi:.6f}")
+```
+
+:::
+
+### Source
+
+````md
+::: {.panel-tabset}
+
+#### R
+
+```{{r}}
+cat("R code inside a tabset\n")
+summary(1:10)
+```
+
+#### Python
+
+```{{python}}
+print("Python code inside a tabset")
+import math
+print(f"Pi = {math.pi:.6f}")
+```
+
+:::
+````
+
+:::
+
+## Callouts
+
+::: {.panel-tabset group="callout-demo"}
+
+### Example
+
+::: {.callout-note appearance="simple"}
+## Code in a Note
+
+```{r}
+cat("This code lives inside a callout\n")
+```
+:::
+
+::: {.callout-warning appearance="simple"}
+## Warning with Code
+
+```{python}
+print("Toggle works in warnings too")
+```
+:::
+
+::: {.callout-tip appearance="simple" collapse="true"}
+## Collapsed Callout
+
+Click the callout to expand, then toggle the output:
+
+```{r}
+cat("Hidden inside a collapsed callout\n")
+```
+:::
+
+### Source
+
+````md
+::: {.callout-note appearance="simple"}
+## Code in a Note
+
+```{{r}}
+cat("This code lives inside a callout\n")
+```
+:::
+
+::: {.callout-warning appearance="simple"}
+## Warning with Code
+
+```{{python}}
+print("Toggle works in warnings too")
+```
+:::
+
+::: {.callout-tip appearance="simple" collapse="true"}
+## Collapsed Callout
+
+Click the callout to expand, then toggle the output:
+
+```{{r}}
+cat("Hidden inside a collapsed callout\n")
+```
+:::
+````
+
+:::
+
+## Details Elements
+
+::: {.panel-tabset group="details-demo"}
+
+### Example
+
+<details>
+<summary>Click to expand</summary>
+
+```{r}
+cat("Code nested inside a <details> element\n")
+```
+
+</details>
+
+<details open>
+<summary>Already expanded</summary>
+
+```{python}
+print("This details element starts open")
+```
+
+</details>
+
+### Source
+
+````md
+<details>
+<summary>Click to expand</summary>
+
+```{{r}}
+cat("Code nested inside a <details> element\n")
+```
+
+</details>
+
+<details open>
+<summary>Already expanded</summary>
+
+```{{python}}
+print("This details element starts open")
+```
+
+</details>
+````
+
+:::
+
+## Columns
+
+::: {.panel-tabset group="columns-demo"}
+
+### Example
+
+::: {.columns}
+
+::: {.column width="50%"}
+**Left Column**
+
+```{r}
+cat("Left side\n")
+```
+:::
+
+::: {.column width="50%"}
+**Right Column**
+
+```{python}
+print("Right side")
+```
+:::
+
+:::
+
+### Source
+
+````md
+::: {.columns}
+
+::: {.column width="50%"}
+**Left Column**
+
+```{{r}}
+cat("Left side\n")
+```
+:::
+
+::: {.column width="50%"}
+**Right Column**
+
+```{{python}}
+print("Right side")
+```
+:::
+
+:::
+````
+
+:::
+
+## Nested Combinations
+
+A tabset inside a callout inside a div:
+
+::: {.panel-tabset group="nested-demo"}
+
+### Example
+
+::: {.border .p-3}
+
+::: {.callout-note appearance="simple"}
+## Deeply Nested
+
+::: {.panel-tabset}
+
+#### Tab A
+
+```{r}
+cat("Three levels deep\n")
+```
+
+#### Tab B
+
+```{python}
+print("Still works")
+```
+
+:::
+
+:::
+
+:::
+
+### Source
+
+````md
+::: {.border .p-3}
+
+::: {.callout-note appearance="simple"}
+## Deeply Nested
+
+::: {.panel-tabset}
+
+#### Tab A
+
+```{{r}}
+cat("Three levels deep\n")
+```
+
+#### Tab B
+
+```{{python}}
+print("Still works")
+```
+
+:::
+
+:::
+
+:::
+````
+
+:::
+
+## Summary
+
+Toggle uses ID-based matching between code blocks and outputs. The DOM
+structure doesn't matter. Nest your cells inside tabsets, callouts, columns,
+or any combination. The extension finds them and attaches buttons correctly.

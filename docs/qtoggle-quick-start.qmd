@@ -1,0 +1,156 @@
+---
+title: "Quick Start"
+subtitle: "Your first toggle button"
+format:
+  html:
+    toc: true
+extensions:
+  toggle:
+    output-toggle: true
+filters:
+  - toggle
+---
+
+The toggle button appears when you hover over a code block. It sits in the
+top-right corner, next to the copy button if you have one enabled.
+
+```{=html}
+<style>
+.demo-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.25em 0.5em;
+  border: 1px solid var(--quarto-border-color, #dee2e6);
+  border-radius: 4px;
+  background: var(--quarto-bg, #fff);
+  cursor: pointer;
+  font-size: 0.9em;
+  vertical-align: middle;
+  transition: background-color 0.15s;
+}
+.demo-toggle-btn:hover {
+  background: var(--quarto-hover-bg, #f8f9fa);
+}
+</style>
+```
+
+Here's what it looks like (click to try):
+
+```{=html}
+<button class="demo-toggle-btn" onclick="const c = this.querySelector('.chevron'); c.textContent = c.textContent === '▼' ? '▶' : '▼'" title="Click to toggle"><span class="chevron">▼</span> Output</button>
+<p></p>
+```
+
+
+- **▼** means output is visible (click to hide)
+- **▶** means output is hidden (click to show)
+
+## Try It
+
+Hover over any code block on this page. You'll see the button fade in on the upper right side of the code cell.
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+print("Hello! Hover over this code block.")
+```
+
+```{r}
+x <- 1:5
+cat("Sum:", sum(x), "\n")
+cat("Mean:", mean(x), "\n")
+```
+
+### Source
+
+````md
+```{{r}}
+print("Hello! Hover over this code block.")
+```
+
+```{{r}}
+x <- 1:5
+cat("Sum:", sum(x), "\n")
+cat("Mean:", mean(x), "\n")
+```
+````
+
+:::
+
+## Enabling Toggle
+
+You have two approaches: enable for specific cells, or enable document-wide.
+
+### Per-Cell
+
+::: {.panel-tabset}
+
+#### Example
+
+```{r}
+#| toggle: true
+summary(iris)
+```
+
+#### Source
+
+````md
+```{{r}}
+#| toggle: true
+summary(iris)
+```
+````
+
+:::
+
+### Document-Wide
+
+Enable for all cells in your YAML header:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+```
+
+This page uses document-wide configuration, so every code cell has a button.
+
+## Disabling for Specific Cells
+
+When toggle is enabled document-wide, you can turn it off for individual cells:
+
+::: {.panel-tabset}
+
+### Example
+
+```{r}
+#| toggle: false
+print("This output is always visible. No button here.")
+```
+
+### Source
+
+````md
+```{{r}}
+#| toggle: false
+print("This output is always visible. No button here.")
+```
+````
+
+:::
+
+This is useful when you have results that should always be visible, like final
+conclusions or key findings.
+
+## Summary
+
+Toggle buttons give readers control over output visibility. Enable them
+document-wide with `output-toggle: true`, or per-cell with `#| toggle: true`.
+Override either direction as needed.
+
+**Next:** [Hide outputs by default](qtoggle-hidden-default.qmd),
+[sync multiple outputs](qtoggle-sync-mode.qmd), or
+[add a global button](qtoggle-global-toggle.qmd).
