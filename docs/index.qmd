@@ -1,6 +1,6 @@
 ---
 title: "Toggle"
-subtitle: "Let readers control output visibility in Quarto documents"
+subtitle: "Give your readers control over what they see"
 format:
   html:
     toc: true
@@ -12,17 +12,53 @@ the output on demand.
 
 Think of it as the opposite of Quarto's
 [`code-fold`](https://quarto.org/docs/output-formats/html-code.html#folding-code).
-Instead of hiding code and showing output, toggle hides output and shows code.
+Instead of hiding code and showing output, Toggle **hides output** and shows code.
 
 ## Installation
+
+To install the `toggle` extension, follow these steps:
+
+1. Open your terminal.
+
+2. Execute the following command:
 
 ```bash
 quarto add coatless-quarto/toggle
 ```
 
-## Quick Start
+This command will download and install the extension under the `_extensions`
+subdirectory of your Quarto project. If you are using version control, ensure
+that you include this directory in your repository.
 
-Add the filter and enable toggle for all cells:
+### Requirements
+
+- Quarto >= 1.7.0
+
+## Usage
+
+1. **Add the filter** to your document's YAML header:
+
+```yaml
+---
+title: "My Document"
+format: html
+filters:
+  - toggle
+---
+```
+
+2. **Enable toggle for specific code cells** by adding `toggle: true`:
+
+````md
+```{{python}}
+#| toggle: true
+print("Hello, Python world!")
+```
+````
+
+That's it! A toggle button will now appear when you hover over the code block.
+
+Want toggle on every cell? Add `output-toggle: true` at the document level:
 
 ```yaml
 extensions:
@@ -31,19 +67,6 @@ extensions:
 filters:
   - toggle
 ```
-
-Hover over any code block to see the toggle button appear. Click to hide the
-output; click again to show it.
-
-To enable toggle for specific cells only, omit `output-toggle` and add
-`#| toggle: true` to individual cells:
-
-````md
-```{{r}}
-#| toggle: true
-summary(mtcars)
-```
-````
 
 ## Options
 
@@ -58,28 +81,9 @@ Set these under `extensions.toggle` or per-cell with `#|` comments:
 | `persist` | `false` | Remember state across page reloads |
 | `button-text` | `"Output"` | Label shown on the button |
 
-## Compatibility
+Check out the guides in the sidebar to see each of these in action.
 
-Works with HTML-based Quarto formats: documents, websites, books, and Revealjs
-presentations.
+## Questions?
 
-Toggle complements Quarto's
-[`code-fold`](https://quarto.org/docs/output-formats/html-code.html#folding-code).
-Use both together:
-
-```yaml
-format:
-  html:
-    code-fold: true
-extensions:
-  toggle:
-    output-toggle: true
-```
-
-PDF, Word, and other non-HTML formats are unaffected.
-
-## Getting Help
-
-- [FAQ](qtoggle-faq.qmd) — Common questions
-- [GitHub Issues](https://github.com/coatless-quarto/toggle/issues) — Bug reports
-- [Discussions](https://github.com/coatless-quarto/toggle/discussions) — Questions
+- [FAQ](qtoggle-faq.qmd) — Quick answers to common questions
+- [GitHub Issues](https://github.com/coatless-quarto/toggle/issues) — Found a bug? Let us know
