@@ -16,6 +16,12 @@ quarto add coatless-quarto/toggle
 
 This command will download and install the extension under the `_extensions` subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.
 
+### Requirements
+
+To use the `toggle` extension, ensure you have the following:
+
+- Quarto >= 1.7.0
+
 ## Quick Start
 
 1. **Add the filter** to your document's YAML header:
@@ -122,10 +128,11 @@ You can enable toggle functionality for all code cells in your document by addin
 ---
 title: "My Document"
 format: html
-toggle:
-  output-toggle: true    # Enable toggle functionality
-  output-hidden: false   # Show outputs initially (default)
-  output-sync: false     # Individual control (default)
+extensions:
+  toggle:
+    output-toggle: true    # Enable toggle functionality
+    output-hidden: false   # Show outputs initially (default)
+    output-sync: false     # Individual control (default)
 filters:
   - toggle
 ---
@@ -138,10 +145,56 @@ filters:
 | `output-toggle` | boolean | `false` | Enable toggle functionality |
 | `output-hidden` | boolean | `false` | Hide outputs initially |
 | `output-sync` | boolean | `false` | Synchronize all outputs in cell |
+| `global-toggle` | boolean | `false` | Show a global toggle button to control all outputs |
+| `persist` | boolean | `false` | Save toggle state in localStorage |
+| `button-text` | string | `"Output"` | Custom text for the toggle button |
 
 > [!IMPORTANT]
 >
 > To avoid confusion with the `toggle` document-level key, the document-level configuration uses `output-toggle` instead of `toggle` for enabling the toggle functionality globally.
+
+#### Global Toggle Button
+
+Add a floating button that controls all toggleable outputs on the page:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    global-toggle: true
+```
+
+#### Persist Toggle State
+
+Remember the user's toggle preferences across page reloads:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    persist: true
+```
+
+#### Custom Button Text
+
+Change the default "Output" label on toggle buttons:
+
+```yaml
+extensions:
+  toggle:
+    output-toggle: true
+    button-text: "Result"
+```
+
+You can also customize per-cell:
+
+````markdown
+```{python}
+#| toggle: true
+#| button-text: "Answer"
+print("The answer is 42")
+```
+````
 
 
 
@@ -150,6 +203,10 @@ filters:
 - Cell-level settings override document-level settings
 - If no cell-level setting is provided, document-level settings apply
 - If neither is provided, toggle is not enabled for that cell
+
+## Documentation
+
+For more examples and detailed guides, visit the [documentation site](https://quarto.thecoatlessprofessor.com/toggle/).
 
 ## Help
 
