@@ -1,6 +1,6 @@
 title: Toggle
 author: James J Balamuta
-version: 0.0.0-dev.1
+version: 0.2.0
 quarto-required: ">=1.7.0"
 contributes:
   filters:
