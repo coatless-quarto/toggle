@@ -1,23 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-persistence.html</loc>
+    <lastmod>2025-12-29T06:12:09.440Z</lastmod>
+  </url>
+  <url>
     <loc>https://coatless-quarto.github.io/toggle/qtoggle-release-notes.html</loc>
-    <lastmod>2025-12-03T19:56:54.263Z</lastmod>
+    <lastmod>2025-12-29T06:12:09.441Z</lastmod>
   </url>
   <url>
-    <loc>https://coatless-quarto.github.io/toggle/qtoggle-all-cells-example.html</loc>
-    <lastmod>2025-12-03T19:56:54.263Z</lastmod>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-global-toggle.html</loc>
+    <lastmod>2025-12-29T06:12:09.440Z</lastmod>
   </url>
   <url>
-    <loc>https://coatless-quarto.github.io/toggle/qtoggle-specific-cells-example.html</loc>
-    <lastmod>2025-12-03T19:56:54.263Z</lastmod>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-custom-text.html</loc>
+    <lastmod>2025-12-29T06:12:09.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-demo.html</loc>
+    <lastmod>2025-12-29T06:12:09.440Z</lastmod>
   </url>
   <url>
     <loc>https://coatless-quarto.github.io/toggle/index.html</loc>
-    <lastmod>2025-12-03T19:56:54.263Z</lastmod>
+    <lastmod>2025-12-29T06:12:09.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-hidden-default.html</loc>
+    <lastmod>2025-12-29T06:12:09.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-styling.html</loc>
+    <lastmod>2025-12-29T06:12:09.441Z</lastmod>
+  </url>
+  <url>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-quick-start.html</loc>
+    <lastmod>2025-12-29T06:12:09.441Z</lastmod>
   </url>
   <url>
     <loc>https://coatless-quarto.github.io/toggle/qtoggle-faq.html</loc>
-    <lastmod>2025-12-03T19:56:54.263Z</lastmod>
+    <lastmod>2025-12-29T06:12:09.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-nested-containers.html</loc>
+    <lastmod>2025-12-29T06:12:09.440Z</lastmod>
+  </url>
+  <url>
+    <loc>https://coatless-quarto.github.io/toggle/qtoggle-sync-mode.html</loc>
+    <lastmod>2025-12-29T06:12:09.441Z</lastmod>
   </url>
 </urlset>

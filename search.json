@@ -1,196 +1,486 @@
 [
   {
+    "objectID": "qtoggle-persistence.html",
+    "href": "qtoggle-persistence.html",
+    "title": "Remember State",
+    "section": "",
+    "text": "By default, toggle state resets when you refresh the page. With persistence enabled, your choices are saved to the browser’s localStorage and restored on your next visit.",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html#configuration",
+    "href": "qtoggle-persistence.html#configuration",
+    "title": "Remember State",
+    "section": "Configuration",
+    "text": "Configuration\nEnable persistence in your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    persist: true\nOr per-cell with #| persist: true.\n```{r}\n#| persist: true\nprint(\"This cell's toggle state will be remembered.\")\n```",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html#try-it",
+    "href": "qtoggle-persistence.html#try-it",
+    "title": "Remember State",
+    "section": "Try It",
+    "text": "Try It\n\nToggle the output below to hide it\nRefresh the page\nYour choice should be preserved\n\n\ncat(\"Toggle me, then refresh the page.\\n\")\n\nToggle me, then refresh the page.\n\ncat(\"I'll remember whether I was hidden or shown.\\n\")\n\nI'll remember whether I was hidden or shown.",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html#clearing-saved-state",
+    "href": "qtoggle-persistence.html#clearing-saved-state",
+    "title": "Remember State",
+    "section": "Clearing Saved State",
+    "text": "Clearing Saved State\nToggle states are stored in localStorage using keys like quarto-toggle-/path-cell-0. Each page maintains its own state. To reset:\n\nOpen browser DevTools (F12)\nGo to Application → Local Storage\nDelete keys starting with quarto-toggle-\n\n\n\n\n\n\n\nAll data stays in your browser. Nothing is sent to any server.",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html#summary",
+    "href": "qtoggle-persistence.html#summary",
+    "title": "Remember State",
+    "section": "Summary",
+    "text": "Summary\nUse persist: true to save toggle state in the browser. Useful for documents readers visit repeatedly.",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
     "objectID": "qtoggle-release-notes.html",
     "href": "qtoggle-release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "toggle extension adds toggle buttons to code cells.\n\nToggles allow readers to show or hide the output of code blocks without affecting the visibility of the code itself.\nToggles are added to code cells by setting the toggle attribute in the code chunk options or by specifying output-toggle: true in the toggle key in the YAML header.\nThe output of the code cell is shown by default, but can be hidden by specifying output-hidden: true in the code chunk options or under the toggle key in the YAML header.\nToggles are compatible with HTML-based output formats, including HTML documents, websites, books (HTML format), and Revealjs presentations.",
+    "text": "Initial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\n\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
     "crumbs": [
-      "Extra",
+      "Reference",
       "Release Notes"
     ]
   },
   {
-    "objectID": "qtoggle-release-notes.html#features",
-    "href": "qtoggle-release-notes.html#features",
+    "objectID": "qtoggle-release-notes.html#is-it-on-or-is-it-off-12-28-2025",
+    "href": "qtoggle-release-notes.html#is-it-on-or-is-it-off-12-28-2025",
     "title": "Release Notes",
     "section": "",
-    "text": "toggle extension adds toggle buttons to code cells.\n\nToggles allow readers to show or hide the output of code blocks without affecting the visibility of the code itself.\nToggles are added to code cells by setting the toggle attribute in the code chunk options or by specifying output-toggle: true in the toggle key in the YAML header.\nThe output of the code cell is shown by default, but can be hidden by specifying output-hidden: true in the code chunk options or under the toggle key in the YAML header.\nToggles are compatible with HTML-based output formats, including HTML documents, websites, books (HTML format), and Revealjs presentations.",
+    "text": "Initial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\n\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
     "crumbs": [
-      "Extra",
+      "Reference",
       "Release Notes"
     ]
   },
   {
-    "objectID": "qtoggle-all-cells-example.html",
-    "href": "qtoggle-all-cells-example.html",
-    "title": "Toggle for All Cells",
+    "objectID": "qtoggle-global-toggle.html",
+    "href": "qtoggle-global-toggle.html",
+    "title": "Global Control",
     "section": "",
-    "text": "This page demonstrates how to globally enable toggle functionality for all code cells, rather than enabling it on a per cell configuration. This approach allows you to skip individual cell configurations unless you want to override the global behavior.",
+    "text": "For long documents with many outputs, clicking each toggle individually gets tedious. The global toggle button lets you hide or show everything at once.\nLook in the bottom-right corner of your screen. You should see a floating “Toggle All Outputs” button.",
     "crumbs": [
-      "Examples",
-      "Toggle for All Cells"
+      "Features",
+      "Global Control"
     ]
   },
   {
-    "objectID": "qtoggle-all-cells-example.html#setup",
-    "href": "qtoggle-all-cells-example.html#setup",
-    "title": "Toggle for All Cells",
-    "section": "Setup",
-    "text": "Setup\nTo enable toggle for all cells, add this to your document’s YAML header:\n---\ntitle: \"Your Document Title\"\nformat: html\ntoggle:\n  output-toggle: true    # Automatically add toggle to all cells\n  output-hidden: false   # Show outputs by default\nfilters: [toggle]\n---\nWith this set, every code cell that produces an output gets a toggle button automatically and outputs are visible by default. Readers can hide them if they choose.\nThis means:\n\nNo need to add toggle: true to individual cells as it will apply to all.\nOutputs are visible by default (readers can hide them)\nConsistent experience across your entire document\n\nHover over code blocks to see toggle buttons. \"⌄\" = visible, \"›\" = hidden.",
+    "objectID": "qtoggle-global-toggle.html#configuration",
+    "href": "qtoggle-global-toggle.html#configuration",
+    "title": "Global Control",
+    "section": "Configuration",
+    "text": "Configuration\nAdd global-toggle: true to your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    global-toggle: true\n\n\n\n\n\n\nGlobal toggle is a document-level feature. There’s no cell-level equivalent since it wouldn’t make sense for a single cell to control the whole page.",
     "crumbs": [
-      "Examples",
-      "Toggle for All Cells"
+      "Features",
+      "Global Control"
     ]
   },
   {
-    "objectID": "qtoggle-all-cells-example.html#python-examples",
-    "href": "qtoggle-all-cells-example.html#python-examples",
-    "title": "Toggle for All Cells",
-    "section": "Python Examples",
-    "text": "Python Examples\n\nOutput\n\nprint(\"Hello, world!\")\n\nHello, world!\n\nprint(\"This has a toggle button.\")\n\nThis has a toggle button.\n\n\n\n\nMath Operations\n\nnumbers = [1, 2, 3, 4, 5]\nprint(f\"Sum: {sum(numbers)}\")\n\nSum: 15\n\nprint(f\"Average: {sum(numbers)/len(numbers)}\")\n\nAverage: 3.0\n\n\n\n\nPlotting with Matplotlib\n\nimport matplotlib.pyplot as plt\nplt.plot([1, 2, 3], [1, 4, 9], 'o-')\nplt.title(\"Simple Plot\")\nplt.show()",
+    "objectID": "qtoggle-global-toggle.html#try-it",
+    "href": "qtoggle-global-toggle.html#try-it",
+    "title": "Global Control",
+    "section": "Try It",
+    "text": "Try It\nClick the floating button to hide all outputs. Click again to show them.\n\nExampleSource\n\n\n\nprint(\"Output 1\")\n\n[1] \"Output 1\"\n\n\n\nprint(\"Output 2\")\n\n[1] \"Output 2\"\n\n\n\nprint(\"Output 3\")\n\n[1] \"Output 3\"\n\n\n\nprint(\"Output 4\")\n\n[1] \"Output 4\"\n\n\n\n\n```{r}\nprint(\"Output 1\")\n```\n\n```{r}\nprint(\"Output 2\")\n```\n\n```{r}\nprint(\"Output 3\")\n```\n\n```{r}\nprint(\"Output 4\")\n```",
     "crumbs": [
-      "Examples",
-      "Toggle for All Cells"
+      "Features",
+      "Global Control"
     ]
   },
   {
-    "objectID": "qtoggle-all-cells-example.html#r-examples",
-    "href": "qtoggle-all-cells-example.html#r-examples",
-    "title": "Toggle for All Cells",
-    "section": "R Examples",
-    "text": "R Examples\n\nStatistics Calculations\n\ndata &lt;- c(10, 20, 30, 40, 50)   \ncat(\"Mean:\", mean(data), \"\\n\")\n\nMean: 30 \n\ncat(\"Max:\", max(data), \"\\n\")\n\nMax: 50 \n\n\n\n\nGraphing with Base R\n\nbarplot(c(23, 45, 32), names.arg = c(\"A\", \"B\", \"C\"))",
+    "objectID": "qtoggle-global-toggle.html#still-works-with-individual-toggles",
+    "href": "qtoggle-global-toggle.html#still-works-with-individual-toggles",
+    "title": "Global Control",
+    "section": "Still Works with Individual Toggles",
+    "text": "Still Works with Individual Toggles\nAfter using the global button, you can still click individual toggles to show or hide specific outputs. The global button sets everything to the same state; individual buttons fine-tune from there.\n\nExampleSource\n\n\n\nprint(\"I start hidden, but the global button affects me too.\")\n\n[1] \"I start hidden, but the global button affects me too.\"\n\n\n\n\n```{r}\n#| output-hidden: true\nprint(\"I start hidden, but the global button affects me too.\")\n```",
     "crumbs": [
-      "Examples",
-      "Toggle for All Cells"
+      "Features",
+      "Global Control"
     ]
   },
   {
-    "objectID": "qtoggle-all-cells-example.html#override-options",
-    "href": "qtoggle-all-cells-example.html#override-options",
-    "title": "Toggle for All Cells",
-    "section": "Override Options",
-    "text": "Override Options\n\nAlways Show\nNo toggle button will be added, output is always visible.\n\nprint(\"Always visible - no toggle button\")\n\nAlways visible - no toggle button\n\n\n\n\nHidden by Default\nStarts hidden - click toggle to show\n\nprint(\"You've clicked the toggle button to show me!\")\n\nYou've clicked the toggle button to show me!",
+    "objectID": "qtoggle-global-toggle.html#summary",
+    "href": "qtoggle-global-toggle.html#summary",
+    "title": "Global Control",
+    "section": "Summary",
+    "text": "Summary\nUse global-toggle: true to add a floating button that hides or shows all outputs at once. Individual toggles still work for fine-grained control. Useful for presentations, code review, and navigating long documents.",
     "crumbs": [
-      "Examples",
-      "Toggle for All Cells"
+      "Features",
+      "Global Control"
     ]
   },
   {
-    "objectID": "qtoggle-all-cells-example.html#other-languages",
-    "href": "qtoggle-all-cells-example.html#other-languages",
-    "title": "Toggle for All Cells",
-    "section": "Other Languages",
-    "text": "Other Languages\n\nBash\n\necho \"Current date:\"\ndate\n\nCurrent date:\nWed Dec  3 20:03:36 UTC 2025",
-    "crumbs": [
-      "Examples",
-      "Toggle for All Cells"
-    ]
-  },
-  {
-    "objectID": "qtoggle-specific-cells-example.html",
-    "href": "qtoggle-specific-cells-example.html",
-    "title": "Toggle Specific Cells",
+    "objectID": "qtoggle-custom-text.html",
+    "href": "qtoggle-custom-text.html",
+    "title": "Custom Labels",
     "section": "",
-    "text": "This page demonstrates how to selectively enable toggle functionality for specific code cells, rather than enabling it document-wide. This approach gives you precise control over which cells have toggle buttons.",
+    "text": "“Output” is generic. When every button says the same thing, readers lose context. Custom labels tell them what they’ll find before they click.\nThis page uses “Result” as the default, but individual cells override it with context-specific labels.",
     "crumbs": [
-      "Examples",
-      "Toggle Specific Cells"
+      "Features",
+      "Custom Labels"
     ]
   },
   {
-    "objectID": "qtoggle-specific-cells-example.html#setup",
-    "href": "qtoggle-specific-cells-example.html#setup",
-    "title": "Toggle Specific Cells",
-    "section": "Setup",
-    "text": "Setup\nTo enable selective toggle, use this minimal setup:\n---\ntitle: \"Your Document Title\"\nformat: html\nfilters: [toggle]\n---\nThe filters: [toggle] enables the toggle extension for the document so that only cells with toggle: true get toggle buttons.",
+    "objectID": "qtoggle-custom-text.html#configuration",
+    "href": "qtoggle-custom-text.html#configuration",
+    "title": "Custom Labels",
+    "section": "Configuration",
+    "text": "Configuration\nSet a document-wide default:\nextensions:\n  toggle:\n    output-toggle: true\n    button-text: \"Result\"\nOr label specific cells with #| button-text: \"Plot\".\n```{r}\n#| button-text: \"Plot\"\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n```",
     "crumbs": [
-      "Examples",
-      "Toggle Specific Cells"
+      "Features",
+      "Custom Labels"
     ]
   },
   {
-    "objectID": "qtoggle-specific-cells-example.html#examples",
-    "href": "qtoggle-specific-cells-example.html#examples",
-    "title": "Toggle Specific Cells",
+    "objectID": "qtoggle-custom-text.html#examples",
+    "href": "qtoggle-custom-text.html#examples",
+    "title": "Custom Labels",
     "section": "Examples",
-    "text": "Examples\n\nImportant Results (No Toggle)\n\n\nShow code\ntotal = 1500\ntarget = 1200\nprint(f\"Sales: ${total} (Target: ${target})\")\n\n\nSales: $1500 (Target: $1200)\n\n\n\n\nDetails (With Toggle)\n\n\nShow code\nbreakdown = [400, 500, 600]\nfor i, amount in enumerate(breakdown, 1):\n    print(f\"Q{i}: ${amount}\")\n\n\nQ1: $400\nQ2: $500\nQ3: $600\n\n\n\n\nDebug Info (Hidden by Default)\n\n\nShow code\nprint(\"Processing time: 2.3s\")\n\n\nProcessing time: 2.3s\n\n\nShow code\nprint(\"Memory: 45MB\")\n\n\nMemory: 45MB",
+    "text": "Examples\n\nDefault Label\nThese cells inherit “Result” from the document settings:\n\nExampleSource\n\n\n\n2 + 2\n\n[1] 4\n\n\n\nprint(\"Standard label from document config\")\n\n[1] \"Standard label from document config\"\n\n\n\n\n```{r}\n2 + 2\n```\n\n```{r}\nprint(\"Standard label from document config\")\n```\n\n\n\n\n\nContext-Specific Labels\nOverride per-cell when the content calls for it:\n\nExampleSource\n\n\n\nfactorial(5)\n\n[1] 120\n\n\n\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n\n\n\n\n\n\n\n\n\n\n```{r}\n#| button-text: \"Solution\"\nfactorial(5)\n```\n\n```{r}\n#| button-text: \"Plot\"\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n```",
     "crumbs": [
-      "Examples",
-      "Toggle Specific Cells"
+      "Features",
+      "Custom Labels"
     ]
   },
   {
-    "objectID": "qtoggle-specific-cells-example.html#r-examples",
-    "href": "qtoggle-specific-cells-example.html#r-examples",
-    "title": "Toggle Specific Cells",
-    "section": "R Examples",
-    "text": "R Examples\n\nKey Results (No Toggle)\n\n\nShow code\nscores &lt;- c(85, 90, 78, 92)\ncat(\"Average:\", mean(scores), \"\\n\")\n\n\nAverage: 86.25 \n\n\n\n\nAnalysis (With Toggle)\n\n\nShow code\nscores &lt;- c(85, 90, 78, 92)\ncat(\"Min:\", min(scores), \"Max:\", max(scores), \"\\n\")\n\n\nMin: 78 Max: 92 \n\n\n\n\nVisualization (With Toggle)\n\n\nShow code\nhist(c(85, 90, 78, 92), main = \"Scores\")",
+    "objectID": "qtoggle-custom-text.html#summary",
+    "href": "qtoggle-custom-text.html#summary",
+    "title": "Custom Labels",
+    "section": "Summary",
+    "text": "Summary\nUse button-text to replace the generic “Output” label with something meaningful. Set a document default, then override per-cell as needed. Good labels (“Solution”, “Plot”, “Debug”) tell readers what to expect before they click.",
     "crumbs": [
-      "Examples",
-      "Toggle Specific Cells"
+      "Features",
+      "Custom Labels"
     ]
   },
   {
-    "objectID": "qtoggle-specific-cells-example.html#mixed-strategy",
-    "href": "qtoggle-specific-cells-example.html#mixed-strategy",
-    "title": "Toggle Specific Cells",
-    "section": "Mixed Strategy",
-    "text": "Mixed Strategy\n\nSummary (Always Visible)\n\n\nShow code\nrisk = \"Medium\"\nconfidence = 89\nprint(f\"Risk: {risk} ({confidence}% confidence)\")\n\n\nRisk: Medium (89% confidence)\n\n\n\n\nSupporting Data (Toggle)\n\n\nShow code\nfactors = {\"Market\": 3.2, \"Credit\": 2.8}\nfor name, score in factors.items():\n    print(f\"{name}: {score}\")\n\n\nMarket: 3.2\nCredit: 2.8\n\n\n\n\nTechnical Notes (Hidden)\n\n\nShow code\nprint(\"Model v2.1.3\")\n\n\nModel v2.1.3\n\n\nShow code\nprint(\"Updated: 2024-05-28\")\n\n\nUpdated: 2024-05-28",
+    "objectID": "qtoggle-demo.html",
+    "href": "qtoggle-demo.html",
+    "title": "Data Analysis Demo",
+    "section": "",
+    "text": "This demo shows toggle enabled for every cell. Readers can hide outputs as they work through the analysis, revealing results only when ready.\nThe floating button in the corner toggles everything at once.",
     "crumbs": [
-      "Examples",
-      "Toggle Specific Cells"
+      "Demos",
+      "Data Analysis Demo"
     ]
   },
   {
-    "objectID": "qtoggle-specific-cells-example.html#with-code-folding",
-    "href": "qtoggle-specific-cells-example.html#with-code-folding",
-    "title": "Toggle Specific Cells",
-    "section": "With Code Folding",
-    "text": "With Code Folding\nThis page uses code-fold: true so you can control code and output independently.\n\nFunction Example\n\n\nShow code\ndef growth_rate(current, previous):\n    return (current - previous) / previous * 100\n\nresult = growth_rate(1500, 1200)\nprint(f\"Growth: {result:.1f}%\")\n\n\nGrowth: 25.0%\n\n\nUse toggle: true for optional details. Keep key results without toggles.",
+    "objectID": "qtoggle-demo.html#configuration",
+    "href": "qtoggle-demo.html#configuration",
+    "title": "Data Analysis Demo",
+    "section": "Configuration",
+    "text": "Configuration\nextensions:\n  toggle:\n    output-toggle: true\n    global-toggle: true",
     "crumbs": [
-      "Examples",
-      "Toggle Specific Cells"
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#loading-the-data",
+    "href": "qtoggle-demo.html#loading-the-data",
+    "title": "Data Analysis Demo",
+    "section": "Loading the Data",
+    "text": "Loading the Data\nWe’ll analyze the mtcars dataset: 32 cars from 1974 Motor Trend magazine.\n\ndata(mtcars)\ncat(\"Dataset dimensions:\", nrow(mtcars), \"rows,\", ncol(mtcars), \"columns\\n\")\n\nDataset dimensions: 32 rows, 11 columns\n\n\n\nhead(mtcars, 5)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#exploratory-analysis",
+    "href": "qtoggle-demo.html#exploratory-analysis",
+    "title": "Data Analysis Demo",
+    "section": "Exploratory Analysis",
+    "text": "Exploratory Analysis\n\nFuel Efficiency\nMiles per gallon ranges from gas-guzzlers to relatively efficient:\n\nsummary(mtcars$mpg)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  10.40   15.43   19.20   20.09   22.80   33.90 \n\n\n\nhist(mtcars$mpg,\n     main = \"Distribution of MPG\",\n     xlab = \"Miles per Gallon\",\n     col = \"steelblue\",\n     border = \"white\")\n\n\n\n\n\n\n\n\n\n\nEngine Size\nMost cars have either 4, 6, or 8 cylinders:\n\ntable(mtcars$cyl)\n\n\n 4  6  8 \n11  7 14 \n\n\n\nbarplot(table(mtcars$cyl),\n        main = \"Cars by Cylinder Count\",\n        xlab = \"Cylinders\",\n        ylab = \"Count\",\n        col = c(\"#4e79a7\", \"#f28e2b\", \"#e15759\"))",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#relationships",
+    "href": "qtoggle-demo.html#relationships",
+    "title": "Data Analysis Demo",
+    "section": "Relationships",
+    "text": "Relationships\n\nMPG vs Weight\nHeavier cars use more fuel:\n\ncor(mtcars$mpg, mtcars$wt)\n\n[1] -0.8676594\n\n\n\nplot(mtcars$wt, mtcars$mpg,\n     main = \"Weight vs MPG\",\n     xlab = \"Weight (1000 lbs)\",\n     ylab = \"Miles per Gallon\",\n     pch = 19,\n     col = \"steelblue\")\nabline(lm(mpg ~ wt, data = mtcars), col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\nMPG by Transmission\nManual transmissions tend to be more efficient:\n\naggregate(mpg ~ am, data = mtcars, FUN = mean)\n\n  am      mpg\n1  0 17.14737\n2  1 24.39231\n\n\n\nboxplot(mpg ~ am, data = mtcars,\n        names = c(\"Automatic\", \"Manual\"),\n        main = \"MPG by Transmission Type\",\n        ylab = \"Miles per Gallon\",\n        col = c(\"#f28e2b\", \"#4e79a7\"))",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#summary",
+    "href": "qtoggle-demo.html#summary",
+    "title": "Data Analysis Demo",
+    "section": "Summary",
+    "text": "Summary\nThis demo showed toggle enabled document-wide with output-toggle: true. Every code cell got a toggle button, letting readers hide outputs as they work through the analysis.\nThe floating global button in the bottom-right corner toggles all outputs at once—useful for quickly clearing the page or revealing everything.",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
     ]
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Home",
+    "title": "Toggle",
     "section": "",
-    "text": "The toggle extension allows you to toggle between showing code with output or just code by itself in Quarto HTML documents by adding a convenient toggle button that appears when hovering over code blocks, similar to the copy button.",
+    "text": "Ever wished readers could hide verbose output while keeping the code visible? The toggle extension adds a button to your code blocks that shows or hides the output on demand.\nThink of it as the opposite of Quarto’s code-fold. Instead of hiding code and showing output, toggle hides output and shows code.",
     "crumbs": [
+      "Get Started",
       "Home"
     ]
   },
   {
     "objectID": "index.html#installation",
     "href": "index.html#installation",
-    "title": "Home",
+    "title": "Toggle",
     "section": "Installation",
-    "text": "Installation\nTo install the toggle extension, follow these steps:\n\nOpen your terminal.\nExecute the following command:\n\nquarto add coatless-quarto/toggle\nThis command will download and install the extension under the _extensions subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.",
+    "text": "Installation\nquarto add coatless-quarto/toggle",
     "crumbs": [
+      "Get Started",
       "Home"
     ]
   },
   {
-    "objectID": "index.html#usage",
-    "href": "index.html#usage",
-    "title": "Home",
-    "section": "Usage",
-    "text": "Usage\nAt the top of your Quarto document, include the filters key with toggle specified in the YAML header:\n---\ntitle: \"My Document\"\nformat: html\nfilters:\n  - toggle\n---\nThis will allow the toggle extension to be applied to your document.\n\nCell-Level Configuration\nTo enable toggle functionality for a specific code cell, add the toggle: true attribute:\n```{python}\n#| toggle: true\nprint(\"Hello, Python world!\")\n```\nYou can also set whether the output is shown or hidden by default using the output-hidden attribute:\n```{r}\n#| toggle: true\n#| output-hidden: true\nprint(\"Hello, R world!\")\n```\nThis will hide the output by default, and the user can click the toggle button to show it.\n\n\nDocument-Level Configuration\nYou can enable toggle functionality for all code cells in your document by adding the following to your YAML header:\n---\ntitle: \"My Document\"\nformat: html\ntoggle:\n  output-toggle: true    # Enable toggle buttons for all cells\n  output-hidden: false   # Show outputs initially (default)\nfilters:\n  - toggle\n---\n\nPriority of Settings\n\nCell-level settings override document-level settings\nIf no cell-level setting is provided, document-level settings apply\nIf neither is provided, toggle is not enabled for that cell",
+    "objectID": "index.html#quick-start",
+    "href": "index.html#quick-start",
+    "title": "Toggle",
+    "section": "Quick Start",
+    "text": "Quick Start\nAdd the filter and enable toggle for all cells:\nextensions:\n  toggle:\n    output-toggle: true\nfilters:\n  - toggle\nHover over any code block to see the toggle button appear. Click to hide the output; click again to show it.\nTo enable toggle for specific cells only, omit output-toggle and add #| toggle: true to individual cells:\n```{r}\n#| toggle: true\nsummary(mtcars)\n```",
     "crumbs": [
+      "Get Started",
       "Home"
     ]
   },
   {
-    "objectID": "index.html#help",
-    "href": "index.html#help",
-    "title": "Home",
-    "section": "Help",
-    "text": "Help\nTo report a bug, please add an issue to the repository’s bug tracker.\nWant to contribute a feature? Please open an issue ticket to discuss the feature before sending a pull request.",
+    "objectID": "index.html#options",
+    "href": "index.html#options",
+    "title": "Toggle",
+    "section": "Options",
+    "text": "Options\nSet these under extensions.toggle or per-cell with #| comments:\n\n\n\nOption\nDefault\nPurpose\n\n\n\n\noutput-toggle\nfalse\nAdd toggle buttons to all cells\n\n\noutput-hidden\nfalse\nStart with outputs collapsed\n\n\noutput-sync\nfalse\nSync all outputs in a cell together\n\n\nglobal-toggle\nfalse\nFloating button to toggle everything\n\n\npersist\nfalse\nRemember state across page reloads\n\n\nbutton-text\n\"Output\"\nLabel shown on the button",
     "crumbs": [
+      "Get Started",
       "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#compatibility",
+    "href": "index.html#compatibility",
+    "title": "Toggle",
+    "section": "Compatibility",
+    "text": "Compatibility\nWorks with HTML-based Quarto formats: documents, websites, books, and Revealjs presentations.\nToggle complements Quarto’s code-fold. Use both together:\nformat:\n  html:\n    code-fold: true\nextensions:\n  toggle:\n    output-toggle: true\nPDF, Word, and other non-HTML formats are unaffected.",
+    "crumbs": [
+      "Get Started",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#getting-help",
+    "href": "index.html#getting-help",
+    "title": "Toggle",
+    "section": "Getting Help",
+    "text": "Getting Help\n\nFAQ — Common questions\nGitHub Issues — Bug reports\nDiscussions — Questions",
+    "crumbs": [
+      "Get Started",
+      "Home"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html",
+    "href": "qtoggle-hidden-default.html",
+    "title": "Hide by Default",
+    "section": "",
+    "text": "Sometimes you want outputs hidden until readers actively choose to see them. This keeps pages clean while making details available on demand.\nEvery output on this page starts hidden. Click the toggle buttons to reveal them.",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html#configuration",
+    "href": "qtoggle-hidden-default.html#configuration",
+    "title": "Hide by Default",
+    "section": "Configuration",
+    "text": "Configuration\nAdd output-hidden: true to your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    output-hidden: true\nOr set it on individual cells with #| output-hidden: true.",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html#examples",
+    "href": "qtoggle-hidden-default.html#examples",
+    "title": "Hide by Default",
+    "section": "Examples",
+    "text": "Examples\nThese outputs are hidden until you click:\n\nExampleSource\n\n\n\nprint(\"You found me!\")\n\n[1] \"You found me!\"\n\n\n\nfor (i in 1:3) {\n  cat(\"Line\", i, \"\\n\")\n}\n\nLine 1 \nLine 2 \nLine 3 \n\n\n\n\n```{r}\nprint(\"You found me!\")\n```\n\n```{r}\nfor (i in 1:3) {\n  cat(\"Line\", i, \"\\n\")\n}\n```",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html#showing-specific-cells",
+    "href": "qtoggle-hidden-default.html#showing-specific-cells",
+    "title": "Hide by Default",
+    "section": "Showing Specific Cells",
+    "text": "Showing Specific Cells\nEven when the document default is hidden, you can force specific outputs to show:\n\nExampleSource\n\n\n\nprint(\"I'm visible by default, despite the document setting.\")\n\n[1] \"I'm visible by default, despite the document setting.\"\n\n\n\n\n```{r}\n#| output-hidden: false\nprint(\"I'm visible by default, despite the document setting.\")\n```",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html#summary",
+    "href": "qtoggle-hidden-default.html#summary",
+    "title": "Hide by Default",
+    "section": "Summary",
+    "text": "Summary\nUse output-hidden: true to start outputs collapsed. Readers click to reveal. Override with output-hidden: false on cells that should always show.\nWorks well for problem sets (hide solutions), reports (hide supporting details), and tutorials (reveal answers progressively).",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-styling.html",
+    "href": "qtoggle-styling.html",
+    "title": "Custom Styling",
+    "section": "",
+    "text": "The toggle extension uses CSS custom properties (--tg-* prefix) for styling. Set these variables to customize the appearance. If unset, the extension falls back to Bootstrap variables or sensible defaults.",
+    "crumbs": [
+      "Reference",
+      "Custom Styling"
+    ]
+  },
+  {
+    "objectID": "qtoggle-styling.html#css-variables-reference",
+    "href": "qtoggle-styling.html#css-variables-reference",
+    "title": "Custom Styling",
+    "section": "CSS Variables Reference",
+    "text": "CSS Variables Reference\n\nToggle Button\n\n\n\nVariable\nDescription\nDefault\n\n\n\n\n--tg-btn-bg\nBackground color\n#f0f0f0\n\n\n--tg-btn-bg-hover\nBackground on hover\n#e0e0e0\n\n\n--tg-btn-border\nBorder color\n#ccc\n\n\n--tg-btn-text\nText color\n#333\n\n\n--tg-btn-radius\nBorder radius\n3px\n\n\n--tg-btn-font-size\nFont size\n0.8rem\n\n\n--tg-btn-padding\nPadding\n0.2rem 0.5rem\n\n\n\n\n\nFocus & Indicators\n\n\n\nVariable\nDescription\nDefault\n\n\n\n\n--tg-focus-color\nFocus ring color\n#0066cc\n\n\n--tg-focus-offset\nFocus ring offset\n2px\n\n\n--tg-sync-indicator\nSync mode left border\n#0066cc\n\n\n\n\n\nOutput Section\n\n\n\nVariable\nDescription\nDefault\n\n\n\n\n--tg-output-border-color\nBorder above output\n#ccc\n\n\n--tg-output-border-style\nBorder style\ndashed\n\n\n\n\n\nTooltip\n\n\n\nVariable\nDescription\nDefault\n\n\n\n\n--tg-tooltip-bg\nTooltip background\n#333\n\n\n--tg-tooltip-text\nTooltip text color\n#fff\n\n\n\n\n\nTransitions\n\n\n\nVariable\nDescription\nDefault\n\n\n\n\n--tg-transition-duration\nAnimation duration\n0.2s\n\n\n--tg-transition-timing\nTiming function\nease\n\n\n\n\n\nGlobal Button\n\n\n\n\n\n\n\n\nVariable\nDescription\nDefault\n\n\n\n\n--tg-global-btn-radius\nBorder radius\n6px\n\n\n--tg-global-btn-padding\nPadding\n0.5rem 1rem\n\n\n--tg-global-btn-font-size\nFont size\n0.85rem\n\n\n--tg-global-btn-shadow\nBox shadow\n0 2px 8px rgba(0,0,0,0.15)\n\n\n--tg-global-btn-shadow-hover\nShadow on hover\n0 4px 12px rgba(0,0,0,0.2)",
+    "crumbs": [
+      "Reference",
+      "Custom Styling"
+    ]
+  },
+  {
+    "objectID": "qtoggle-styling.html#examples",
+    "href": "qtoggle-styling.html#examples",
+    "title": "Custom Styling",
+    "section": "Examples",
+    "text": "Examples\n\nMinimal Style\n:root {\n  --tg-btn-bg: transparent;\n  --tg-btn-bg-hover: rgba(0, 0, 0, 0.05);\n  --tg-btn-border: transparent;\n  --tg-output-border-style: solid;\n}\n\n\nLarger Buttons\n:root {\n  --tg-btn-font-size: 0.9rem;\n  --tg-btn-padding: 0.4rem 0.8rem;\n  --tg-btn-radius: 6px;\n}\n\n\nRemove Output Border\n[data-toggle-output] {\n  border-top: none;\n}",
+    "crumbs": [
+      "Reference",
+      "Custom Styling"
+    ]
+  },
+  {
+    "objectID": "qtoggle-styling.html#dark-mode",
+    "href": "qtoggle-styling.html#dark-mode",
+    "title": "Custom Styling",
+    "section": "Dark Mode",
+    "text": "Dark Mode\nThe extension adapts automatically via prefers-color-scheme and Quarto’s theme classes. Quarto adds .quarto-dark to the body in dark mode and .quarto-light in light mode.\nTo customize dark mode colors:\n/* For Quarto's theme switcher (class on body) */\n.quarto-dark {\n  --tg-btn-bg: #2a2a2a;\n  --tg-btn-bg-hover: #3a3a3a;\n  --tg-btn-border: #555;\n  --tg-btn-text: #e0e0e0;\n}\n\n/* For system preference (when not using Quarto themes) */\n@media (prefers-color-scheme: dark) {\n  :root {\n    --tg-btn-bg: #2a2a2a;\n    --tg-btn-bg-hover: #3a3a3a;\n    --tg-btn-border: #555;\n    --tg-btn-text: #e0e0e0;\n  }\n}",
+    "crumbs": [
+      "Reference",
+      "Custom Styling"
+    ]
+  },
+  {
+    "objectID": "qtoggle-styling.html#adding-custom-css",
+    "href": "qtoggle-styling.html#adding-custom-css",
+    "title": "Custom Styling",
+    "section": "Adding Custom CSS",
+    "text": "Adding Custom CSS\nReference a CSS file in your document:\nformat:\n  html:\n    css: custom.css\nOr use inline styles:\n&lt;style&gt;\n:root {\n  --tg-btn-bg: #your-color;\n}\n&lt;/style&gt;",
+    "crumbs": [
+      "Reference",
+      "Custom Styling"
+    ]
+  },
+  {
+    "objectID": "qtoggle-styling.html#summary",
+    "href": "qtoggle-styling.html#summary",
+    "title": "Custom Styling",
+    "section": "Summary",
+    "text": "Summary\nThe toggle extension provides CSS custom properties for complete visual customization. Set --tg-* variables to override defaults, use .quarto-dark for theme-aware styling, and ensure sufficient color contrast for accessibility. All variables fall back to Bootstrap values when available.",
+    "crumbs": [
+      "Reference",
+      "Custom Styling"
+    ]
+  },
+  {
+    "objectID": "qtoggle-quick-start.html",
+    "href": "qtoggle-quick-start.html",
+    "title": "Quick Start",
+    "section": "",
+    "text": "The toggle button appears when you hover over a code block. It sits in the top-right corner, next to the copy button if you have one enabled.\nHere’s what it looks like (click to try):",
+    "crumbs": [
+      "Get Started",
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "qtoggle-quick-start.html#try-it",
+    "href": "qtoggle-quick-start.html#try-it",
+    "title": "Quick Start",
+    "section": "Try It",
+    "text": "Try It\nHover over any code block on this page. You’ll see the button fade in on the upper right side of the code cell.\n\nExampleSource\n\n\n\nprint(\"Hello! Hover over this code block.\")\n\n[1] \"Hello! Hover over this code block.\"\n\n\n\nx &lt;- 1:5\ncat(\"Sum:\", sum(x), \"\\n\")\n\nSum: 15 \n\ncat(\"Mean:\", mean(x), \"\\n\")\n\nMean: 3 \n\n\n\n\n```{r}\nprint(\"Hello! Hover over this code block.\")\n```\n\n```{r}\nx &lt;- 1:5\ncat(\"Sum:\", sum(x), \"\\n\")\ncat(\"Mean:\", mean(x), \"\\n\")\n```",
+    "crumbs": [
+      "Get Started",
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "qtoggle-quick-start.html#enabling-toggle",
+    "href": "qtoggle-quick-start.html#enabling-toggle",
+    "title": "Quick Start",
+    "section": "Enabling Toggle",
+    "text": "Enabling Toggle\nYou have two approaches: enable for specific cells, or enable document-wide.\n\nPer-Cell\n\nExampleSource\n\n\n\nsummary(iris)\n\n  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   \n Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  \n 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  \n Median :5.800   Median :3.000   Median :4.350   Median :1.300  \n Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  \n 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  \n Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  \n       Species  \n setosa    :50  \n versicolor:50  \n virginica :50  \n                \n                \n                \n\n\n\n\n```{r}\n#| toggle: true\nsummary(iris)\n```\n\n\n\n\n\nDocument-Wide\nEnable for all cells in your YAML header:\nextensions:\n  toggle:\n    output-toggle: true\nThis page uses document-wide configuration, so every code cell has a button.",
+    "crumbs": [
+      "Get Started",
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "qtoggle-quick-start.html#disabling-for-specific-cells",
+    "href": "qtoggle-quick-start.html#disabling-for-specific-cells",
+    "title": "Quick Start",
+    "section": "Disabling for Specific Cells",
+    "text": "Disabling for Specific Cells\nWhen toggle is enabled document-wide, you can turn it off for individual cells:\n\nExampleSource\n\n\n\nprint(\"This output is always visible. No button here.\")\n\n[1] \"This output is always visible. No button here.\"\n\n\n\n\n```{r}\n#| toggle: false\nprint(\"This output is always visible. No button here.\")\n```\n\n\n\nThis is useful when you have results that should always be visible, like final conclusions or key findings.",
+    "crumbs": [
+      "Get Started",
+      "Quick Start"
+    ]
+  },
+  {
+    "objectID": "qtoggle-quick-start.html#summary",
+    "href": "qtoggle-quick-start.html#summary",
+    "title": "Quick Start",
+    "section": "Summary",
+    "text": "Summary\nToggle buttons give readers control over output visibility. Enable them document-wide with output-toggle: true, or per-cell with #| toggle: true. Override either direction as needed.\nNext: Hide outputs by default, sync multiple outputs, or add a global button.",
+    "crumbs": [
+      "Get Started",
+      "Quick Start"
     ]
   },
   {
@@ -198,9 +488,9 @@
     "href": "qtoggle-faq.html",
     "title": "Frequently Asked Questions",
     "section": "",
-    "text": "The toggle Extension is a Quarto extension that allows you to add toggle buttons to your code cells. These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.\n\n\n\nThis extension works with HTML-based output formats like:\n\nHTML documents\nWebsites\nBooks (HTML format)\nRevealjs presentations\n\nIt does not affect PDF, Word, or other non-HTML output formats as these formats don’t support the JavaScript functionality needed for toggling.\n\n\n\nQuarto’s built-in code-fold option toggles visibility of the code while always showing the output. This extension does the opposite - it toggles visibility of the output while always showing the code.\nYou can use both features together:\n---\ntitle: \"My Document\"\nformat:\n  html:\n    code-fold: true\ntoggle:\n  output-toggle: true\nfilters:\n  - toggle\n---\nThis gives readers maximum control over what they see.",
+    "text": "The toggle extension is a Quarto extension that allows you to add toggle buttons to your code cells. These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.\n\n\n\nThis extension works with HTML-based output formats like:\n\nHTML documents\nWebsites\nBooks (HTML format)\nRevealjs presentations\n\nIt does not affect PDF, Word, or other non-HTML output formats as these formats don’t support the JavaScript functionality needed for toggling.\n\n\n\nQuarto’s built-in code-fold option toggles visibility of the code while always showing the output. This extension does the opposite: it toggles visibility of the output while always showing the code.\nYou can use both features together:\nformat:\n  html:\n    code-fold: true\nextensions:\n  toggle:\n    output-toggle: true\nfilters:\n  - toggle\nThis gives readers maximum control over what they see.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -209,9 +499,9 @@
     "href": "qtoggle-faq.html#what-is-the-toggle-extension-for-quarto",
     "title": "Frequently Asked Questions",
     "section": "",
-    "text": "The toggle Extension is a Quarto extension that allows you to add toggle buttons to your code cells. These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.",
+    "text": "The toggle extension is a Quarto extension that allows you to add toggle buttons to your code cells. These buttons let readers show or hide the output of code blocks, making your documents more interactive and less cluttered.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -222,7 +512,7 @@
     "section": "",
     "text": "This extension works with HTML-based output formats like:\n\nHTML documents\nWebsites\nBooks (HTML format)\nRevealjs presentations\n\nIt does not affect PDF, Word, or other non-HTML output formats as these formats don’t support the JavaScript functionality needed for toggling.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -231,9 +521,9 @@
     "href": "qtoggle-faq.html#how-is-this-different-from-quartos-built-in-code-folding",
     "title": "Frequently Asked Questions",
     "section": "",
-    "text": "Quarto’s built-in code-fold option toggles visibility of the code while always showing the output. This extension does the opposite - it toggles visibility of the output while always showing the code.\nYou can use both features together:\n---\ntitle: \"My Document\"\nformat:\n  html:\n    code-fold: true\ntoggle:\n  output-toggle: true\nfilters:\n  - toggle\n---\nThis gives readers maximum control over what they see.",
+    "text": "Quarto’s built-in code-fold option toggles visibility of the code while always showing the output. This extension does the opposite: it toggles visibility of the output while always showing the code.\nYou can use both features together:\nformat:\n  html:\n    code-fold: true\nextensions:\n  toggle:\n    output-toggle: true\nfilters:\n  - toggle\nThis gives readers maximum control over what they see.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -241,10 +531,10 @@
     "objectID": "qtoggle-faq.html#how-do-i-install-the-toggle-extension",
     "href": "qtoggle-faq.html#how-do-i-install-the-toggle-extension",
     "title": "Frequently Asked Questions",
-    "section": "How do I install the toggle Extension?",
-    "text": "How do I install the toggle Extension?\nSee the home page for details.",
+    "section": "How do I install the toggle extension?",
+    "text": "How do I install the toggle extension?\nRun this in your terminal:\nquarto add coatless-quarto/toggle\nSee the home page for more details.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -255,7 +545,7 @@
     "section": "Is the toggle extension compatible with all Quarto versions?",
     "text": "Is the toggle extension compatible with all Quarto versions?\nThe toggle extension requires Quarto v1.7.0 or later.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -264,9 +554,9 @@
     "href": "qtoggle-faq.html#how-do-i-enable-toggle-buttons-for-all-code-cells",
     "title": "Frequently Asked Questions",
     "section": "How do I enable toggle buttons for all code cells?",
-    "text": "How do I enable toggle buttons for all code cells?\nAdd the following to your document’s YAML header:\n---\ntitle: \"My Document\"\nformat: html\ntoggle:\n  output-toggle: true\nfilters:\n  - toggle\n---",
+    "text": "How do I enable toggle buttons for all code cells?\nAdd the following to your document’s YAML header:\nextensions:\n  toggle:\n    output-toggle: true\nfilters:\n  - toggle",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -277,7 +567,7 @@
     "section": "Do I need to modify my existing code cells?",
     "text": "Do I need to modify my existing code cells?\nIf you’ve enabled toggle at the document level, no changes are needed to your existing code cells. If you want to control toggle behavior for specific cells, you’ll need to add cell-level attributes.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -286,9 +576,9 @@
     "href": "qtoggle-faq.html#how-do-i-toggle-output-visibility-for-a-specific-cell",
     "title": "Frequently Asked Questions",
     "section": "How do I toggle output visibility for a specific cell?",
-    "text": "How do I toggle output visibility for a specific cell?\nAdd the toggle: true attribute to the cell:\n```{python}\n#| toggle: true\nprint(\"Hello, world!\")\n```\n\nCan I make outputs hidden by default?\nYes, at the document level:\ntoggle:\n  output-toggle: true\n  output-hidden: true\nOr at the cell level:\n```{python}\n#| toggle: true\n#| output-hidden: true\nprint(\"Hello, world!\")\n```",
+    "text": "How do I toggle output visibility for a specific cell?\nAdd the toggle: true attribute to the cell:\n```{python}\n#| toggle: true\nprint(\"Hello, world!\")\n```\n\nCan I make outputs hidden by default?\nYes, at the document level:\nextensions:\n  toggle:\n    output-toggle: true\n    output-hidden: true\nOr at the cell level:\n```{python}\n#| toggle: true\n#| output-hidden: true\nprint(\"Hello, world!\")\n```",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -299,7 +589,7 @@
     "section": "How do I disable toggle for a specific cell when it’s enabled at the document level?",
     "text": "How do I disable toggle for a specific cell when it’s enabled at the document level?\nUse the toggle: false attribute:\n```{python}\n#| toggle: false\nprint(\"This output always shows\")\n```",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -310,7 +600,7 @@
     "section": "What happens if a code cell doesn’t produce any output?",
     "text": "What happens if a code cell doesn’t produce any output?\nIf a code cell doesn’t produce any output, the toggle button won’t appear even if toggle: true is set for that cell.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
     ]
   },
@@ -319,9 +609,97 @@
     "href": "qtoggle-faq.html#whats-the-difference-between-individual-and-synchronized-control",
     "title": "Frequently Asked Questions",
     "section": "What’s the difference between individual and synchronized control?",
-    "text": "What’s the difference between individual and synchronized control?\n\nIndividual (output-sync: false): Each toggle button controls only its specific output\nSynchronized (output-sync: true): Any toggle button controls ALL outputs in the cell\n\n\nHow do I sync output toggles in multioutput scenarios by default?\nAt the document level, set output-sync: true in the YAML header:\ntoggle:\n  output-toggle: true\n  output-sync: true\nOr at the cell level:\n```{python}\n#| toggle: true\n#| output-sync: true\nprint(\"Hello, world!\")   # Same button to toggle both outputs\nprint(\"Goodbye, world!\") # Same button to toggle both outputs\n```",
+    "text": "What’s the difference between individual and synchronized control?\n\nIndividual (output-sync: false): Each toggle button controls only its specific output\nSynchronized (output-sync: true): Any toggle button controls ALL outputs in the cell\n\nSynchronized buttons display a blue left border so readers can tell they’re linked.\n\nHow do I sync output toggles in multi-output scenarios?\nAt the document level, set output-sync: true:\nextensions:\n  toggle:\n    output-toggle: true\n    output-sync: true\nOr at the cell level:\n```{python}\n#| toggle: true\n#| output-sync: true\nprint(\"Hello, world!\")\nprint(\"Goodbye, world!\")\n```",
     "crumbs": [
-      "Support",
+      "Reference",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#can-i-add-a-button-that-toggles-all-outputs-at-once",
+    "href": "qtoggle-faq.html#can-i-add-a-button-that-toggles-all-outputs-at-once",
+    "title": "Frequently Asked Questions",
+    "section": "Can I add a button that toggles all outputs at once?",
+    "text": "Can I add a button that toggles all outputs at once?\nYes. Enable global-toggle to add a floating button in the bottom-right corner:\nextensions:\n  toggle:\n    output-toggle: true\n    global-toggle: true\nThis is useful for long documents where clicking each toggle individually gets tedious.",
+    "crumbs": [
+      "Reference",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#can-toggle-remember-state-across-page-refreshes",
+    "href": "qtoggle-faq.html#can-toggle-remember-state-across-page-refreshes",
+    "title": "Frequently Asked Questions",
+    "section": "Can toggle remember state across page refreshes?",
+    "text": "Can toggle remember state across page refreshes?\nYes. Enable persist to save toggle state to the browser’s localStorage:\nextensions:\n  toggle:\n    output-toggle: true\n    persist: true\nEach page maintains its own state. Different URLs have separate states.\n\nHow do I clear saved toggle states?\nOpen browser DevTools (F12) → Application → Local Storage → delete keys starting with quarto-toggle-.",
+    "crumbs": [
+      "Reference",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#can-i-customize-the-button-label",
+    "href": "qtoggle-faq.html#can-i-customize-the-button-label",
+    "title": "Frequently Asked Questions",
+    "section": "Can I customize the button label?",
+    "text": "Can I customize the button label?\nYes. Use button-text to change the label from “Output” to something else:\nextensions:\n  toggle:\n    output-toggle: true\n    button-text: \"Result\"\nOr at the cell level:\n```{python}\n#| toggle: true\n#| button-text: \"Solution\"\nprint(\"42\")\n```",
+    "crumbs": [
+      "Reference",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#does-toggle-work-inside-tabsets-callouts-or-other-containers",
+    "href": "qtoggle-faq.html#does-toggle-work-inside-tabsets-callouts-or-other-containers",
+    "title": "Frequently Asked Questions",
+    "section": "Does toggle work inside tabsets, callouts, or other containers?",
+    "text": "Does toggle work inside tabsets, callouts, or other containers?\nYes. Toggle uses ID-based matching between code blocks and outputs, so it works regardless of how your cells are nested. You can place code cells inside tabsets, callouts, columns, &lt;details&gt; elements, or any combination.\nSee the Nested Containers demo for examples.",
+    "crumbs": [
+      "Reference",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#does-toggle-support-dark-mode",
+    "href": "qtoggle-faq.html#does-toggle-support-dark-mode",
+    "title": "Frequently Asked Questions",
+    "section": "Does toggle support dark mode?",
+    "text": "Does toggle support dark mode?\nYes. It automatically detects prefers-color-scheme and Quarto’s .quarto-dark class. Button colors adapt automatically.",
+    "crumbs": [
+      "Reference",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#how-do-i-customize-the-appearance",
+    "href": "qtoggle-faq.html#how-do-i-customize-the-appearance",
+    "title": "Frequently Asked Questions",
+    "section": "How do I customize the appearance?",
+    "text": "How do I customize the appearance?\nOverride CSS custom properties using the --tg-* prefix:\n:root {\n  /* Button colors */\n  --tg-btn-bg: #f0f0f0;\n  --tg-btn-bg-hover: #e0e0e0;\n  --tg-btn-border: #ccc;\n  --tg-btn-text: #333;\n\n  /* Button sizing */\n  --tg-btn-radius: 3px;\n  --tg-btn-font-size: 0.8rem;\n  --tg-btn-padding: 0.2rem 0.5rem;\n\n  /* Other options */\n  --tg-sync-indicator: #0066cc;\n  --tg-focus-color: #0066cc;\n  --tg-output-border-color: #ccc;\n  --tg-output-border-style: dashed;\n}\nThe extension uses Bootstrap variables as fallbacks when available. See the Custom Styling guide for full details.",
+    "crumbs": [
+      "Reference",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#why-dont-i-see-any-toggle-buttons",
+    "href": "qtoggle-faq.html#why-dont-i-see-any-toggle-buttons",
+    "title": "Frequently Asked Questions",
+    "section": "Why don’t I see any toggle buttons?",
+    "text": "Why don’t I see any toggle buttons?\nCheck these:\n\nfilters: [toggle] is in your YAML\nToggle is enabled (output-toggle: true or toggle: true on cells)\nYour cells produce output\nYou’re viewing an HTML format",
+    "crumbs": [
+      "Reference",
+      "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-faq.html#why-does-my-button-overlap-with-the-copy-button",
+    "href": "qtoggle-faq.html#why-does-my-button-overlap-with-the-copy-button",
+    "title": "Frequently Asked Questions",
+    "section": "Why does my button overlap with the copy button?",
+    "text": "Why does my button overlap with the copy button?\nThe extension adjusts automatically. If you still see overlap, add custom CSS:\n.code-toggle-btn {\n  right: 6rem;\n}",
+    "crumbs": [
+      "Reference",
       "FAQ"
     ]
   },
@@ -330,10 +708,164 @@
     "href": "qtoggle-faq.html#how-can-i-get-help",
     "title": "Frequently Asked Questions",
     "section": "How can I get help?",
-    "text": "How can I get help?\nFor additional support, bug reports, or feature requests, please visit the extension’s GitHub repository. For general Quarto help, please visit the Quarto community forum or the Quarto documentation.",
+    "text": "How can I get help?\nFor additional support, bug reports, or feature requests, please visit the extension’s GitHub repository.\nFor general Quarto help, please visit the Quarto community forum or the Quarto documentation.",
     "crumbs": [
-      "Support",
+      "Reference",
       "FAQ"
+    ]
+  },
+  {
+    "objectID": "qtoggle-nested-containers.html",
+    "href": "qtoggle-nested-containers.html",
+    "title": "Nested Containers",
+    "section": "",
+    "text": "Toggle buttons work regardless of where your code cells live. Tabsets, callouts, columns, &lt;details&gt; elements: the extension finds your code and attaches buttons correctly.",
+    "crumbs": [
+      "Demos",
+      "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-nested-containers.html#configuration",
+    "href": "qtoggle-nested-containers.html#configuration",
+    "title": "Nested Containers",
+    "section": "Configuration",
+    "text": "Configuration\nThis page uses document-wide toggle:\nextensions:\n  toggle:\n    output-toggle: true",
+    "crumbs": [
+      "Demos",
+      "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-nested-containers.html#tabsets",
+    "href": "qtoggle-nested-containers.html#tabsets",
+    "title": "Nested Containers",
+    "section": "Tabsets",
+    "text": "Tabsets\n\nExampleSource\n\n\n\nRPython\n\n\n\ncat(\"R code inside a tabset\\n\")\n\nR code inside a tabset\n\nsummary(1:10)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   1.00    3.25    5.50    5.50    7.75   10.00 \n\n\n\n\n\nprint(\"Python code inside a tabset\")\n\nPython code inside a tabset\n\nimport math\nprint(f\"Pi = {math.pi:.6f}\")\n\nPi = 3.141593\n\n\n\n\n\n\n\n::: {.panel-tabset}\n\n#### R\n\n```{r}\ncat(\"R code inside a tabset\\n\")\nsummary(1:10)\n```\n\n#### Python\n\n```{python}\nprint(\"Python code inside a tabset\")\nimport math\nprint(f\"Pi = {math.pi:.6f}\")\n```\n\n:::",
+    "crumbs": [
+      "Demos",
+      "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-nested-containers.html#callouts",
+    "href": "qtoggle-nested-containers.html#callouts",
+    "title": "Nested Containers",
+    "section": "Callouts",
+    "text": "Callouts\n\nExampleSource\n\n\n\n\n\n\n\n\nNoteCode in a Note\n\n\n\n\ncat(\"This code lives inside a callout\\n\")\n\nThis code lives inside a callout\n\n\n\n\n\n\n\n\n\n\nWarningWarning with Code\n\n\n\n\nprint(\"Toggle works in warnings too\")\n\nToggle works in warnings too\n\n\n\n\n\n\n\n\n\n\nTipCollapsed Callout\n\n\n\n\n\nClick the callout to expand, then toggle the output:\n\ncat(\"Hidden inside a collapsed callout\\n\")\n\nHidden inside a collapsed callout\n\n\n\n\n\n\n\n::: {.callout-note appearance=\"simple\"}\n## Code in a Note\n\n```{r}\ncat(\"This code lives inside a callout\\n\")\n```\n:::\n\n::: {.callout-warning appearance=\"simple\"}\n## Warning with Code\n\n```{python}\nprint(\"Toggle works in warnings too\")\n```\n:::\n\n::: {.callout-tip appearance=\"simple\" collapse=\"true\"}\n## Collapsed Callout\n\nClick the callout to expand, then toggle the output:\n\n```{r}\ncat(\"Hidden inside a collapsed callout\\n\")\n```\n:::",
+    "crumbs": [
+      "Demos",
+      "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-nested-containers.html#details-elements",
+    "href": "qtoggle-nested-containers.html#details-elements",
+    "title": "Nested Containers",
+    "section": "Details Elements",
+    "text": "Details Elements\n\nExampleSource\n\n\n\n\nClick to expand\n\n\ncat(\"Code nested inside a &lt;details&gt; element\\n\")\n\nCode nested inside a &lt;details&gt; element\n\n\n\n\n\nAlready expanded\n\n\nprint(\"This details element starts open\")\n\nThis details element starts open\n\n\n\n\n\n&lt;details&gt;\n&lt;summary&gt;Click to expand&lt;/summary&gt;\n\n```{r}\ncat(\"Code nested inside a &lt;details&gt; element\\n\")\n```\n\n&lt;/details&gt;\n\n&lt;details open&gt;\n&lt;summary&gt;Already expanded&lt;/summary&gt;\n\n```{python}\nprint(\"This details element starts open\")\n```\n\n&lt;/details&gt;",
+    "crumbs": [
+      "Demos",
+      "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-nested-containers.html#columns",
+    "href": "qtoggle-nested-containers.html#columns",
+    "title": "Nested Containers",
+    "section": "Columns",
+    "text": "Columns\n\nExampleSource\n\n\n\n\nLeft Column\n\ncat(\"Left side\\n\")\n\nLeft side\n\n\n\nRight Column\n\nprint(\"Right side\")\n\nRight side\n\n\n\n\n\n\n::: {.columns}\n\n::: {.column width=\"50%\"}\n**Left Column**\n\n```{r}\ncat(\"Left side\\n\")\n```\n:::\n\n::: {.column width=\"50%\"}\n**Right Column**\n\n```{python}\nprint(\"Right side\")\n```\n:::\n\n:::",
+    "crumbs": [
+      "Demos",
+      "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-nested-containers.html#nested-combinations",
+    "href": "qtoggle-nested-containers.html#nested-combinations",
+    "title": "Nested Containers",
+    "section": "Nested Combinations",
+    "text": "Nested Combinations\nA tabset inside a callout inside a div:\n\nExampleSource\n\n\n\n\n\n\n\n\n\nNoteDeeply Nested\n\n\n\n\nTab ATab B\n\n\n\ncat(\"Three levels deep\\n\")\n\nThree levels deep\n\n\n\n\n\nprint(\"Still works\")\n\nStill works\n\n\n\n\n\n\n\n\n\n\n::: {.border .p-3}\n\n::: {.callout-note appearance=\"simple\"}\n## Deeply Nested\n\n::: {.panel-tabset}\n\n#### Tab A\n\n```{r}\ncat(\"Three levels deep\\n\")\n```\n\n#### Tab B\n\n```{python}\nprint(\"Still works\")\n```\n\n:::\n\n:::\n\n:::",
+    "crumbs": [
+      "Demos",
+      "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-nested-containers.html#summary",
+    "href": "qtoggle-nested-containers.html#summary",
+    "title": "Nested Containers",
+    "section": "Summary",
+    "text": "Summary\nToggle uses ID-based matching between code blocks and outputs. The DOM structure doesn’t matter. Nest your cells inside tabsets, callouts, columns, or any combination. The extension finds them and attaches buttons correctly.",
+    "crumbs": [
+      "Demos",
+      "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-sync-mode.html",
+    "href": "qtoggle-sync-mode.html",
+    "title": "Sync Multiple Outputs",
+    "section": "",
+    "text": "When a single code cell produces multiple outputs (a printed summary, a plot, a table), you might want them to toggle together rather than separately. Sync mode does exactly that.\nSynced toggle buttons have a blue left border so you can tell they’re linked.",
+    "crumbs": [
+      "Features",
+      "Sync Multiple Outputs"
+    ]
+  },
+  {
+    "objectID": "qtoggle-sync-mode.html#configuration",
+    "href": "qtoggle-sync-mode.html#configuration",
+    "title": "Sync Multiple Outputs",
+    "section": "Configuration",
+    "text": "Configuration\nEnable sync mode in your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    output-sync: true\nOr per-cell with #| output-sync: true.",
+    "crumbs": [
+      "Features",
+      "Sync Multiple Outputs"
+    ]
+  },
+  {
+    "objectID": "qtoggle-sync-mode.html#individual-mode-default",
+    "href": "qtoggle-sync-mode.html#individual-mode-default",
+    "title": "Sync Multiple Outputs",
+    "section": "Individual Mode (Default)",
+    "text": "Individual Mode (Default)\nWithout sync, each output gets its own independent button. Click one and only that output hides.\n\nExampleSource\n\n\n\nprint(\"First output - has its own toggle\")\n\n[1] \"First output - has its own toggle\"\n\n\n\nprint(\"Second output - toggles independently\")\n\n[1] \"Second output - toggles independently\"\n\n\n\n\n```{r}\nprint(\"First output - has its own toggle\")\n```\n\n```{r}\nprint(\"Second output - toggles independently\")\n```",
+    "crumbs": [
+      "Features",
+      "Sync Multiple Outputs"
+    ]
+  },
+  {
+    "objectID": "qtoggle-sync-mode.html#synced-mode",
+    "href": "qtoggle-sync-mode.html#synced-mode",
+    "title": "Sync Multiple Outputs",
+    "section": "Synced Mode",
+    "text": "Synced Mode\nWith sync enabled, all outputs from the cell toggle together. Notice the blue border on the buttons. Click any of them and all outputs respond.\n\nExampleSource\n\n\n\ncat(\"Part 1: Summary\\n\")\n\nPart 1: Summary\n\ncat(\"Mean:\", mean(1:10), \"\\n\")\n\nMean: 5.5 \n\ncat(\"SD:\", sd(1:10), \"\\n\\n\")\n\nSD: 3.02765 \n\ncat(\"Part 2: Visual\\n\")\n\nPart 2: Visual\n\nbarplot(1:5, names.arg = LETTERS[1:5], col = \"steelblue\")\n\n\n\n\n\n\n\ncat(\"\\nPart 3: Complete\\n\")\n\n\nPart 3: Complete\n\n\n\n\n```{r}\n#| output-sync: true\ncat(\"Part 1: Summary\\n\")\ncat(\"Mean:\", mean(1:10), \"\\n\")\ncat(\"SD:\", sd(1:10), \"\\n\\n\")\ncat(\"Part 2: Visual\\n\")\nbarplot(1:5, names.arg = LETTERS[1:5], col = \"steelblue\")\ncat(\"\\nPart 3: Complete\\n\")\n```",
+    "crumbs": [
+      "Features",
+      "Sync Multiple Outputs"
+    ]
+  },
+  {
+    "objectID": "qtoggle-sync-mode.html#mixing-modes",
+    "href": "qtoggle-sync-mode.html#mixing-modes",
+    "title": "Sync Multiple Outputs",
+    "section": "Mixing Modes",
+    "text": "Mixing Modes\nYou can use document-wide sync for most cells and override specific ones:\n\nExampleSource\n\n\n\ncat(\"This cell uses individual mode\\n\")\n\nThis cell uses individual mode\n\ncat(\"Each line toggles separately\\n\")\n\nEach line toggles separately\n\n\n\n\n```{r}\n#| output-sync: false\ncat(\"This cell uses individual mode\\n\")\ncat(\"Each line toggles separately\\n\")\n```",
+    "crumbs": [
+      "Features",
+      "Sync Multiple Outputs"
+    ]
+  },
+  {
+    "objectID": "qtoggle-sync-mode.html#summary",
+    "href": "qtoggle-sync-mode.html#summary",
+    "title": "Sync Multiple Outputs",
+    "section": "Summary",
+    "text": "Summary\nUse output-sync: true when multiple outputs from the same cell belong together conceptually. Synced buttons show a blue border and toggle as a group. Use individual mode when readers should control each output separately.",
+    "crumbs": [
+      "Features",
+      "Sync Multiple Outputs"
     ]
   }
 ]

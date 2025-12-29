@@ -1,0 +1,362 @@
+/* ==========================================================================
+   Toggle Extension CSS
+   ==========================================================================
+
+   Variable Naming Convention:
+   ---------------------------
+   * Private variables (--_tg-*): Used internally within the component
+   * Public variables (--tg-*): For user customization
+   * Bootstrap variables (--bs-*): Used as fallbacks
+
+   Each property follows the pattern:
+   --_tg-internal: var(--tg-public, var(--bs-bootstrap, fallback))
+
+   To customize the appearance:
+   1. Override Bootstrap variables to affect all Bootstrap components
+   2. Set --tg-* variables to specifically style this component
+   3. Use class-specific styles for fine-grained control
+
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CSS Custom Properties
+   -------------------------------------------------------------------------- */
+:root {
+  /* Button colors */
+  --_tg-btn-bg: var(--tg-btn-bg, var(--bs-secondary-bg, #f0f0f0));
+  --_tg-btn-bg-hover: var(--tg-btn-bg-hover, var(--bs-secondary-bg-subtle, #e0e0e0));
+  --_tg-btn-border: var(--tg-btn-border, var(--bs-border-color, #ccc));
+  --_tg-btn-text: var(--tg-btn-text, var(--bs-body-color, #333));
+
+  /* Button sizing */
+  --_tg-btn-radius: var(--tg-btn-radius, var(--bs-border-radius-sm, 3px));
+  --_tg-btn-font-size: var(--tg-btn-font-size, 0.8rem);
+  --_tg-btn-padding: var(--tg-btn-padding, 0.2rem 0.5rem);
+
+  /* Output section */
+  --_tg-output-border-color: var(--tg-output-border-color, var(--bs-border-color, #ccc));
+  --_tg-output-border-style: var(--tg-output-border-style, dashed);
+
+  /* Sync indicator */
+  --_tg-sync-indicator: var(--tg-sync-indicator, var(--bs-primary, #0066cc));
+
+  /* Focus ring */
+  --_tg-focus-color: var(--tg-focus-color, var(--bs-primary, #0066cc));
+  --_tg-focus-offset: var(--tg-focus-offset, 2px);
+
+  /* Transitions */
+  --_tg-transition-duration: var(--tg-transition-duration, 0.2s);
+  --_tg-transition-timing: var(--tg-transition-timing, ease);
+  --_tg-transition: var(--_tg-transition-duration) var(--_tg-transition-timing);
+
+  /* Tooltip */
+  --_tg-tooltip-bg: var(--tg-tooltip-bg, var(--bs-dark, #333));
+  --_tg-tooltip-text: var(--tg-tooltip-text, var(--bs-light, #fff));
+
+  /* Global button */
+  --_tg-global-btn-radius: var(--tg-global-btn-radius, 6px);
+  --_tg-global-btn-padding: var(--tg-global-btn-padding, 0.5rem 1rem);
+  --_tg-global-btn-font-size: var(--tg-global-btn-font-size, 0.85rem);
+  --_tg-global-btn-shadow: var(--tg-global-btn-shadow, 0 2px 8px rgba(0, 0, 0, 0.15));
+  --_tg-global-btn-shadow-hover: var(--tg-global-btn-shadow-hover, 0 4px 12px rgba(0, 0, 0, 0.2));
+
+  /* Button positioning (internal only) */
+  --_tg-btn-right: 2.5rem;
+  --_tg-btn-right-with-copy: 5rem;
+  --_tg-btn-top: 0.2rem;
+
+  /* Icon content (internal only) */
+  --_tg-icon-expanded: "\25BC";
+  --_tg-icon-collapsed: "\25B6";
+}
+
+/* --------------------------------------------------------------------------
+   Dark Mode Support
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --_tg-btn-bg: var(--tg-btn-bg, var(--bs-secondary-bg, #3a3a3a));
+    --_tg-btn-bg-hover: var(--tg-btn-bg-hover, var(--bs-secondary-bg-subtle, #4a4a4a));
+    --_tg-btn-border: var(--tg-btn-border, var(--bs-border-color, #555));
+    --_tg-btn-text: var(--tg-btn-text, var(--bs-body-color, #e0e0e0));
+    --_tg-output-border-color: var(--tg-output-border-color, var(--bs-border-color, #555));
+    --_tg-tooltip-bg: var(--tg-tooltip-bg, var(--bs-dark, #555));
+  }
+}
+
+/* Quarto dark mode class support */
+.quarto-dark {
+  --_tg-btn-bg: var(--tg-btn-bg, var(--bs-secondary-bg, #3a3a3a));
+  --_tg-btn-bg-hover: var(--tg-btn-bg-hover, var(--bs-secondary-bg-subtle, #4a4a4a));
+  --_tg-btn-border: var(--tg-btn-border, var(--bs-border-color, #555));
+  --_tg-btn-text: var(--tg-btn-text, var(--bs-body-color, #e0e0e0));
+  --_tg-output-border-color: var(--tg-output-border-color, var(--bs-border-color, #555));
+  --_tg-tooltip-bg: var(--tg-tooltip-bg, var(--bs-dark, #555));
+}
+
+/* --------------------------------------------------------------------------
+   Base Toggle Button
+   -------------------------------------------------------------------------- */
+.code-toggle-btn {
+  /* Layout */
+  position: absolute;
+  right: var(--_tg-btn-right);
+  top: var(--_tg-btn-top);
+  z-index: 10;
+
+  /* Appearance */
+  background: var(--_tg-btn-bg);
+  border: 1px solid var(--_tg-btn-border);
+  border-radius: var(--_tg-btn-radius);
+  padding: var(--_tg-btn-padding);
+
+  /* Typography */
+  font-size: var(--_tg-btn-font-size);
+  font-family: inherit;
+  color: var(--_tg-btn-text);
+  line-height: 1.4;
+  white-space: nowrap;
+
+  /* Behavior */
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity var(--_tg-transition),
+    background-color var(--_tg-transition);
+}
+
+.code-toggle-btn:hover {
+  opacity: 1 !important;
+  background: var(--_tg-btn-bg-hover);
+}
+
+.code-toggle-btn:focus {
+  outline: none;
+}
+
+.code-toggle-btn:focus-visible {
+  outline: 2px solid var(--_tg-focus-color);
+  outline-offset: var(--_tg-focus-offset);
+  opacity: 1 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Button Icons
+   -------------------------------------------------------------------------- */
+.code-toggle-btn::before {
+  content: var(--_tg-icon-expanded);
+  margin-right: 0.3em;
+  font-size: 0.7em;
+  display: inline-block;
+  transition: transform var(--_tg-transition);
+}
+
+.code-toggle-btn.output-hidden::before {
+  content: var(--_tg-icon-collapsed);
+}
+
+/* --------------------------------------------------------------------------
+   Tooltip
+   -------------------------------------------------------------------------- */
+.code-toggle-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 0.5rem;
+  margin-bottom: 4px;
+  background: var(--_tg-tooltip-bg);
+  color: var(--_tg-tooltip-text);
+  font-size: 0.75rem;
+  border-radius: 3px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--_tg-transition);
+  z-index: 100;
+}
+
+.code-toggle-btn:hover::after,
+.code-toggle-btn:focus-visible::after {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Code Section Positioning
+   -------------------------------------------------------------------------- */
+.toggleable-cell .cell-code,
+.toggleable-cell .sourceCode.cell-code,
+[data-toggle-id] {
+  position: relative;
+}
+
+/* Shift button when copy button exists */
+.toggleable-cell .cell-code .code-copy-button ~ .code-toggle-btn,
+.toggleable-cell .sourceCode.cell-code .code-copy-button ~ .code-toggle-btn,
+[data-toggle-id] .code-copy-button ~ .code-toggle-btn {
+  right: var(--_tg-btn-right-with-copy);
+}
+
+/* --------------------------------------------------------------------------
+   Button Visibility - Individual Mode
+   -------------------------------------------------------------------------- */
+.output-sync-off .cell-code:hover .code-toggle-btn,
+.output-sync-off .sourceCode.cell-code:hover .code-toggle-btn,
+.output-sync-off [data-toggle-id]:hover .code-toggle-btn,
+.output-sync-off .code-fold:hover .code-toggle-btn {
+  opacity: 0.8;
+}
+
+/* --------------------------------------------------------------------------
+   Button Visibility - Sync Mode
+   -------------------------------------------------------------------------- */
+.output-sync-on:hover .code-toggle-btn {
+  opacity: 0.8;
+}
+
+/* Sync mode indicator - colored left border */
+.output-sync-on .code-toggle-btn {
+  border-left: 3px solid var(--_tg-sync-indicator);
+  padding-left: calc(0.5rem - 2px);
+}
+
+/* --------------------------------------------------------------------------
+   Output Section
+   -------------------------------------------------------------------------- */
+[class^="cell-output"],
+[data-toggle-output] {
+  border-top: 1px var(--_tg-output-border-style) var(--_tg-output-border-color);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  transition:
+    opacity var(--_tg-transition),
+    max-height 0.3s var(--_tg-transition-timing),
+    padding var(--_tg-transition),
+    margin var(--_tg-transition),
+    border var(--_tg-transition);
+}
+
+[class^="cell-output"].hidden,
+[data-toggle-output].hidden {
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+  visibility: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Toggleable Cell Container
+   -------------------------------------------------------------------------- */
+.toggleable-cell {
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Global Toggle Button
+   -------------------------------------------------------------------------- */
+.toggle-global-btn {
+  /* Layout */
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+
+  /* Appearance */
+  background: var(--_tg-btn-bg);
+  border: 1px solid var(--_tg-btn-border);
+  border-radius: var(--_tg-global-btn-radius);
+  padding: var(--_tg-global-btn-padding);
+  box-shadow: var(--_tg-global-btn-shadow);
+
+  /* Typography */
+  font-size: var(--_tg-global-btn-font-size);
+  font-family: inherit;
+  color: var(--_tg-btn-text);
+
+  /* Behavior */
+  cursor: pointer;
+  transition:
+    background-color var(--_tg-transition),
+    box-shadow var(--_tg-transition),
+    transform var(--_tg-transition);
+}
+
+.toggle-global-btn:hover {
+  background: var(--_tg-btn-bg-hover);
+  box-shadow: var(--_tg-global-btn-shadow-hover);
+  transform: translateY(-1px);
+}
+
+.toggle-global-btn:focus-visible {
+  outline: 2px solid var(--_tg-focus-color);
+  outline-offset: var(--_tg-focus-offset);
+}
+
+.toggle-global-btn::before {
+  content: var(--_tg-icon-expanded);
+  margin-right: 0.4em;
+  font-size: 0.8em;
+  display: inline-block;
+}
+
+.toggle-global-btn.all-hidden::before {
+  content: var(--_tg-icon-collapsed);
+}
+
+/* --------------------------------------------------------------------------
+   Print Styles
+   -------------------------------------------------------------------------- */
+@media print {
+  /* Always show outputs when printing */
+  [class^="cell-output"].hidden,
+  [data-toggle-output].hidden {
+    display: block !important;
+    opacity: 1 !important;
+    max-height: none !important;
+    visibility: visible !important;
+    padding-top: 0.5rem !important;
+    margin-top: 0.5rem !important;
+    border-top: 1px dashed #ccc !important;
+  }
+
+  /* Hide toggle buttons when printing */
+  .code-toggle-btn,
+  .toggle-global-btn {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Support
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .code-toggle-btn,
+  .toggle-global-btn,
+  [class^="cell-output"],
+  [data-toggle-output],
+  .code-toggle-btn::before,
+  .code-toggle-btn::after {
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   High Contrast Mode Support
+   -------------------------------------------------------------------------- */
+@media (forced-colors: active) {
+  .code-toggle-btn,
+  .toggle-global-btn {
+    border: 2px solid currentColor;
+  }
+
+  .code-toggle-btn:focus-visible,
+  .toggle-global-btn:focus-visible {
+    outline: 3px solid currentColor;
+  }
+}

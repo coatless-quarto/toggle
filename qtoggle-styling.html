@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Toggle – toggle</title>
+<title>Custom Styling – toggle</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Get Started</a></li><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qtoggle-styling.html">Reference</a></li><li class="breadcrumb-item"><a href="./qtoggle-styling.html">Custom Styling</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -328,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -415,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./qtoggle-styling.html" class="sidebar-item-text sidebar-link">
+  <a href="./qtoggle-styling.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Custom Styling</span></a>
   </div>
 </li>
@@ -450,22 +450,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation">Installation</a></li>
-  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick Start</a></li>
-  <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
-  <li><a href="#compatibility" id="toc-compatibility" class="nav-link" data-scroll-target="#compatibility">Compatibility</a></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a></li>
+  <li><a href="#css-variables-reference" id="toc-css-variables-reference" class="nav-link active" data-scroll-target="#css-variables-reference">CSS Variables Reference</a>
+  <ul class="collapse">
+  <li><a href="#toggle-button" id="toc-toggle-button" class="nav-link" data-scroll-target="#toggle-button">Toggle Button</a></li>
+  <li><a href="#focus-indicators" id="toc-focus-indicators" class="nav-link" data-scroll-target="#focus-indicators">Focus &amp; Indicators</a></li>
+  <li><a href="#output-section" id="toc-output-section" class="nav-link" data-scroll-target="#output-section">Output Section</a></li>
+  <li><a href="#tooltip" id="toc-tooltip" class="nav-link" data-scroll-target="#tooltip">Tooltip</a></li>
+  <li><a href="#transitions" id="toc-transitions" class="nav-link" data-scroll-target="#transitions">Transitions</a></li>
+  <li><a href="#global-button" id="toc-global-button" class="nav-link" data-scroll-target="#global-button">Global Button</a></li>
+  </ul></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a>
+  <ul class="collapse">
+  <li><a href="#minimal-style" id="toc-minimal-style" class="nav-link" data-scroll-target="#minimal-style">Minimal Style</a></li>
+  <li><a href="#larger-buttons" id="toc-larger-buttons" class="nav-link" data-scroll-target="#larger-buttons">Larger Buttons</a></li>
+  <li><a href="#remove-output-border" id="toc-remove-output-border" class="nav-link" data-scroll-target="#remove-output-border">Remove Output Border</a></li>
+  </ul></li>
+  <li><a href="#dark-mode" id="toc-dark-mode" class="nav-link" data-scroll-target="#dark-mode">Dark Mode</a></li>
+  <li><a href="#adding-custom-css" id="toc-adding-custom-css" class="nav-link" data-scroll-target="#adding-custom-css">Adding Custom CSS</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/toggle/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/toggle/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/coatless-quarto/toggle/edit/main/qtoggle-styling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/toggle/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Get Started</a></li><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./qtoggle-styling.html">Reference</a></li><li class="breadcrumb-item"><a href="./qtoggle-styling.html">Custom Styling</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Toggle</h1>
-<p class="subtitle lead">Let readers control output visibility in Quarto documents</p>
+<h1 class="title">Custom Styling</h1>
+<p class="subtitle lead">Customize the appearance of toggle buttons</p>
 </div>
 
 
@@ -482,91 +495,268 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Ever wished readers could hide verbose output while keeping the code visible? The <code>toggle</code> extension adds a button to your code blocks that shows or hides the output on demand.</p>
-<p>Think of it as the opposite of Quarto’s <a href="https://quarto.org/docs/output-formats/html-code.html#folding-code"><code>code-fold</code></a>. Instead of hiding code and showing output, toggle hides output and shows code.</p>
-<section id="installation" class="level2">
-<h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add coatless-quarto/toggle</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="quick-start" class="level2">
-<h2 class="anchored" data-anchor-id="quick-start">Quick Start</h2>
-<p>Add the filter and enable toggle for all cells:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extensions</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">toggle</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">output-toggle</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">filters</span><span class="kw">:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> toggle</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Hover over any code block to see the toggle button appear. Click to hide the output; click again to show it.</p>
-<p>To enable toggle for specific cells only, omit <code>output-toggle</code> and add <code>#| toggle: true</code> to individual cells:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| toggle: true</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mtcars)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="options" class="level2">
-<h2 class="anchored" data-anchor-id="options">Options</h2>
-<p>Set these under <code>extensions.toggle</code> or per-cell with <code>#|</code> comments:</p>
+<p>The toggle extension uses CSS custom properties (<code>--tg-*</code> prefix) for styling. Set these variables to customize the appearance. If unset, the extension falls back to Bootstrap variables or sensible defaults.</p>
+<section id="css-variables-reference" class="level2">
+<h2 class="anchored" data-anchor-id="css-variables-reference">CSS Variables Reference</h2>
+<section id="toggle-button" class="level3">
+<h3 class="anchored" data-anchor-id="toggle-button">Toggle Button</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Option</th>
+<th>Variable</th>
+<th>Description</th>
 <th>Default</th>
-<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>output-toggle</code></td>
-<td><code>false</code></td>
-<td>Add toggle buttons to all cells</td>
+<td><code>--tg-btn-bg</code></td>
+<td>Background color</td>
+<td><code>#f0f0f0</code></td>
 </tr>
 <tr class="even">
-<td><code>output-hidden</code></td>
-<td><code>false</code></td>
-<td>Start with outputs collapsed</td>
+<td><code>--tg-btn-bg-hover</code></td>
+<td>Background on hover</td>
+<td><code>#e0e0e0</code></td>
 </tr>
 <tr class="odd">
-<td><code>output-sync</code></td>
-<td><code>false</code></td>
-<td>Sync all outputs in a cell together</td>
+<td><code>--tg-btn-border</code></td>
+<td>Border color</td>
+<td><code>#ccc</code></td>
 </tr>
 <tr class="even">
-<td><code>global-toggle</code></td>
-<td><code>false</code></td>
-<td>Floating button to toggle everything</td>
+<td><code>--tg-btn-text</code></td>
+<td>Text color</td>
+<td><code>#333</code></td>
 </tr>
 <tr class="odd">
-<td><code>persist</code></td>
-<td><code>false</code></td>
-<td>Remember state across page reloads</td>
+<td><code>--tg-btn-radius</code></td>
+<td>Border radius</td>
+<td><code>3px</code></td>
 </tr>
 <tr class="even">
-<td><code>button-text</code></td>
-<td><code>"Output"</code></td>
-<td>Label shown on the button</td>
+<td><code>--tg-btn-font-size</code></td>
+<td>Font size</td>
+<td><code>0.8rem</code></td>
+</tr>
+<tr class="odd">
+<td><code>--tg-btn-padding</code></td>
+<td>Padding</td>
+<td><code>0.2rem 0.5rem</code></td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="compatibility" class="level2">
-<h2 class="anchored" data-anchor-id="compatibility">Compatibility</h2>
-<p>Works with HTML-based Quarto formats: documents, websites, books, and Revealjs presentations.</p>
-<p>Toggle complements Quarto’s <a href="https://quarto.org/docs/output-formats/html-code.html#folding-code"><code>code-fold</code></a>. Use both together:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">extensions</span><span class="kw">:</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">toggle</span><span class="kw">:</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">output-toggle</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>PDF, Word, and other non-HTML formats are unaffected.</p>
+<section id="focus-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="focus-indicators">Focus &amp; Indicators</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--tg-focus-color</code></td>
+<td>Focus ring color</td>
+<td><code>#0066cc</code></td>
+</tr>
+<tr class="even">
+<td><code>--tg-focus-offset</code></td>
+<td>Focus ring offset</td>
+<td><code>2px</code></td>
+</tr>
+<tr class="odd">
+<td><code>--tg-sync-indicator</code></td>
+<td>Sync mode left border</td>
+<td><code>#0066cc</code></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="getting-help" class="level2">
-<h2 class="anchored" data-anchor-id="getting-help">Getting Help</h2>
-<ul>
-<li><a href="./qtoggle-faq.html">FAQ</a> — Common questions</li>
-<li><a href="https://github.com/coatless-quarto/toggle/issues">GitHub Issues</a> — Bug reports</li>
-<li><a href="https://github.com/coatless-quarto/toggle/discussions">Discussions</a> — Questions</li>
-</ul>
+<section id="output-section" class="level3">
+<h3 class="anchored" data-anchor-id="output-section">Output Section</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--tg-output-border-color</code></td>
+<td>Border above output</td>
+<td><code>#ccc</code></td>
+</tr>
+<tr class="even">
+<td><code>--tg-output-border-style</code></td>
+<td>Border style</td>
+<td><code>dashed</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tooltip" class="level3">
+<h3 class="anchored" data-anchor-id="tooltip">Tooltip</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--tg-tooltip-bg</code></td>
+<td>Tooltip background</td>
+<td><code>#333</code></td>
+</tr>
+<tr class="even">
+<td><code>--tg-tooltip-text</code></td>
+<td>Tooltip text color</td>
+<td><code>#fff</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transitions" class="level3">
+<h3 class="anchored" data-anchor-id="transitions">Transitions</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--tg-transition-duration</code></td>
+<td>Animation duration</td>
+<td><code>0.2s</code></td>
+</tr>
+<tr class="even">
+<td><code>--tg-transition-timing</code></td>
+<td>Timing function</td>
+<td><code>ease</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="global-button" class="level3">
+<h3 class="anchored" data-anchor-id="global-button">Global Button</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 40%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>--tg-global-btn-radius</code></td>
+<td>Border radius</td>
+<td><code>6px</code></td>
+</tr>
+<tr class="even">
+<td><code>--tg-global-btn-padding</code></td>
+<td>Padding</td>
+<td><code>0.5rem 1rem</code></td>
+</tr>
+<tr class="odd">
+<td><code>--tg-global-btn-font-size</code></td>
+<td>Font size</td>
+<td><code>0.85rem</code></td>
+</tr>
+<tr class="even">
+<td><code>--tg-global-btn-shadow</code></td>
+<td>Box shadow</td>
+<td><code>0 2px 8px rgba(0,0,0,0.15)</code></td>
+</tr>
+<tr class="odd">
+<td><code>--tg-global-btn-shadow-hover</code></td>
+<td>Shadow on hover</td>
+<td><code>0 4px 12px rgba(0,0,0,0.2)</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<section id="minimal-style" class="level3">
+<h3 class="anchored" data-anchor-id="minimal-style">Minimal Style</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">:root</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-bg</span><span class="ch">:</span> <span class="dv">transparent</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-bg-hover</span><span class="ch">:</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.05</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-border</span><span class="ch">:</span> <span class="dv">transparent</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-output-border-style</span><span class="ch">:</span> <span class="dv">solid</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="larger-buttons" class="level3">
+<h3 class="anchored" data-anchor-id="larger-buttons">Larger Buttons</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">:root</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-font-size</span><span class="ch">:</span> <span class="dv">0.9</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-padding</span><span class="ch">:</span> <span class="dv">0.4</span><span class="dt">rem</span> <span class="dv">0.8</span><span class="dt">rem</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-radius</span><span class="ch">:</span> <span class="dv">6</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="remove-output-border" class="level3">
+<h3 class="anchored" data-anchor-id="remove-output-border">Remove Output Border</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[</span><span class="ss">data-toggle-output</span><span class="ex">]</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">border-top</span><span class="ch">:</span> <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="dark-mode" class="level2">
+<h2 class="anchored" data-anchor-id="dark-mode">Dark Mode</h2>
+<p>The extension adapts automatically via <code>prefers-color-scheme</code> and Quarto’s theme classes. Quarto adds <code>.quarto-dark</code> to the body in dark mode and <code>.quarto-light</code> in light mode.</p>
+<p>To customize dark mode colors:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* For Quarto's theme switcher (class on body) */</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.quarto-dark</span> {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-bg</span><span class="ch">:</span> <span class="cn">#2a2a2a</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-bg-hover</span><span class="ch">:</span> <span class="cn">#3a3a3a</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-border</span><span class="ch">:</span> <span class="cn">#555</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-text</span><span class="ch">:</span> <span class="cn">#e0e0e0</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">/* For system preference (when not using Quarto themes) */</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="im">@media</span> <span class="fu">(</span><span class="kw">prefers-color-scheme</span><span class="ch">:</span> <span class="dv">dark</span><span class="fu">)</span> {</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="in">:root</span> {</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="va">--tg-btn-bg</span><span class="ch">:</span> <span class="cn">#2a2a2a</span><span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="va">--tg-btn-bg-hover</span><span class="ch">:</span> <span class="cn">#3a3a3a</span><span class="op">;</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="va">--tg-btn-border</span><span class="ch">:</span> <span class="cn">#555</span><span class="op">;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="va">--tg-btn-text</span><span class="ch">:</span> <span class="cn">#e0e0e0</span><span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="adding-custom-css" class="level2">
+<h2 class="anchored" data-anchor-id="adding-custom-css">Adding Custom CSS</h2>
+<p>Reference a CSS file in your document:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> custom.css</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Or use inline styles:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">style</span><span class="dt">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="in">:root</span> {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="va">--tg-btn-bg</span><span class="ch">:</span> #<span class="dv">your-color</span><span class="op">;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">style</span><span class="dt">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The toggle extension provides CSS custom properties for complete visual customization. Set <code>--tg-*</code> variables to override defaults, use <code>.quarto-dark</code> for theme-aware styling, and ensure sufficient color contrast for accessibility. All variables fall back to Bootstrap values when available.</p>
 
 
 </section>
@@ -990,4 +1180,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/coatless-quarto/toggle/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/toggle/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/coatless-quarto/toggle/edit/main/qtoggle-styling.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/coatless-quarto/toggle/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
