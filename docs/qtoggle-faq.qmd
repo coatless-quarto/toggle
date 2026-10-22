@@ -65,7 +65,7 @@ See the [home page](index.qmd) for more details.
 
 ## Is the toggle extension compatible with all Quarto versions?
 
-The `toggle` extension requires Quarto v1.7.0 or later.
+The `toggle` extension requires Quarto v1.10.0 or later.
 
 # Usage
 

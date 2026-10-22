@@ -32,7 +32,7 @@ that you include this directory in your repository.
 
 ### Requirements
 
-- Quarto >= 1.7.0
+- Quarto >= 1.10.0
 
 ## Usage
 

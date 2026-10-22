@@ -247,7 +247,7 @@ local HEADER_SCRIPT = [[
 local function add_dependencies()
   quarto.doc.add_html_dependency({
     name = "toggle",
-    version = "0.2.0",
+    version = "0.3.0-dev.1",
     scripts = {"toggle.js"},
     stylesheets = {"toggle.css"}
   })

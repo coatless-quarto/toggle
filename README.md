@@ -20,7 +20,7 @@ This command will download and install the extension under the `_extensions` sub
 
 To use the `toggle` extension, ensure you have the following:
 
-- Quarto >= 1.7.0
+- Quarto >= 1.10.0
 
 ## Quick Start
 
