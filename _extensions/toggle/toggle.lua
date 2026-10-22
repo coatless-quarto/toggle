@@ -385,7 +385,7 @@ end
 local function add_html_dependency()
   quarto.doc.add_html_dependency({
     name = "toggle",
-    version = "0.1.0",
+    version = "0.2.0",
     scripts = {"toggle.js"},
     stylesheets = {"toggle.css"}
   })
