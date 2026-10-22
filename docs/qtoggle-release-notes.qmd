@@ -13,11 +13,8 @@ format:
 
 ### Bug fixes
 
-- Documents that set toggle options at the document level render to PDF
-  again. Previously the toggle script was added to every output format,
-  which broke LaTeX builds.
-- Emoji and symbols in a document-level `button-text` now display correctly
-  on the "Toggle All Outputs" button.
+- Document-level toggle options now work in documents that also render to PDF.
+- `button-text` shows emoji and symbols on the "Toggle All Outputs" button.
 
 ## 0.2.0 "Is it on or is it off?" (12-28-2025)
 
