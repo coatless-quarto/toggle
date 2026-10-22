@@ -353,8 +353,8 @@ end
 local function build_attr_script()
   if doc_settings.button_text ~= DEFAULT_SETTINGS.button_text then
     return string.format(
-      "document.documentElement.setAttribute('data-toggle-global-text', %q);",
-      doc_settings.button_text
+      "document.documentElement.setAttribute('data-toggle-global-text', %s);",
+      quarto.json.encode(doc_settings.button_text)
     )
   end
   return ""
@@ -371,12 +371,12 @@ local function generate_injection_script(classes, attr_script)
   return string.format([[
 <script>
 (function() {
-  var classes = %q.split(' ').filter(Boolean);
+  var classes = %s.split(' ').filter(Boolean);
   classes.forEach(function(c) { document.documentElement.classList.add(c); });
   %s
 })();
 </script>
-]], class_str, attr_script)
+]], quarto.json.encode(class_str), attr_script)
 end
 
 --- Add toggle HTML dependency to the document.
