@@ -567,7 +567,7 @@ end
 -- @param meta table The document metadata from Pandoc
 -- @return table The metadata table (unchanged)
 local function finalize_meta(meta)
-  if not needs_toggle then
+  if not needs_toggle or not is_html_format() then
     return meta
   end
   
