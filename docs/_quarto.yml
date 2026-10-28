@@ -47,6 +47,8 @@ website:
           href: qtoggle-faq.qmd
         - text: "Release Notes"
           href: qtoggle-release-notes.qmd
+        - text: "Blog posts"
+          href: https://blog.thecoatlessprofessor.com/projects/toggle/
       - text: "---"
       - text: "Report Issue"
         href: https://github.com/coatless-quarto/toggle/issues/new/choose
