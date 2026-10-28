@@ -1,247 +1,5 @@
 [
   {
-    "objectID": "qtoggle-persistence.html",
-    "href": "qtoggle-persistence.html",
-    "title": "Remember State",
-    "section": "",
-    "text": "By default, toggle state resets when you refresh the page. With persistence enabled, your choices are saved to the browser’s localStorage and restored on your next visit.",
-    "crumbs": [
-      "Features",
-      "Remember State"
-    ]
-  },
-  {
-    "objectID": "qtoggle-persistence.html#configuration",
-    "href": "qtoggle-persistence.html#configuration",
-    "title": "Remember State",
-    "section": "Configuration",
-    "text": "Configuration\nEnable persistence in your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    persist: true\nOr per-cell with #| persist: true.\n```{r}\n#| persist: true\nprint(\"This cell's toggle state will be remembered.\")\n```",
-    "crumbs": [
-      "Features",
-      "Remember State"
-    ]
-  },
-  {
-    "objectID": "qtoggle-persistence.html#try-it",
-    "href": "qtoggle-persistence.html#try-it",
-    "title": "Remember State",
-    "section": "Try It",
-    "text": "Try It\n\nToggle the output below to hide it\nRefresh the page\nYour choice should be preserved\n\n\ncat(\"Toggle me, then refresh the page.\\n\")\n\nToggle me, then refresh the page.\n\ncat(\"I'll remember whether I was hidden or shown.\\n\")\n\nI'll remember whether I was hidden or shown.",
-    "crumbs": [
-      "Features",
-      "Remember State"
-    ]
-  },
-  {
-    "objectID": "qtoggle-persistence.html#clearing-saved-state",
-    "href": "qtoggle-persistence.html#clearing-saved-state",
-    "title": "Remember State",
-    "section": "Clearing Saved State",
-    "text": "Clearing Saved State\nToggle states are stored in localStorage using keys like quarto-toggle-/path-cell-0. Each page maintains its own state. To reset:\n\nOpen browser DevTools (F12)\nGo to Application → Local Storage\nDelete keys starting with quarto-toggle-\n\n\n\n\n\n\n\nAll data stays in your browser. Nothing is sent to any server.",
-    "crumbs": [
-      "Features",
-      "Remember State"
-    ]
-  },
-  {
-    "objectID": "qtoggle-persistence.html#summary",
-    "href": "qtoggle-persistence.html#summary",
-    "title": "Remember State",
-    "section": "Summary",
-    "text": "Summary\nUse persist: true to save toggle state in the browser. Useful for documents readers visit repeatedly.",
-    "crumbs": [
-      "Features",
-      "Remember State"
-    ]
-  },
-  {
-    "objectID": "qtoggle-release-notes.html",
-    "href": "qtoggle-release-notes.html",
-    "title": "Release Notes",
-    "section": "",
-    "text": "Initial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\n\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
-    "crumbs": [
-      "Reference",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "qtoggle-release-notes.html#is-it-on-or-is-it-off-12-28-2025",
-    "href": "qtoggle-release-notes.html#is-it-on-or-is-it-off-12-28-2025",
-    "title": "Release Notes",
-    "section": "",
-    "text": "Initial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\n\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
-    "crumbs": [
-      "Reference",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "qtoggle-global-toggle.html",
-    "href": "qtoggle-global-toggle.html",
-    "title": "Global Control",
-    "section": "",
-    "text": "For long documents with many outputs, clicking each toggle individually gets tedious. The global toggle button lets you hide or show everything at once.\nLook in the bottom-right corner of your screen. You should see a floating “Toggle All Outputs” button.",
-    "crumbs": [
-      "Features",
-      "Global Control"
-    ]
-  },
-  {
-    "objectID": "qtoggle-global-toggle.html#configuration",
-    "href": "qtoggle-global-toggle.html#configuration",
-    "title": "Global Control",
-    "section": "Configuration",
-    "text": "Configuration\nAdd global-toggle: true to your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    global-toggle: true\n\n\n\n\n\n\nGlobal toggle is a document-level feature. There’s no cell-level equivalent since it wouldn’t make sense for a single cell to control the whole page.",
-    "crumbs": [
-      "Features",
-      "Global Control"
-    ]
-  },
-  {
-    "objectID": "qtoggle-global-toggle.html#try-it",
-    "href": "qtoggle-global-toggle.html#try-it",
-    "title": "Global Control",
-    "section": "Try It",
-    "text": "Try It\nClick the floating button to hide all outputs. Click again to show them.\n\nExampleSource\n\n\n\nprint(\"Output 1\")\n\n[1] \"Output 1\"\n\n\n\nprint(\"Output 2\")\n\n[1] \"Output 2\"\n\n\n\nprint(\"Output 3\")\n\n[1] \"Output 3\"\n\n\n\nprint(\"Output 4\")\n\n[1] \"Output 4\"\n\n\n\n\n```{r}\nprint(\"Output 1\")\n```\n\n```{r}\nprint(\"Output 2\")\n```\n\n```{r}\nprint(\"Output 3\")\n```\n\n```{r}\nprint(\"Output 4\")\n```",
-    "crumbs": [
-      "Features",
-      "Global Control"
-    ]
-  },
-  {
-    "objectID": "qtoggle-global-toggle.html#still-works-with-individual-toggles",
-    "href": "qtoggle-global-toggle.html#still-works-with-individual-toggles",
-    "title": "Global Control",
-    "section": "Still Works with Individual Toggles",
-    "text": "Still Works with Individual Toggles\nAfter using the global button, you can still click individual toggles to show or hide specific outputs. The global button sets everything to the same state; individual buttons fine-tune from there.\n\nExampleSource\n\n\n\nprint(\"I start hidden, but the global button affects me too.\")\n\n[1] \"I start hidden, but the global button affects me too.\"\n\n\n\n\n```{r}\n#| output-hidden: true\nprint(\"I start hidden, but the global button affects me too.\")\n```",
-    "crumbs": [
-      "Features",
-      "Global Control"
-    ]
-  },
-  {
-    "objectID": "qtoggle-global-toggle.html#summary",
-    "href": "qtoggle-global-toggle.html#summary",
-    "title": "Global Control",
-    "section": "Summary",
-    "text": "Summary\nUse global-toggle: true to add a floating button that hides or shows all outputs at once. Individual toggles still work for fine-grained control. Useful for presentations, code review, and navigating long documents.",
-    "crumbs": [
-      "Features",
-      "Global Control"
-    ]
-  },
-  {
-    "objectID": "qtoggle-custom-text.html",
-    "href": "qtoggle-custom-text.html",
-    "title": "Custom Labels",
-    "section": "",
-    "text": "“Output” is generic. When every button says the same thing, readers lose context. Custom labels tell them what they’ll find before they click.\nThis page uses “Result” as the default, but individual cells override it with context-specific labels.",
-    "crumbs": [
-      "Features",
-      "Custom Labels"
-    ]
-  },
-  {
-    "objectID": "qtoggle-custom-text.html#configuration",
-    "href": "qtoggle-custom-text.html#configuration",
-    "title": "Custom Labels",
-    "section": "Configuration",
-    "text": "Configuration\nSet a document-wide default:\nextensions:\n  toggle:\n    output-toggle: true\n    button-text: \"Result\"\nOr label specific cells with #| button-text: \"Plot\".\n```{r}\n#| button-text: \"Plot\"\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n```",
-    "crumbs": [
-      "Features",
-      "Custom Labels"
-    ]
-  },
-  {
-    "objectID": "qtoggle-custom-text.html#examples",
-    "href": "qtoggle-custom-text.html#examples",
-    "title": "Custom Labels",
-    "section": "Examples",
-    "text": "Examples\n\nDefault Label\nThese cells inherit “Result” from the document settings:\n\nExampleSource\n\n\n\n2 + 2\n\n[1] 4\n\n\n\nprint(\"Standard label from document config\")\n\n[1] \"Standard label from document config\"\n\n\n\n\n```{r}\n2 + 2\n```\n\n```{r}\nprint(\"Standard label from document config\")\n```\n\n\n\n\n\nContext-Specific Labels\nOverride per-cell when the content calls for it:\n\nExampleSource\n\n\n\nfactorial(5)\n\n[1] 120\n\n\n\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n\n\n\n\n\n\n\n\n\n\n```{r}\n#| button-text: \"Solution\"\nfactorial(5)\n```\n\n```{r}\n#| button-text: \"Plot\"\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n```",
-    "crumbs": [
-      "Features",
-      "Custom Labels"
-    ]
-  },
-  {
-    "objectID": "qtoggle-custom-text.html#summary",
-    "href": "qtoggle-custom-text.html#summary",
-    "title": "Custom Labels",
-    "section": "Summary",
-    "text": "Summary\nUse button-text to replace the generic “Output” label with something meaningful. Set a document default, then override per-cell as needed. Good labels (“Solution”, “Plot”, “Debug”) tell readers what to expect before they click.",
-    "crumbs": [
-      "Features",
-      "Custom Labels"
-    ]
-  },
-  {
-    "objectID": "qtoggle-demo.html",
-    "href": "qtoggle-demo.html",
-    "title": "Data Analysis Demo",
-    "section": "",
-    "text": "This demo shows toggle enabled for every cell. Readers can hide outputs as they work through the analysis, revealing results only when ready.\nThe floating button in the corner toggles everything at once.",
-    "crumbs": [
-      "Demos",
-      "Data Analysis Demo"
-    ]
-  },
-  {
-    "objectID": "qtoggle-demo.html#configuration",
-    "href": "qtoggle-demo.html#configuration",
-    "title": "Data Analysis Demo",
-    "section": "Configuration",
-    "text": "Configuration\nextensions:\n  toggle:\n    output-toggle: true\n    global-toggle: true",
-    "crumbs": [
-      "Demos",
-      "Data Analysis Demo"
-    ]
-  },
-  {
-    "objectID": "qtoggle-demo.html#loading-the-data",
-    "href": "qtoggle-demo.html#loading-the-data",
-    "title": "Data Analysis Demo",
-    "section": "Loading the Data",
-    "text": "Loading the Data\nWe’ll analyze the mtcars dataset: 32 cars from 1974 Motor Trend magazine.\n\ndata(mtcars)\ncat(\"Dataset dimensions:\", nrow(mtcars), \"rows,\", ncol(mtcars), \"columns\\n\")\n\nDataset dimensions: 32 rows, 11 columns\n\n\n\nhead(mtcars, 5)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2",
-    "crumbs": [
-      "Demos",
-      "Data Analysis Demo"
-    ]
-  },
-  {
-    "objectID": "qtoggle-demo.html#exploratory-analysis",
-    "href": "qtoggle-demo.html#exploratory-analysis",
-    "title": "Data Analysis Demo",
-    "section": "Exploratory Analysis",
-    "text": "Exploratory Analysis\n\nFuel Efficiency\nMiles per gallon ranges from gas-guzzlers to relatively efficient:\n\nsummary(mtcars$mpg)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  10.40   15.43   19.20   20.09   22.80   33.90 \n\n\n\nhist(mtcars$mpg,\n     main = \"Distribution of MPG\",\n     xlab = \"Miles per Gallon\",\n     col = \"steelblue\",\n     border = \"white\")\n\n\n\n\n\n\n\n\n\n\nEngine Size\nMost cars have either 4, 6, or 8 cylinders:\n\ntable(mtcars$cyl)\n\n\n 4  6  8 \n11  7 14 \n\n\n\nbarplot(table(mtcars$cyl),\n        main = \"Cars by Cylinder Count\",\n        xlab = \"Cylinders\",\n        ylab = \"Count\",\n        col = c(\"#4e79a7\", \"#f28e2b\", \"#e15759\"))",
-    "crumbs": [
-      "Demos",
-      "Data Analysis Demo"
-    ]
-  },
-  {
-    "objectID": "qtoggle-demo.html#relationships",
-    "href": "qtoggle-demo.html#relationships",
-    "title": "Data Analysis Demo",
-    "section": "Relationships",
-    "text": "Relationships\n\nMPG vs Weight\nHeavier cars use more fuel:\n\ncor(mtcars$mpg, mtcars$wt)\n\n[1] -0.8676594\n\n\n\nplot(mtcars$wt, mtcars$mpg,\n     main = \"Weight vs MPG\",\n     xlab = \"Weight (1000 lbs)\",\n     ylab = \"Miles per Gallon\",\n     pch = 19,\n     col = \"steelblue\")\nabline(lm(mpg ~ wt, data = mtcars), col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\nMPG by Transmission\nManual transmissions tend to be more efficient:\n\naggregate(mpg ~ am, data = mtcars, FUN = mean)\n\n  am      mpg\n1  0 17.14737\n2  1 24.39231\n\n\n\nboxplot(mpg ~ am, data = mtcars,\n        names = c(\"Automatic\", \"Manual\"),\n        main = \"MPG by Transmission Type\",\n        ylab = \"Miles per Gallon\",\n        col = c(\"#f28e2b\", \"#4e79a7\"))",
-    "crumbs": [
-      "Demos",
-      "Data Analysis Demo"
-    ]
-  },
-  {
-    "objectID": "qtoggle-demo.html#summary",
-    "href": "qtoggle-demo.html#summary",
-    "title": "Data Analysis Demo",
-    "section": "Summary",
-    "text": "Summary\nThis demo showed toggle enabled document-wide with output-toggle: true. Every code cell got a toggle button, letting readers hide outputs as they work through the analysis.\nThe floating global button in the bottom-right corner toggles all outputs at once—useful for quickly clearing the page or revealing everything.",
-    "crumbs": [
-      "Demos",
-      "Data Analysis Demo"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Toggle",
@@ -294,61 +52,6 @@
     "crumbs": [
       "Get Started",
       "Home"
-    ]
-  },
-  {
-    "objectID": "qtoggle-hidden-default.html",
-    "href": "qtoggle-hidden-default.html",
-    "title": "Hide by Default",
-    "section": "",
-    "text": "Sometimes you want outputs hidden until readers actively choose to see them. This keeps pages clean while making details available on demand.\nEvery output on this page starts hidden. Click the toggle buttons to reveal them.",
-    "crumbs": [
-      "Features",
-      "Hide by Default"
-    ]
-  },
-  {
-    "objectID": "qtoggle-hidden-default.html#configuration",
-    "href": "qtoggle-hidden-default.html#configuration",
-    "title": "Hide by Default",
-    "section": "Configuration",
-    "text": "Configuration\nAdd output-hidden: true to your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    output-hidden: true\nOr set it on individual cells with #| output-hidden: true.",
-    "crumbs": [
-      "Features",
-      "Hide by Default"
-    ]
-  },
-  {
-    "objectID": "qtoggle-hidden-default.html#examples",
-    "href": "qtoggle-hidden-default.html#examples",
-    "title": "Hide by Default",
-    "section": "Examples",
-    "text": "Examples\nThese outputs are hidden until you click:\n\nExampleSource\n\n\n\nprint(\"You found me!\")\n\n[1] \"You found me!\"\n\n\n\nfor (i in 1:3) {\n  cat(\"Line\", i, \"\\n\")\n}\n\nLine 1 \nLine 2 \nLine 3 \n\n\n\n\n```{r}\nprint(\"You found me!\")\n```\n\n```{r}\nfor (i in 1:3) {\n  cat(\"Line\", i, \"\\n\")\n}\n```",
-    "crumbs": [
-      "Features",
-      "Hide by Default"
-    ]
-  },
-  {
-    "objectID": "qtoggle-hidden-default.html#showing-specific-cells",
-    "href": "qtoggle-hidden-default.html#showing-specific-cells",
-    "title": "Hide by Default",
-    "section": "Showing Specific Cells",
-    "text": "Showing Specific Cells\nEven when the document default is hidden, you can force specific outputs to show:\n\nExampleSource\n\n\n\nprint(\"I'm visible by default, despite the document setting.\")\n\n[1] \"I'm visible by default, despite the document setting.\"\n\n\n\n\n```{r}\n#| output-hidden: false\nprint(\"I'm visible by default, despite the document setting.\")\n```",
-    "crumbs": [
-      "Features",
-      "Hide by Default"
-    ]
-  },
-  {
-    "objectID": "qtoggle-hidden-default.html#summary",
-    "href": "qtoggle-hidden-default.html#summary",
-    "title": "Hide by Default",
-    "section": "Summary",
-    "text": "Summary\nUse output-hidden: true to start outputs collapsed. Readers click to reveal. Override with output-hidden: false on cells that should always show.\nWorks well for problem sets (hide solutions), reports (hide supporting details), and tutorials (reveal answers progressively).",
-    "crumbs": [
-      "Features",
-      "Hide by Default"
     ]
   },
   {
@@ -415,6 +118,116 @@
     "crumbs": [
       "Reference",
       "Custom Styling"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html",
+    "href": "qtoggle-hidden-default.html",
+    "title": "Hide by Default",
+    "section": "",
+    "text": "Sometimes you want outputs hidden until readers actively choose to see them. This keeps pages clean while making details available on demand.\nEvery output on this page starts hidden. Click the toggle buttons to reveal them.",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html#configuration",
+    "href": "qtoggle-hidden-default.html#configuration",
+    "title": "Hide by Default",
+    "section": "Configuration",
+    "text": "Configuration\nAdd output-hidden: true to your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    output-hidden: true\nOr set it on individual cells with #| output-hidden: true.",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html#examples",
+    "href": "qtoggle-hidden-default.html#examples",
+    "title": "Hide by Default",
+    "section": "Examples",
+    "text": "Examples\nThese outputs are hidden until you click:\n\nExampleSource\n\n\n\nprint(\"You found me!\")\n\n[1] \"You found me!\"\n\n\n\nfor (i in 1:3) {\n  cat(\"Line\", i, \"\\n\")\n}\n\nLine 1 \nLine 2 \nLine 3 \n\n\n\n\n```{r}\nprint(\"You found me!\")\n```\n\n```{r}\nfor (i in 1:3) {\n  cat(\"Line\", i, \"\\n\")\n}\n```",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html#showing-specific-cells",
+    "href": "qtoggle-hidden-default.html#showing-specific-cells",
+    "title": "Hide by Default",
+    "section": "Showing Specific Cells",
+    "text": "Showing Specific Cells\nEven when the document default is hidden, you can force specific outputs to show:\n\nExampleSource\n\n\n\nprint(\"I'm visible by default, despite the document setting.\")\n\n[1] \"I'm visible by default, despite the document setting.\"\n\n\n\n\n```{r}\n#| output-hidden: false\nprint(\"I'm visible by default, despite the document setting.\")\n```",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-hidden-default.html#summary",
+    "href": "qtoggle-hidden-default.html#summary",
+    "title": "Hide by Default",
+    "section": "Summary",
+    "text": "Summary\nUse output-hidden: true to start outputs collapsed. Readers click to reveal. Override with output-hidden: false on cells that should always show.\nWorks well for problem sets (hide solutions), reports (hide supporting details), and tutorials (reveal answers progressively).",
+    "crumbs": [
+      "Features",
+      "Hide by Default"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html",
+    "href": "qtoggle-persistence.html",
+    "title": "Remember State",
+    "section": "",
+    "text": "By default, toggle state resets when you refresh the page. With persistence enabled, your choices are saved to the browser’s localStorage and restored on your next visit.",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html#configuration",
+    "href": "qtoggle-persistence.html#configuration",
+    "title": "Remember State",
+    "section": "Configuration",
+    "text": "Configuration\nEnable persistence in your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    persist: true\nOr per-cell with #| persist: true.\n```{r}\n#| persist: true\nprint(\"This cell's toggle state will be remembered.\")\n```",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html#try-it",
+    "href": "qtoggle-persistence.html#try-it",
+    "title": "Remember State",
+    "section": "Try It",
+    "text": "Try It\n\nToggle the output below to hide it\nRefresh the page\nYour choice should be preserved\n\n\ncat(\"Toggle me, then refresh the page.\\n\")\n\nToggle me, then refresh the page.\n\ncat(\"I'll remember whether I was hidden or shown.\\n\")\n\nI'll remember whether I was hidden or shown.",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html#clearing-saved-state",
+    "href": "qtoggle-persistence.html#clearing-saved-state",
+    "title": "Remember State",
+    "section": "Clearing Saved State",
+    "text": "Clearing Saved State\nToggle states are stored in localStorage using keys like quarto-toggle-/path-cell-0. Each page maintains its own state. To reset:\n\nOpen browser DevTools (F12)\nGo to Application → Local Storage\nDelete keys starting with quarto-toggle-\n\n\n\n\n\n\n\nAll data stays in your browser. Nothing is sent to any server.",
+    "crumbs": [
+      "Features",
+      "Remember State"
+    ]
+  },
+  {
+    "objectID": "qtoggle-persistence.html#summary",
+    "href": "qtoggle-persistence.html#summary",
+    "title": "Remember State",
+    "section": "Summary",
+    "text": "Summary\nUse persist: true to save toggle state in the browser. Useful for documents readers visit repeatedly.",
+    "crumbs": [
+      "Features",
+      "Remember State"
     ]
   },
   {
@@ -704,6 +517,171 @@
     ]
   },
   {
+    "objectID": "qtoggle-global-toggle.html",
+    "href": "qtoggle-global-toggle.html",
+    "title": "Global Control",
+    "section": "",
+    "text": "For long documents with many outputs, clicking each toggle individually gets tedious. The global toggle button lets you hide or show everything at once.\nLook in the bottom-right corner of your screen. You should see a floating “Toggle All Outputs” button.",
+    "crumbs": [
+      "Features",
+      "Global Control"
+    ]
+  },
+  {
+    "objectID": "qtoggle-global-toggle.html#configuration",
+    "href": "qtoggle-global-toggle.html#configuration",
+    "title": "Global Control",
+    "section": "Configuration",
+    "text": "Configuration\nAdd global-toggle: true to your settings:\nextensions:\n  toggle:\n    output-toggle: true\n    global-toggle: true\n\n\n\n\n\n\nGlobal toggle is a document-level feature. There’s no cell-level equivalent since it wouldn’t make sense for a single cell to control the whole page.",
+    "crumbs": [
+      "Features",
+      "Global Control"
+    ]
+  },
+  {
+    "objectID": "qtoggle-global-toggle.html#try-it",
+    "href": "qtoggle-global-toggle.html#try-it",
+    "title": "Global Control",
+    "section": "Try It",
+    "text": "Try It\nClick the floating button to hide all outputs. Click again to show them.\n\nExampleSource\n\n\n\nprint(\"Output 1\")\n\n[1] \"Output 1\"\n\n\n\nprint(\"Output 2\")\n\n[1] \"Output 2\"\n\n\n\nprint(\"Output 3\")\n\n[1] \"Output 3\"\n\n\n\nprint(\"Output 4\")\n\n[1] \"Output 4\"\n\n\n\n\n```{r}\nprint(\"Output 1\")\n```\n\n```{r}\nprint(\"Output 2\")\n```\n\n```{r}\nprint(\"Output 3\")\n```\n\n```{r}\nprint(\"Output 4\")\n```",
+    "crumbs": [
+      "Features",
+      "Global Control"
+    ]
+  },
+  {
+    "objectID": "qtoggle-global-toggle.html#still-works-with-individual-toggles",
+    "href": "qtoggle-global-toggle.html#still-works-with-individual-toggles",
+    "title": "Global Control",
+    "section": "Still Works with Individual Toggles",
+    "text": "Still Works with Individual Toggles\nAfter using the global button, you can still click individual toggles to show or hide specific outputs. The global button sets everything to the same state; individual buttons fine-tune from there.\n\nExampleSource\n\n\n\nprint(\"I start hidden, but the global button affects me too.\")\n\n[1] \"I start hidden, but the global button affects me too.\"\n\n\n\n\n```{r}\n#| output-hidden: true\nprint(\"I start hidden, but the global button affects me too.\")\n```",
+    "crumbs": [
+      "Features",
+      "Global Control"
+    ]
+  },
+  {
+    "objectID": "qtoggle-global-toggle.html#summary",
+    "href": "qtoggle-global-toggle.html#summary",
+    "title": "Global Control",
+    "section": "Summary",
+    "text": "Summary\nUse global-toggle: true to add a floating button that hides or shows all outputs at once. Individual toggles still work for fine-grained control. Useful for presentations, code review, and navigating long documents.",
+    "crumbs": [
+      "Features",
+      "Global Control"
+    ]
+  },
+  {
+    "objectID": "qtoggle-custom-text.html",
+    "href": "qtoggle-custom-text.html",
+    "title": "Custom Labels",
+    "section": "",
+    "text": "“Output” is generic. When every button says the same thing, readers lose context. Custom labels tell them what they’ll find before they click.\nThis page uses “Result” as the default, but individual cells override it with context-specific labels.",
+    "crumbs": [
+      "Features",
+      "Custom Labels"
+    ]
+  },
+  {
+    "objectID": "qtoggle-custom-text.html#configuration",
+    "href": "qtoggle-custom-text.html#configuration",
+    "title": "Custom Labels",
+    "section": "Configuration",
+    "text": "Configuration\nSet a document-wide default:\nextensions:\n  toggle:\n    output-toggle: true\n    button-text: \"Result\"\nOr label specific cells with #| button-text: \"Plot\".\n```{r}\n#| button-text: \"Plot\"\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n```",
+    "crumbs": [
+      "Features",
+      "Custom Labels"
+    ]
+  },
+  {
+    "objectID": "qtoggle-custom-text.html#examples",
+    "href": "qtoggle-custom-text.html#examples",
+    "title": "Custom Labels",
+    "section": "Examples",
+    "text": "Examples\n\nDefault Label\nThese cells inherit “Result” from the document settings:\n\nExampleSource\n\n\n\n2 + 2\n\n[1] 4\n\n\n\nprint(\"Standard label from document config\")\n\n[1] \"Standard label from document config\"\n\n\n\n\n```{r}\n2 + 2\n```\n\n```{r}\nprint(\"Standard label from document config\")\n```\n\n\n\n\n\nContext-Specific Labels\nOverride per-cell when the content calls for it:\n\nExampleSource\n\n\n\nfactorial(5)\n\n[1] 120\n\n\n\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n\n\n\n\n\n\n\n\n\n\n```{r}\n#| button-text: \"Solution\"\nfactorial(5)\n```\n\n```{r}\n#| button-text: \"Plot\"\nplot(1:10, main = \"Sample Data\", pch = 19, col = \"steelblue\")\n```",
+    "crumbs": [
+      "Features",
+      "Custom Labels"
+    ]
+  },
+  {
+    "objectID": "qtoggle-custom-text.html#summary",
+    "href": "qtoggle-custom-text.html#summary",
+    "title": "Custom Labels",
+    "section": "Summary",
+    "text": "Summary\nUse button-text to replace the generic “Output” label with something meaningful. Set a document default, then override per-cell as needed. Good labels (“Solution”, “Plot”, “Debug”) tell readers what to expect before they click.",
+    "crumbs": [
+      "Features",
+      "Custom Labels"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html",
+    "href": "qtoggle-demo.html",
+    "title": "Data Analysis Demo",
+    "section": "",
+    "text": "This demo shows toggle enabled for every cell. Readers can hide outputs as they work through the analysis, revealing results only when ready.\nThe floating button in the corner toggles everything at once.",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#configuration",
+    "href": "qtoggle-demo.html#configuration",
+    "title": "Data Analysis Demo",
+    "section": "Configuration",
+    "text": "Configuration\nextensions:\n  toggle:\n    output-toggle: true\n    global-toggle: true",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#loading-the-data",
+    "href": "qtoggle-demo.html#loading-the-data",
+    "title": "Data Analysis Demo",
+    "section": "Loading the Data",
+    "text": "Loading the Data\nWe’ll analyze the mtcars dataset: 32 cars from 1974 Motor Trend magazine.\n\ndata(mtcars)\ncat(\"Dataset dimensions:\", nrow(mtcars), \"rows,\", ncol(mtcars), \"columns\\n\")\n\nDataset dimensions: 32 rows, 11 columns\n\n\n\nhead(mtcars, 5)\n\n                   mpg cyl disp  hp drat    wt  qsec vs am gear carb\nMazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4\nMazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4\nDatsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1\nHornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1\nHornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#exploratory-analysis",
+    "href": "qtoggle-demo.html#exploratory-analysis",
+    "title": "Data Analysis Demo",
+    "section": "Exploratory Analysis",
+    "text": "Exploratory Analysis\n\nFuel Efficiency\nMiles per gallon ranges from gas-guzzlers to relatively efficient:\n\nsummary(mtcars$mpg)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  10.40   15.43   19.20   20.09   22.80   33.90 \n\n\n\nhist(mtcars$mpg,\n     main = \"Distribution of MPG\",\n     xlab = \"Miles per Gallon\",\n     col = \"steelblue\",\n     border = \"white\")\n\n\n\n\n\n\n\n\n\n\nEngine Size\nMost cars have either 4, 6, or 8 cylinders:\n\ntable(mtcars$cyl)\n\n\n 4  6  8 \n11  7 14 \n\n\n\nbarplot(table(mtcars$cyl),\n        main = \"Cars by Cylinder Count\",\n        xlab = \"Cylinders\",\n        ylab = \"Count\",\n        col = c(\"#4e79a7\", \"#f28e2b\", \"#e15759\"))",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#relationships",
+    "href": "qtoggle-demo.html#relationships",
+    "title": "Data Analysis Demo",
+    "section": "Relationships",
+    "text": "Relationships\n\nMPG vs Weight\nHeavier cars use more fuel:\n\ncor(mtcars$mpg, mtcars$wt)\n\n[1] -0.8676594\n\n\n\nplot(mtcars$wt, mtcars$mpg,\n     main = \"Weight vs MPG\",\n     xlab = \"Weight (1000 lbs)\",\n     ylab = \"Miles per Gallon\",\n     pch = 19,\n     col = \"steelblue\")\nabline(lm(mpg ~ wt, data = mtcars), col = \"red\", lwd = 2)\n\n\n\n\n\n\n\n\n\n\nMPG by Transmission\nManual transmissions tend to be more efficient:\n\naggregate(mpg ~ am, data = mtcars, FUN = mean)\n\n  am      mpg\n1  0 17.14737\n2  1 24.39231\n\n\n\nboxplot(mpg ~ am, data = mtcars,\n        names = c(\"Automatic\", \"Manual\"),\n        main = \"MPG by Transmission Type\",\n        ylab = \"Miles per Gallon\",\n        col = c(\"#f28e2b\", \"#4e79a7\"))",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
+    "objectID": "qtoggle-demo.html#summary",
+    "href": "qtoggle-demo.html#summary",
+    "title": "Data Analysis Demo",
+    "section": "Summary",
+    "text": "Summary\nThis demo showed toggle enabled document-wide with output-toggle: true. Every code cell got a toggle button, letting readers hide outputs as they work through the analysis.\nThe floating global button in the bottom-right corner toggles all outputs at once—useful for quickly clearing the page or revealing everything.",
+    "crumbs": [
+      "Demos",
+      "Data Analysis Demo"
+    ]
+  },
+  {
     "objectID": "qtoggle-nested-containers.html",
     "href": "qtoggle-nested-containers.html",
     "title": "Nested Containers",
@@ -789,6 +767,28 @@
     "crumbs": [
       "Demos",
       "Nested Containers"
+    ]
+  },
+  {
+    "objectID": "qtoggle-release-notes.html",
+    "href": "qtoggle-release-notes.html",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Initial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\n\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
+    "crumbs": [
+      "Reference",
+      "Release Notes"
+    ]
+  },
+  {
+    "objectID": "qtoggle-release-notes.html#is-it-on-or-is-it-off-12-28-2025",
+    "href": "qtoggle-release-notes.html#is-it-on-or-is-it-off-12-28-2025",
+    "title": "Release Notes",
+    "section": "",
+    "text": "Initial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\n\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
+    "crumbs": [
+      "Reference",
+      "Release Notes"
     ]
   },
   {
