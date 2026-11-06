@@ -214,3 +214,6 @@ To report a bug, please [add an issue](https://github.com/coatless-quarto/toggle
 
 Want to contribute a feature? Please open an issue ticket to discuss the feature before sending a pull request. 
 
+## License
+
+toggle is licensed under AGPL-3.0-or-later with an exception: what you write and render with toggle stays yours, along with the output, under any terms you like. See [LICENSE](LICENSE) and [LICENSE-EXCEPTION.md](LICENSE-EXCEPTION.md).
