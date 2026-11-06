@@ -204,9 +204,12 @@ print("The answer is 42")
 - If no cell-level setting is provided, document-level settings apply
 - If neither is provided, toggle is not enabled for that cell
 
-## Documentation
+## Learn more
 
-For more examples and detailed guides, visit the [documentation site](https://quarto.thecoatlessprofessor.com/toggle/).
+- [Documentation](https://quarto.thecoatlessprofessor.com/toggle/)
+- [Release notes](https://quarto.thecoatlessprofessor.com/toggle/qtoggle-release-notes.html)
+- [Blog posts](https://blog.thecoatlessprofessor.com/projects/toggle/)
+- Discuss on [Mastodon](https://mastodon.social/@coatless/115801516503372764), [Bluesky](https://bsky.app/profile/coatless.bsky.social/post/3mb4akyp2yc2h) or [X](https://x.com/axiomsofxyz/status/2005531400389406986)
 
 ## Help
 
