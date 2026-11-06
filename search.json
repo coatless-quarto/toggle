@@ -15,7 +15,7 @@
     "href": "index.html#installation",
     "title": "Toggle",
     "section": "Installation",
-    "text": "Installation\nTo install the toggle extension, follow these steps:\n\nOpen your terminal.\nExecute the following command:\n\nquarto add coatless-quarto/toggle\nThis command will download and install the extension under the _extensions subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.\n\nRequirements\n\nQuarto &gt;= 1.11.0",
+    "text": "Installation\nTo install the toggle extension, follow these steps:\n\nOpen your terminal.\nExecute the following command:\n\nquarto add coatless-quarto/toggle\nThis command will download and install the extension under the _extensions subdirectory of your Quarto project. If you are using version control, ensure that you include this directory in your repository.\n\nRequirements\n\nQuarto &gt;= 1.7.0",
     "crumbs": [
       "Get Started",
       "Home"
@@ -345,7 +345,7 @@
     "href": "qtoggle-faq.html#is-the-toggle-extension-compatible-with-all-quarto-versions",
     "title": "Frequently Asked Questions",
     "section": "Is the toggle extension compatible with all Quarto versions?",
-    "text": "Is the toggle extension compatible with all Quarto versions?\nThe toggle extension requires Quarto v1.11.0 or later.",
+    "text": "Is the toggle extension compatible with all Quarto versions?\nThe toggle extension requires Quarto v1.7.0 or later.",
     "crumbs": [
       "Reference",
       "FAQ"
@@ -774,18 +774,7 @@
     "href": "qtoggle-release-notes.html",
     "title": "Release Notes",
     "section": "",
-    "text": "toggle now requires Quarto 1.11 or later.\n\n\n\n\n\nDocument-level toggle options now work in documents that also render to PDF.\nbutton-text shows emoji and symbols on the “Toggle All Outputs” button.",
-    "crumbs": [
-      "Reference",
-      "Release Notes"
-    ]
-  },
-  {
-    "objectID": "qtoggle-release-notes.html#dev.1---",
-    "href": "qtoggle-release-notes.html#dev.1---",
-    "title": "Release Notes",
-    "section": "",
-    "text": "toggle now requires Quarto 1.11 or later.\n\n\n\n\n\nDocument-level toggle options now work in documents that also render to PDF.\nbutton-text shows emoji and symbols on the “Toggle All Outputs” button.",
+    "text": "Initial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\n\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
     "crumbs": [
       "Reference",
       "Release Notes"
@@ -795,8 +784,8 @@
     "objectID": "qtoggle-release-notes.html#is-it-on-or-is-it-off-12-28-2025",
     "href": "qtoggle-release-notes.html#is-it-on-or-is-it-off-12-28-2025",
     "title": "Release Notes",
-    "section": "0.2.0 “Is it on or is it off?” (12-28-2025)",
-    "text": "0.2.0 “Is it on or is it off?” (12-28-2025)\nInitial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\nFeatures\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
+    "section": "",
+    "text": "Initial public release. This version is a complete rewrite of an earlier public but unreleased prototype.\n\n\n\nToggle buttons let readers show or hide code cell outputs without affecting the code itself\nWorks with HTML-based formats: documents, websites, books, and Revealjs\nDocument-level settings via extensions.toggle namespace\n\noutput-toggle: Enable toggle buttons for all cells\noutput-hidden: Start outputs collapsed\noutput-sync: Synchronize toggles for multi-output cells\nglobal-toggle: Add floating button to control all outputs\npersist: Save toggle state to localStorage\nbutton-text: Custom button label\n\nCell-level overrides with #| comments\n\ntoggle: Enable/disable toggle for a specific cell\noutput-hidden: Override default visibility\noutput-sync: Override sync behavior\nbutton-text: Custom label for this cell\n\nCSS custom properties (--tg-*) with automatic dark mode support",
     "crumbs": [
       "Reference",
       "Release Notes"
