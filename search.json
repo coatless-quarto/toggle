@@ -330,8 +330,8 @@
     ]
   },
   {
-    "objectID": "qtoggle-release-notes.html#dev.1---",
-    "href": "qtoggle-release-notes.html#dev.1---",
+    "objectID": "qtoggle-release-notes.html#now-you-dont-11-26-2026",
+    "href": "qtoggle-release-notes.html#now-you-dont-11-26-2026",
     "title": "Release Notes",
     "section": "",
     "text": "toggle now requires Quarto 1.11 or later.\n\n\n\n\n\nDocument-level toggle options now work in documents that also render to PDF.\nbutton-text shows emoji and symbols on the “Toggle All Outputs” button.",
