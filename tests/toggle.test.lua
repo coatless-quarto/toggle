@@ -4,7 +4,9 @@
 -- Jupyter's one-block cells get the same markup.
 local t = require("qtest")
 
-local DEPENDENCY = "/toggle-0.3.0-dev.1/toggle.js"
+-- The HTML dependency's folder carries the extension's version
+local VERSION = io.open("_extensions/toggle/_extension.yml"):read("a"):match("\nversion:%s*([^%s]+)")
+local DEPENDENCY = "/toggle-" .. VERSION .. "/toggle.js"
 
 t.test("html: output-toggle marks every cell and pairs each code block with the outputs after it", function()
   local r = t.render("basic.qmd", "html")
@@ -15,7 +17,7 @@ t.test("html: output-toggle marks every cell and pairs each code block with the 
     'data-toggle-id="toggle-0-2"', 'data-toggle-output="toggle-0-2"',
   })
   t.count(r.text, DEPENDENCY, 1)
-  t.count(r.text, "/toggle-0.3.0-dev.1/toggle.css", 1)
+  t.count(r.text, "/toggle-" .. VERSION .. "/toggle.css", 1)
 end)
 
 t.test("toggle: a cell's own setting wins; a page with no toggles gets no toggle JavaScript", function()
