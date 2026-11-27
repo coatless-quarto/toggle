@@ -5,7 +5,7 @@ format:
     toc: true
 ---
 
-## 0.3.0-dev.1: ???? (??-??-????)
+## 0.3.0: Now You Don't (11-26-2026)
 
 ### Breaking changes
 
