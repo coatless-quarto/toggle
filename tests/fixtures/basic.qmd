@@ -1,0 +1,23 @@
+---
+title: "toggle: output-toggle on every cell"
+engine: knitr
+echo: true
+filters:
+  - toggle
+extensions:
+  toggle:
+    output-toggle: true
+---
+
+```{r}
+x <- 1
+x
+y <- 2
+y
+```
+
+```{r}
+#| toggle: false
+z <- 3
+z
+```

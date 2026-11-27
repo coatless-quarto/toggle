@@ -1,0 +1,10 @@
+---
+title: "toggle: no toggles at all"
+engine: knitr
+filters:
+  - toggle
+---
+
+```{r}
+1 + 1
+```

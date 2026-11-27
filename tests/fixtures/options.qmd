@@ -1,0 +1,25 @@
+---
+title: "toggle: every document option, and cells that override them"
+engine: knitr
+filters:
+  - toggle
+extensions:
+  toggle:
+    output-toggle: true
+    output-hidden: true
+    output-sync: true
+    global-toggle: true
+    persist: true
+    button-text: "▶ Result 🎉"
+---
+
+```{r}
+1 + 1
+```
+
+```{r}
+#| output-hidden: false
+#| output-sync: false
+#| button-text: "Code output"
+2 + 2
+```

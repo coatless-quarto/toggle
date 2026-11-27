@@ -1,0 +1,15 @@
+---
+title: "toggle: no document option, one cell opts in"
+engine: knitr
+filters:
+  - toggle
+---
+
+```{r}
+1 + 1
+```
+
+```{r}
+#| toggle: true
+2 + 2
+```
